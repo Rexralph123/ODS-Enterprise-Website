@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — O.D.S Enterprise</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo"><img src="assets/logo.png" alt="O.D.S Enterprise Logo"></div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">ODS Enterprise</span>
+      <span class="nav-brand-sub">Electronics & Phones</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
+    <a class="nav-btn" data-page="about" href="about.html">About Us</a>
+    <a class="nav-btn" data-page="account" href="account.html">Account</a>
+  </div>
+  <a class="cart-btn" href="cart.html">
+    <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+    Cart <span class="cart-badge" id="cart-count">0</span>
+  </a>
+</nav>
+
+<div class="checkout-layout" id="checkout-container"></div>
+
+<script src="assets/cart.js"></script>
+<script>
+let checkoutStep = 1;
+let selectedPayment = 'card';
+
+function renderCheckout(){
+  const cart = getCart();
+  const ids = Object.keys(cart).filter(id => cart[id] > 0);
+  const container = document.getElementById('checkout-container');
+
+  if(!ids.length && checkoutStep !== 3){
+    container.innerHTML = `
+      <div class="empty-cart">
+        <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+        <div style="font-size:16px;font-weight:600;margin-bottom:8px">Your cart is empty</div>
+        <p style="font-size:13px">Add items before checking out.</p>
+        <a class="btn-primary" style="margin-top:20px;display:inline-block" href="index.html">Continue Shopping</a>
+      </div>`;
+    return;
+  }
+
+  let subtotal = ids.reduce((s,id)=>{ const p = PRODUCTS.find(x=>x.id==id); return s + p.price*cart[id]; }, 0);
+  const shipping = subtotal > 100000 ? 0 : 5000;
+  const total = subtotal + shipping;
+
+  if(checkoutStep === 3){
+    saveCart({});
+    const orderId = 'ODS-2024-' + Math.floor(Math.random()*90000+10000);
+    container.innerHTML = `
+      <div class="success-screen">
+        <div class="success-icon"><i class="ti ti-check" style="color:var(--ods-burgundy);font-size:28px" aria-hidden="true"></i></div>
+        <h2 style="font-size:22px;font-weight:600;margin-bottom:8px">Order Confirmed!</h2>
+        <p style="color:var(--text-secondary);font-size:14px;max-width:360px;margin:0 auto 20px">Thank you for shopping with O.D.S Enterprise. Your order is being processed and will be delivered soon.</p>
+        <div class="track-code">${orderId}</div><br>
+        <a class="btn-primary" style="margin-right:8px;display:inline-block" href="account.html">Track Order</a>
+        <a class="btn-outline" style="color:var(--text-primary);border-color:var(--border-color);display:inline-block" href="index.html">Continue Shopping</a>
+      </div>`;
+    return;
+  }
+
+  const stepsHtml = `<div class="checkout-steps">
+    <div class="step ${checkoutStep>=1?'active':''}${checkoutStep>1?' done':''}"><div class="step-circle">${checkoutStep>1?'<i class="ti ti-check" aria-hidden="true"></i>':'1'}</div><div class="step-label">Shipping</div></div>
+    <div class="step ${checkoutStep>=2?'active':''}${checkoutStep>2?' done':''}"><div class="step-circle">${checkoutStep>2?'<i class="ti ti-check" aria-hidden="true"></i>':'2'}</div><div class="step-label">Payment</div></div>
+    <div class="step ${checkoutStep>=3?'active':''}"><div class="step-circle">3</div><div class="step-label">Confirm</div></div>
+  </div>`;
+
+  const summaryHtml = `<div class="checkout-card"><h3>Order Summary</h3>
+    ${ids.map(id=>{ const p=PRODUCTS.find(x=>x.id==id); return `<div class="checkout-order-row"><span>${p.emoji} ${p.name} × ${cart[id]}</span><span>${fmt(p.price*cart[id])}</span></div>`; }).join('')}
+    <div class="checkout-order-row"><span style="color:var(--text-secondary)">Shipping</span><span>${shipping===0?'Free':fmt(shipping)}</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;padding-top:12px;border-top:1px solid var(--border-color);margin-top:4px"><span>Total</span><span style="color:var(--ods-burgundy)">${fmt(total)}</span></div>
+  </div>`;
+
+  if(checkoutStep === 1){
+    container.innerHTML = stepsHtml + `
+      <div class="checkout-card"><h3>Shipping Address</h3>
+        <div class="form-row"><div class="form-group"><label>First name</label><input value="John"></div><div class="form-group"><label>Last name</label><input value="Doe"></div></div>
+        <div class="form-row"><div class="form-group"><label>Phone</label><input value="+234 801 234 5678"></div><div class="form-group"><label>City</label><input placeholder="Lagos"></div></div>
+        <div class="form-row single"><div class="form-group"><label>Street address</label><input placeholder="15 Adeola Odeku St, VI"></div></div>
+        <div class="form-row"><div class="form-group"><label>State</label><input placeholder="Lagos State"></div><div class="form-group"><label>Postal code</label><input placeholder="101001"></div></div>
+      </div>` + summaryHtml + `
+      <button class="checkout-btn" onclick="checkoutStep=2;renderCheckout()">Continue to Payment <i class="ti ti-arrow-right" aria-hidden="true"></i></button>`;
+  } else {
+    container.innerHTML = stepsHtml + `
+      <div class="checkout-card"><h3>Payment Method</h3>
+        <div class="payment-options">
+          <div class="payment-option ${selectedPayment==='card'?'selected':''}" onclick="selectedPayment='card';renderCheckout()">
+            <i class="ti ti-credit-card" aria-hidden="true"></i><div class="lbl">Card</div>
+          </div>
+          <div class="payment-option ${selectedPayment==='bank'?'selected':''}" onclick="selectedPayment='bank';renderCheckout()">
+            <i class="ti ti-building-bank" aria-hidden="true"></i><div class="lbl">Bank Transfer</div>
+          </div>
+        </div>
+        ${selectedPayment==='card' ? `
+        <div class="form-row single"><div class="form-group"><label>Card number</label><input placeholder="1234 5678 9012 3456"></div></div>
+        <div class="form-row"><div class="form-group"><label>Expiry</label><input placeholder="MM/YY"></div><div class="form-group"><label>CVV</label><input type="password" placeholder="***"></div></div>
+        <div class="form-row single"><div class="form-group"><label>Name on card</label><input value="John Doe"></div></div>
+        ` : `
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Transfer the total amount to:<br><strong>O.D.S Enterprise — GTBank — 0123456789</strong><br>Your order will be confirmed once payment is received.</p>
+        `}
+      </div>` + summaryHtml + `
+      <button class="checkout-btn" onclick="checkoutStep=3;renderCheckout()">Place Order — ${fmt(total)} <i class="ti ti-shield-check" aria-hidden="true"></i></button>`;
+  }
+}
+
+setActiveNav('cart');
+renderCheckout();
+</script>
+</body>
+</html>

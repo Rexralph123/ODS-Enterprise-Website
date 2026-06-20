@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart — O.D.S Enterprise</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo"><img src="assets/logo.png" alt="O.D.S Enterprise Logo"></div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">ODS Enterprise</span>
+      <span class="nav-brand-sub">Electronics & Phones</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
+    <a class="nav-btn" data-page="about" href="about.html">About Us</a>
+    <a class="nav-btn" data-page="account" href="account.html">Account</a>
+  </div>
+  <a class="cart-btn" href="cart.html">
+    <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+    Cart <span class="cart-badge" id="cart-count">0</span>
+  </a>
+</nav>
+
+<div class="cart-layout">
+  <div class="cart-title">Shopping Cart</div>
+  <div id="cart-items-container"></div>
+</div>
+
+<script src="assets/cart.js"></script>
+<script>
+function renderCart(){
+  const container = document.getElementById('cart-items-container');
+  const cart = getCart();
+  const ids = Object.keys(cart).filter(id => cart[id] > 0);
+
+  if(!ids.length){
+    container.innerHTML = `
+      <div class="empty-cart">
+        <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+        <div style="font-size:16px;font-weight:600;margin-bottom:8px">Your cart is empty</div>
+        <p style="font-size:13px">Browse our products and add items to your cart.</p>
+        <a class="btn-primary" style="margin-top:20px;display:inline-block" href="index.html">Continue Shopping</a>
+      </div>`;
+    return;
+  }
+
+  let subtotal = 0;
+  const itemsHtml = ids.map(id=>{
+    const p = PRODUCTS.find(x => x.id == id);
+    const qty = cart[id];
+    subtotal += p.price * qty;
+    return `<div class="cart-item">
+      <div class="cart-item-img">${p.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-price">${fmt(p.price)} each</div>
+      </div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
+        <span class="qty-num">${qty}</span>
+        <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
+      </div>
+      <button class="remove-btn" onclick="removeItem(${id})" aria-label="Remove"><i class="ti ti-trash" aria-hidden="true"></i></button>
+    </div>`;
+  }).join('');
+
+  const shipping = subtotal > 100000 ? 0 : 5000;
+  const total = subtotal + shipping;
+
+  container.innerHTML = itemsHtml + `
+    <div class="cart-summary">
+      <div class="summary-row"><span>Subtotal</span><span>${fmt(subtotal)}</span></div>
+      <div class="summary-row"><span>Shipping</span><span>${shipping===0 ? '<span style="color:#27500A">Free</span>' : fmt(shipping)}</span></div>
+      <div class="summary-total"><span>Total</span><span style="color:var(--ods-burgundy)">${fmt(total)}</span></div>
+      <a class="checkout-btn" style="display:block;text-align:center;box-sizing:border-box" href="checkout.html">Proceed to Checkout <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>`;
+}
+
+setActiveNav('cart');
+renderCart();
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O.D.S Enterprise — Electronics & Phones</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo"><img src="assets/logo.png" alt="O.D.S Enterprise Logo"></div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">ODS Enterprise</span>
+      <span class="nav-brand-sub">Electronics & Phones</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
+    <a class="nav-btn" data-page="about" href="about.html">About Us</a>
+    <a class="nav-btn" data-page="account" href="account.html">Account</a>
+  </div>
+  <a class="cart-btn" href="cart.html">
+    <i class="ti ti-shopping-cart" aria-hidden="true"></i>
+    Cart <span class="cart-badge" id="cart-count">0</span>
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="ti ti-bolt" aria-hidden="true"></i> O.D.S Enterprise</div>
+    <h1>Premium Electronics,<br><span>Trusted Quality.</span></h1>
+    <p>Phones, accessories, and smart devices — backed by our quality guarantee and fast delivery.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+      <a class="btn-outline" href="about.html">Our Story</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="num">500+</div><div class="lbl">Products</div></div>
+  <div class="stat-item"><div class="num">12k+</div><div class="lbl">Happy Customers</div></div>
+  <div class="stat-item"><div class="num">2-Day</div><div class="lbl">Delivery</div></div>
+  <div class="stat-item"><div class="num">24/7</div><div class="lbl">Support</div></div>
+</div>
+
+<div class="shop-layout">
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCat('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCat('phones',this)">Phones</button>
+    <button class="filter-btn" onclick="filterCat('audio',this)">Audio</button>
+    <button class="filter-btn" onclick="filterCat('wearables',this)">Wearables</button>
+    <button class="filter-btn" onclick="filterCat('accessories',this)">Accessories</button>
+    <button class="filter-btn" onclick="filterCat('laptops',this)">Laptops</button>
+    <input type="text" class="search-input" placeholder="Search products…" oninput="searchProducts(this.value)">
+  </div>
+  <div class="products-grid" id="products-grid"></div>
+</div>
+
+<script src="assets/cart.js"></script>
+<script>
+let currentCat = 'all', currentSearch = '';
+
+function renderProducts(){
+  const grid = document.getElementById('products-grid');
+  let filtered = PRODUCTS.filter(p=>{
+    return (currentCat==='all' || p.cat===currentCat) &&
+           (!currentSearch || p.name.toLowerCase().includes(currentSearch.toLowerCase()));
+  });
+  if(!filtered.length){
+    grid.innerHTML = '<p style="color:var(--text-secondary);font-size:14px;padding:20px 0">No products found.</p>';
+    return;
+  }
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card">
+      <div class="product-img">${p.emoji}</div>
+      <div class="product-info">
+        ${p.badge ? `<span class="badge-${p.badge}">${p.badge==='new'?'New':'Sale'}</span>` : '<div style="height:20px"></div>'}
+        <div class="product-name">${p.name}</div>
+        <div class="product-cat">${p.cat}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-row">
+          <span class="product-price">${fmt(p.price)}</span>
+          <button class="add-btn" onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart"><i class="ti ti-plus" aria-hidden="true"></i></button>
+        </div>
+        <button class="buy-btn" onclick="buyNow(${p.id})"><i class="ti ti-bolt" aria-hidden="true"></i> Buy Now</button>
+      </div>
+    </div>`).join('');
+}
+
+function filterCat(cat, btn){
+  currentCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts();
+}
+function searchProducts(q){ currentSearch = q; renderProducts(); }
+
+setActiveNav('shop');
+renderProducts();
+</script>
+</body>
+</html>
