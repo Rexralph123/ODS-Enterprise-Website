@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout — O.D.S Enterprise</title>
+<title>Checkout O.D.S Enterprise</title>
+<link rel="icon" type="image/png" href="assets/backgroundless logo 1.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -20,8 +21,8 @@
   <div class="nav-links">
     <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
     <a class="nav-btn" data-page="about" href="about.html">About Us</a>
-    <a class="nav-btn" data-page="account" href="account.html">Account</a>
-  </div>
+    <a class="nav-btn" id="accountBtn" href="#">Account</a>  
+</div>
   <a class="cart-btn" href="cart.html">
     <i class="ti ti-shopping-cart" aria-hidden="true"></i>
     Cart <span class="cart-badge" id="cart-count">0</span>
@@ -116,6 +117,15 @@ function renderCheckout(){
 
 setActiveNav('cart');
 renderCheckout();
+
+
+/*Page comming soon (Account)*/
+document.getElementById("accountBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    alert("🚧 Account page is coming soon!");
+});
+
+
 </script>
 </body>
 </html>

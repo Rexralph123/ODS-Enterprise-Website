@@ -17,14 +17,40 @@ const PRODUCTS = [
   {id:10,name:'Tablet Air 11IPAD 11TH GEN',cat:'accessories',price:185000,image: 'images/IPAD 11TH GEN.jpg',badge:'new',desc:'M2 chip, 128GB'},
   {id:11,name:'Redmi Note 13 Pro',cat:'phones',price:125000,emoji:'📱',badge:'sale',desc:'200MP, 5000mAh'},
   {id:12,name:'TWS Gaming Earbuds',cat:'audio',price:28000,image: 'images/T13 Plus.jpg',badge:null,desc:'Low latency, RGB'},
-  {id:13,name:'iPhone 11',cat:'phones',price:199000,image: 'images/iPhone 11_Uk.jpg',badge:'sale',desc:'UK-Used, Battery Health: 76%, 64GB'},
-  {id:14,name:'iPhone 17 Pro Max',cat:'phones',price:1980000,image: 'images/iPhone 17_Pro_Max_Uk.jpg',badge:'sale',desc:'UK-Used, physical sim,  BH: 100%, 512GB'},
+  {
+  id:13,
+  name:"iPhone 11",
+  cat:"phones",
+  price:199000,
+  image:"images/iPhone 11_Uk.jpg",
+
+  gallery:[
+  "images/iPhone 11_Uk.jpg",
+  "images/iPhone11/back.jpg",
+  "images/iPhone11/left.jpg",
+  "images/iPhone11/right.jpg"
+  ],
+
+  badge:"sale",
+
+  desc:"UK Used iPhone 11 in excellent condition with no cracks or faults.",
+
+specs:{
+Condition:"UK Used",
+Storage:"64GB",
+Battery:"76%",
+SIM:"Physical SIM",
+Display:'6.1" Retina',
+Camera:"12MP Dual",
+Warranty:"7 Days"
+}
+},
+{id:14,name:'iPhone 17 Pro Max',cat:'phones',price:1980000,image: 'images/iPhone 17_Pro_Max_Uk.jpg',badge:'sale',desc:'UK-Used, physical sim,  BH: 100%, 512GB'},
   {id:15,name:'iPhone 16',cat:'phones',price:2540000,image: 'images/iPhone_16.webp',badge:'new',desc:'physical sim,  BH: 100%, 512GB'},
   {id:16,name:'iPhone 12',cat:'phones',price:274000,image: 'images/iPhone 12blue.webp',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
   {id:17,name:'iPhone 13',cat:'phones',price:550000,image: 'images/iPhone 13-blue.webp',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
   {id:18,name:'iPhone 14',cat:'phones',price:575000,image: 'images/iPhone 14_Uk.jpg',badge:'sale',desc:'physical sim + eSim,  BH: 87%, 128GB'},
-  {id:19,name:'iPhone 15',cat:'phones',price:850000,image: 'images/iPhone 15.png',badge:'new',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
-  {id:20,name:'iPhone Air',cat:'phones',price:3850000,image: 'images/iPhone Air.png',badge:'new',desc:'physical sim,  BH: 100%, 512GB'},
+  {id:19,name:'iPhone 15',cat:'phones',price:850000,image:'images/iPhone 15.png',badge:'new',desc:'physical sim, BH:100%,128GB'},  {id:20,name:'iPhone Air',cat:'phones',price:3850000,image: 'images/iPhone Air.png',badge:'new',desc:'physical sim,  BH: 100%, 512GB'},
   {id:21,name:'Hand Bag',cat:'wearables',price:19000,image: 'images/Bag_1.jpg',badge:null,desc:'Made in china'},
   {id:22,name:'Hand Bag',cat:'wearables',price:17000,image: 'images/Bag_2.jpg',badge:null,desc:'Made in china'},
   {id:23,name:'Hand Bag',cat:'wearables',price:12900,image: 'images/Bag_3.jpg',badge:null,desc:'Made in china'},

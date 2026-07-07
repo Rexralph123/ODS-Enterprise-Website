@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O.D.S Enterprise — Electronics & Phones</title>
+<title>O.D.S Enterprise Electronics & Phones</title>
+<link rel="icon" type="image/png" href="assets/backgroundless logo 1.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -20,7 +21,8 @@
   <div class="nav-links">
     <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
     <a class="nav-btn" data-page="about" href="about.html">About Us</a>
-    <a class="nav-btn" data-page="account" href="account.html">Account</a>
+    <a class="nav-btn" id="accountBtn" href="#">Account
+</a>
   </div>
   <a class="cart-btn" href="cart.html">
     <i class="ti ti-shopping-cart" aria-hidden="true"></i>
@@ -28,25 +30,73 @@
   </a>
 </nav>
 
-<div class="hero">
-  <div class="hero-blob1"></div>
-  <div class="hero-blob2"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><i class="ti ti-bolt" aria-hidden="true"></i> O.D.S Enterprise</div>
-    <h1>Premium Electronics,<br><span>Trusted Quality.</span></h1>
-    <p>Phones, accessories, and smart devices — backed by our quality guarantee and fast delivery.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'})">Shop Now</button>
-      <a class="btn-outline" href="about.html">Our Story</a>
+<section class="hero">
+
+    <div class="hero-bg-grid"></div>
+
+    <div class="hero-flex">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <i class="ti ti-bolt"></i>
+                Trusted Electronics Store
+            </div>
+
+            <h1>
+                Everything Tech,
+                <span>One Trusted Store.</span>
+            </h1>
+
+            <p>
+                Shop genuine smartphones, laptops, accessories, gaming devices,
+                smart gadgets and more with competitive pricing and reliable support.
+            </p>
+
+            <div class="hero-actions">
+
+                <button class="btn-primary">
+                    Shop Now
+                </button>
+
+                <a href="about.html" class="btn-outline">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-media">
+
+            <div class="hero-glow"></div>
+
+            <div class="hero-image">
+                <img src="images/Backgroundless gadgets.png" alt="Electronics Collection">
+            </div>
+
+        </div>
+
     </div>
-  </div>
-</div>
+
+</section>
 
 <div class="stats-bar">
   <div class="stat-item"><div class="num">500+</div><div class="lbl">Products</div></div>
   <div class="stat-item"><div class="num">12k+</div><div class="lbl">Happy Customers</div></div>
   <div class="stat-item"><div class="num">2-Day</div><div class="lbl">Delivery</div></div>
   <div class="stat-item"><div class="num">24/7</div><div class="lbl">Support</div></div>
+</div>
+
+<div class="showcase-section">
+  <div class="showcase-head">
+    <div>
+      <div class="showcase-eyebrow">Right Now</div>
+      <h2>Trending & Hot Deals</h2>
+    </div>
+    <p class="showcase-sub">The devices everyone's adding to cart this week.</p>
+  </div>
+  <div class="showcase-track" id="showcase-track"></div>
 </div>
 
 <div class="shop-layout">
@@ -62,6 +112,119 @@
   <div class="products-grid" id="products-grid"></div>
 </div>
 
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-row">
+        <div class="nav-logo"><img src="assets/logo.png" alt="O.D.S Enterprise Logo"></div>
+        <span class="footer-brand-name">ODS Enterprise</span>
+      </div>
+      <p class="footer-tagline">Premium phones, accessories, and smart devices backed by our quality guarantee and fast delivery across Nigeria.</p>
+      
+        <div class="footer-social">
+            <a href="https://www.instagram.com/ods_enterprise?igsh=YXV1c3U1bzd2aHRq&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              title="Instagram">
+                <img src="icons/instagram-svgrepo-com.svg" alt="Instagram">
+            </a>
+
+            <a href="https://wa.me/2349138708525"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              title="WhatsApp">
+                <img src="icons/whatsapp-svgrepo-com.svg" alt="WhatsApp">
+            </a>
+
+            <a href="https://www.facebook.com/share/1D34mPeW7s/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              title="Facebook">
+                <img src="icons/facebook-svgrepo-com.svg" alt="Facebook">
+            </a>
+
+            <a href="https://x.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              title="X">
+                <img src="icons/x.svg" alt="X">
+            </a>
+        </div>
+
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="index.html">All Products</a>
+          <a href="#" onclick="filterCat('phones', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;">Phones</a>
+          <a href="#" onclick="filterCat('laptops', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;">Laptops</a>
+          <a href="#" onclick="filterCat('accessories', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;">Accessories</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="cart.html">Your Cart</a>
+          <a href="#" id="footerAccountLink">Account</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <a href="tel:+234 9138708525"><i class="ti ti-phone"></i> +234 913 870 8525</a>
+          <a href="mailto:hello@odsenterprise.com"><i class="ti ti-mail"></i> hello@odsenterprise.com</a>
+          <a href="#"><i class="ti ti-map-pin"></i> Lagos, Nigeria</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="footer-year"></span> O.D.S Enterprise. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+</footer>
+
+<div class="product-popup" id="productPopup">
+    <div class="popup">
+        <button class="popup-close" onclick="closeProduct()">
+            <i class="ti ti-x"></i>
+        </button>
+
+        <div class="popup-left">
+            <img id="popupImage" alt="Product Image">
+            <div id="popupGallery"></div>
+        </div>
+
+        <div class="popup-right">
+            <span id="popupBadge"></span>
+
+            <h2 id="popupName"></h2>
+
+            <h3 id="popupPrice"></h3>
+
+            <p id="popupDesc"></p>
+
+            <div id="popupSpecs"></div>
+
+            <button id="popupCart" class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button id="popupBuy" class="buy-btn">
+                Buy Now
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
 <script src="assets/cart.js"></script>
 <script>
 let currentCat = 'all', currentSearch = '';
@@ -76,8 +239,8 @@ function renderProducts(){
     grid.innerHTML = '<p style="color:var(--text-secondary);font-size:14px;padding:20px 0">No products found.</p>';
     return;
   }
-  grid.innerHTML = filtered.map(p => `
-<div class="product-card">
+grid.innerHTML = filtered.map(p => `
+<div class="product-card" onclick="openProduct(${p.id})">
 
     <div class="product-img">
         <img src="${p.image}" alt="${p.name}" class="product-image">
@@ -96,12 +259,12 @@ function renderProducts(){
         <div class="product-row">
             <span class="product-price">${fmt(p.price)}</span>
 
-            <button class="add-btn" onclick="addToCart(${p.id})">
+            <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})">
                 <i class="ti ti-plus"></i>
             </button>
         </div>
 
-        <button class="buy-btn" onclick="buyNow(${p.id})">
+        <button class="buy-btn" onclick="event.stopPropagation();buyNow(${p.id})">
             <i class="ti ti-bolt"></i> Buy Now
         </button>
 
@@ -119,8 +282,112 @@ function filterCat(cat, btn){
 }
 function searchProducts(q){ currentSearch = q; renderProducts(); }
 
+function renderShowcase(){
+  const track = document.getElementById('showcase-track');
+  if(!track) return;
+
+  // Prefer products explicitly flagged as trending/hot, fall back to
+  // "new" / "sale" badged items, then just the first few products.
+  let picks = PRODUCTS.filter(p => p.trending || p.hot);
+  if(!picks.length) picks = PRODUCTS.filter(p => p.badge === 'new' || p.badge === 'sale');
+  if(!picks.length) picks = PRODUCTS;
+  picks = picks.slice(0, 8);
+
+  track.innerHTML = picks.map(p => `
+<div class="showcase-card">
+    <div class="showcase-tag"><i class="ti ti-flame"></i> Hot</div>
+    <div class="showcase-img">
+        <img src="${p.image}" alt="${p.name}">
+    </div>
+    <div class="showcase-name">${p.name}</div>
+    <div class="showcase-row">
+        <span class="showcase-price">${fmt(p.price)}</span>
+        <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})">
+            <i class="ti ti-plus"></i>
+        </button>
+    </div>
+</div>
+`).join('');
+}
+
+/*Page comming soon (Account)*/
+document.getElementById("accountBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    alert("🚧 Account page is coming soon!");
+});
+const footerAccountLink = document.getElementById("footerAccountLink");
+if(footerAccountLink){
+  footerAccountLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    alert("🚧 Account page is coming soon!");
+  });
+}
+const footerYear = document.getElementById("footer-year");
+if(footerYear) footerYear.textContent = new Date().getFullYear();
+
 setActiveNav('shop');
 renderProducts();
+renderShowcase();
+
+function openProduct(id){
+    const p=PRODUCTS.find(product=>product.id===id);
+    if(!p) return;
+
+    document.getElementById("productPopup").classList.add("active");
+
+    document.getElementById("popupImage").src=p.image;
+    document.getElementById("popupName").textContent=p.name;
+    document.getElementById("popupPrice").textContent=fmt(p.price);
+    document.getElementById("popupDesc").textContent=p.desc;
+    document.getElementById("popupBadge").textContent=p.badge ? p.badge.toUpperCase() : "";
+
+    const gallery=document.getElementById("popupGallery");
+    gallery.innerHTML="";
+
+
+    gallery.innerHTML="";
+
+    const images=p.gallery&&p.gallery.length?p.gallery:[p.image];
+
+    images.forEach(img=>{
+        gallery.innerHTML+=`
+            <img src="${img}" onclick="changePopupImage('${img}')">
+        `;
+    });
+
+    const specs=document.getElementById("popupSpecs");
+    specs.innerHTML="";
+
+    if(p.specs){
+        Object.entries(p.specs).forEach(([key,value])=>{
+            specs.innerHTML+=`
+                <div class="spec">
+                    <strong>${key}</strong>
+                    <span>${value}</span>
+                </div>
+            `;
+        });
+    }
+
+    document.getElementById("popupCart").onclick=()=>addToCart(id);
+    document.getElementById("popupBuy").onclick=()=>buyNow(id);
+}
+
+function changePopupImage(img){
+    document.getElementById("popupImage").src=img;
+}
+
+function closeProduct(){
+    document.getElementById("productPopup").classList.remove("active");
+}
+
+document.getElementById("productPopup").addEventListener("click",function(e){
+    if(e.target===this){
+        closeProduct();
+    }
+});
+
 </script>
+
 </body>
 </html>
