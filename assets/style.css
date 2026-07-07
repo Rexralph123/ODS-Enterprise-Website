@@ -984,3 +984,684 @@ justify-content:space-between;
 padding:12px 0;
 border-bottom:1px solid #eee;
 }
+
+
+
+/*====================================
+    CHECKOUT PAGE
+====================================*/
+
+.checkout-page{
+    background:linear-gradient(
+        180deg,
+        #f7f7f8 0%,
+        #f1f1f2 100%
+    );
+    min-height:calc(100vh - 62px);
+    padding:60px 20px;
+}
+
+.checkout-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border:1px solid var(--border-color);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.08);
+}
+
+/*====================================
+    HEADER
+====================================*/
+
+.checkout-container h1{
+    background:linear-gradient(
+        135deg,
+        var(--ods-burgundy),
+        var(--ods-burgundy-dark)
+    );
+    color:#fff;
+    text-align:center;
+    padding:35px;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.checkout-container h1::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    background:var(--ods-gold);
+    margin:18px auto 0;
+    border-radius:50px;
+}
+
+/*====================================
+    SECTIONS
+====================================*/
+
+.section{
+    margin:35px;
+    background:#fff;
+    border:1px solid var(--border-color);
+    border-radius:18px;
+    padding:28px;
+    transition:.3s;
+}
+
+.section:hover{
+    border-color:var(--ods-gold);
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
+}
+
+.section h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--ods-burgundy);
+    font-size:20px;
+    margin-bottom:25px;
+    padding-bottom:15px;
+    border-bottom:2px solid var(--ods-gold-light);
+}
+
+.section h3 i{
+    color:var(--ods-gold);
+    font-size:24px;
+}
+
+/*====================================
+    FORM
+====================================*/
+
+.row{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--text-secondary);
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+    padding:15px 18px;
+
+    background:#fff;
+
+    border:1px solid var(--border-color);
+
+    border-radius:14px;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+    transition:.3s;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--ods-gold);
+
+    box-shadow:
+        0 0 0 4px rgba(201,151,58,.18);
+
+}
+
+/*====================================
+    DELIVERY NOTICE
+====================================*/
+
+.notice{
+
+    margin-top:20px;
+
+    background:var(--ods-gold-light);
+
+    border-left:5px solid var(--ods-gold);
+
+    padding:18px;
+
+    border-radius:12px;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.notice strong{
+    color:var(--ods-burgundy);
+}
+
+/*====================================
+    ORDER SUMMARY
+====================================*/
+
+.order-box{
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    padding:22px;
+}
+
+.order-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border-color);
+
+    font-size:15px;
+}
+
+.order-item:last-child{
+
+    border:none;
+
+    font-size:20px;
+
+    color:var(--ods-burgundy);
+
+    font-weight:700;
+}
+
+.order-box hr{
+    border:none;
+    border-top:1px solid var(--border-color);
+    margin:10px 0;
+}
+
+/*====================================
+    TERMS
+====================================*/
+
+.checkbox{
+
+    margin:35px;
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+    font-size:14px;
+
+    color:var(--text-secondary);
+}
+
+.checkbox input{
+
+    width:20px;
+    height:20px;
+    accent-color:var(--ods-burgundy);
+    margin-top:2px;
+}
+
+/*====================================
+    BUTTONS
+====================================*/
+
+.buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    margin:35px;
+
+    margin-top:0;
+
+    flex-wrap:wrap;
+}
+
+.order-btn,
+.whatsapp-btn{
+
+    flex:1;
+
+    min-width:240px;
+
+    height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    border-radius:15px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+/* Place Order */
+
+.order-btn{
+
+    border:none;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        var(--ods-burgundy),
+        var(--ods-burgundy-dark)
+    );
+
+    box-shadow:
+        0 15px 35px rgba(107,30,46,.25);
+}
+
+.order-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 22px 45px rgba(107,30,46,.35);
+}
+
+/* WhatsApp */
+
+.whatsapp-btn{
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:#25D366;
+
+    box-shadow:
+        0 15px 35px rgba(37,211,102,.25);
+}
+
+.whatsapp-btn:hover{
+
+    transform:translateY(-5px);
+
+    background:#1db954;
+}
+
+/*====================================
+    RESPONSIVE
+====================================*/
+
+@media(max-width:768px){
+
+.checkout-page{
+    padding:30px 15px;
+}
+
+.checkout-container h1{
+    font-size:28px;
+    padding:28px;
+}
+
+.section{
+    margin:20px;
+    padding:22px;
+}
+
+.row{
+    grid-template-columns:1fr;
+}
+
+.buttons{
+    margin:20px;
+    flex-direction:column;
+}
+
+.checkbox{
+    margin:20px;
+}
+
+}
+
+
+.bank-info{
+
+    display:none;
+
+    margin-top:25px;
+
+    background:var(--ods-gold-light);
+
+    border:1px solid rgba(201,151,58,.35);
+
+    border-radius:16px;
+
+    padding:25px;
+
+}
+
+.bank-info h4{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--ods-burgundy);
+
+    margin-bottom:18px;
+
+}
+
+.bank-card{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    border:1px solid var(--border-color);
+
+}
+
+.bank-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border-color);
+
+}
+
+.bank-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.copy-btn{
+
+    border:none;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:var(--ods-burgundy);
+
+    color:#fff;
+
+}
+
+.bank-note{
+
+    margin-top:18px;
+
+    font-size:13px;
+
+    color:var(--text-secondary);
+
+}
+
+
+/* Floating WhatsApp Customer Care */
+
+.customer-care-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    background:#ffffff;
+    border-radius:18px;
+    text-decoration:none;
+    box-shadow:0 12px 35px rgba(0,0,0,.15);
+    z-index:9999;
+    transition:.35s ease;
+    min-width:320px;
+    border:1px solid #e5e7eb;
+}
+
+.customer-care-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(0,0,0,.2);
+}
+
+.care-icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.care-icon i{
+    font-size:34px;
+    color:#fff;
+}
+
+.care-text{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.care-text span{
+    color:#111827;
+    font-size:16px;
+    font-weight:700;
+}
+
+.care-text small{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-top:4px;
+    color:#6b7280;
+    font-size:13px;
+}
+
+.online-status{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    font-weight:600;
+    color:#16a34a;
+    white-space:nowrap;
+}
+
+.online-status span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#16a34a;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(22,163,74,.6);
+    }
+    70%{
+        box-shadow:0 0 0 10px rgba(22,163,74,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(22,163,74,0);
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .customer-care-btn{
+        right:15px;
+        left:15px;
+        bottom:15px;
+        min-width:auto;
+        padding:12px 15px;
+    }
+
+    .care-icon{
+        width:50px;
+        height:50px;
+    }
+
+    .care-icon i{
+        font-size:30px;
+    }
+
+    .care-text span{
+        font-size:15px;
+    }
+
+    .online-status{
+        display:none;
+    }
+
+}
+
+
+
+/* ==========================
+      SUCCESS POPUP
+========================== */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:10000;
+}
+
+.popup-overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.popup-box{
+    width:90%;
+    max-width:430px;
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+    animation:popup .35s ease;
+}
+
+@keyframes popup{
+
+    from{
+        transform:translateY(40px) scale(.9);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+}
+
+.popup-icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#e8f8ee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup-icon i{
+    font-size:55px;
+    color:#16a34a;
+}
+
+.popup-box h2{
+    margin:20px 0 10px;
+    color:#222;
+}
+
+.popup-box p{
+    color:#666;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.popup-btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    background:#16a34a;
+    color:#fff;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.popup-btn:hover{
+    background:#15803d;
+}
