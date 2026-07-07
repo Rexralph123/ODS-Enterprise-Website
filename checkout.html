@@ -78,7 +78,7 @@ function renderCheckout(){
 
   const summaryHtml = `<div class="checkout-card"><h3>Order Summary</h3>
     ${ids.map(id=>{ const p=PRODUCTS.find(x=>x.id==id); return `<div class="checkout-order-row"><span>${p.emoji} ${p.name} × ${cart[id]}</span><span>${fmt(p.price*cart[id])}</span></div>`; }).join('')}
-    <div class="checkout-order-row"><span style="color:var(--text-secondary)">Shipping</span><span>${shipping===0?'Free':fmt(shipping)}</span></div>
+    <div class="checkout-order-row"><span style="color:var(--text-secondary)">Shipping</span><span>${shipping===0?'₦6000':fmt(shipping)}</span></div>
     <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;padding-top:12px;border-top:1px solid var(--border-color);margin-top:4px"><span>Total</span><span style="color:var(--ods-burgundy)">${fmt(total)}</span></div>
   </div>`;
 
@@ -107,7 +107,7 @@ function renderCheckout(){
         <div class="form-row"><div class="form-group"><label>Expiry</label><input placeholder="MM/YY"></div><div class="form-group"><label>CVV</label><input type="password" placeholder="***"></div></div>
         <div class="form-row single"><div class="form-group"><label>Name on card</label><input value="John Doe"></div></div>
         ` : `
-        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Transfer the total amount to:<br><strong>O.D.S Enterprise — GTBank — 0123456789</strong><br>Your order will be confirmed once payment is received.</p>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Transfer the total amount to:<br><strong>O.D.S Enterprise — Opay — 6104090884</strong><br>Your order will be confirmed once payment is received.</p>
         `}
       </div>` + summaryHtml + `
       <button class="checkout-btn" onclick="checkoutStep=3;renderCheckout()">Place Order — ${fmt(total)} <i class="ti ti-shield-check" aria-hidden="true"></i></button>`;

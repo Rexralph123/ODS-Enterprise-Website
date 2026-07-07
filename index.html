@@ -77,20 +77,38 @@ function renderProducts(){
     return;
   }
   grid.innerHTML = filtered.map(p => `
-    <div class="product-card">
-      <div class="product-img">${p.emoji}</div>
-      <div class="product-info">
-        ${p.badge ? `<span class="badge-${p.badge}">${p.badge==='new'?'New':'Sale'}</span>` : '<div style="height:20px"></div>'}
+<div class="product-card">
+
+    <div class="product-img">
+        <img src="${p.image}" alt="${p.name}" class="product-image">
+    </div>
+
+    <div class="product-info">
+
+        ${p.badge ? `<span class="badge-${p.badge}">${p.badge === 'new' ? 'New' : 'Sale'}</span>` : '<div style="height:20px"></div>'}
+
         <div class="product-name">${p.name}</div>
+
         <div class="product-cat">${p.cat}</div>
+
         <div class="product-desc">${p.desc}</div>
+
         <div class="product-row">
-          <span class="product-price">${fmt(p.price)}</span>
-          <button class="add-btn" onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart"><i class="ti ti-plus" aria-hidden="true"></i></button>
+            <span class="product-price">${fmt(p.price)}</span>
+
+            <button class="add-btn" onclick="addToCart(${p.id})">
+                <i class="ti ti-plus"></i>
+            </button>
         </div>
-        <button class="buy-btn" onclick="buyNow(${p.id})"><i class="ti ti-bolt" aria-hidden="true"></i> Buy Now</button>
-      </div>
-    </div>`).join('');
+
+        <button class="buy-btn" onclick="buyNow(${p.id})">
+            <i class="ti ti-bolt"></i> Buy Now
+        </button>
+
+    </div>
+
+</div>
+`).join('');
 }
 
 function filterCat(cat, btn){

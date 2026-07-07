@@ -57,7 +57,9 @@ function renderCart(){
     const qty = cart[id];
     subtotal += p.price * qty;
     return `<div class="cart-item">
-      <div class="cart-item-img">${p.emoji}</div>
+      <div class="cart-item-img">
+        <img src="${p.image}" alt="${p.name}">
+      </div>
       <div class="cart-item-info">
         <div class="cart-item-name">${p.name}</div>
         <div class="cart-item-price">${fmt(p.price)} each</div>
@@ -77,7 +79,7 @@ function renderCart(){
   container.innerHTML = itemsHtml + `
     <div class="cart-summary">
       <div class="summary-row"><span>Subtotal</span><span>${fmt(subtotal)}</span></div>
-      <div class="summary-row"><span>Shipping</span><span>${shipping===0 ? '<span style="color:#27500A">Free</span>' : fmt(shipping)}</span></div>
+      <div class="summary-row"><span>Shipping</span><span>${shipping===0 ? '<span style="color:#27500A">₦6000</span>' : fmt(shipping)}</span></div>
       <div class="summary-total"><span>Total</span><span style="color:var(--ods-burgundy)">${fmt(total)}</span></div>
       <a class="checkout-btn" style="display:block;text-align:center;box-sizing:border-box" href="checkout.html">Proceed to Checkout <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
     </div>`;
