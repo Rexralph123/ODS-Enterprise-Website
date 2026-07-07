@@ -414,54 +414,62 @@
 
     <script>
 
-        const orderBtn = document.querySelector(".order-btn");
-        const popup = document.getElementById("successPopup");
+            const deliveryOption = document.getElementById("deliveryOption");
+            const deliveryFields = document.getElementById("deliveryFields");
 
-        orderBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            popup.classList.add("show");
-        });
+            const paymentMethod = document.getElementById("paymentMethod");
+            const bankTransferInfo = document.getElementById("bankTransferInfo");
 
-        function closePopup() {
-            popup.classList.remove("show");
-        }
+            const orderBtn = document.querySelector(".order-btn");
+            const popup = document.getElementById("successPopup");
 
-        popup.addEventListener("click", function (e) {
+            // Place Order
+            orderBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                popup.classList.add("show");
+            });
 
-        if (e.target === popup) {
-            closePopup();
-        }
-    });
-
-        function toggleBank(){
-
-            if(paymentMethod.value === "Bank Transfer"){
-
-                bankTransferInfo.style.display="block";
-
-            }else{
-
-                bankTransferInfo.style.display="none";
-
+            // Close popup
+            function closePopup() {
+                popup.classList.remove("show");
             }
 
-        }
+            // Close popup when clicking the background
+            popup.addEventListener("click", function (e) {
+                if (e.target === popup) {
+                    closePopup();
+                }
+            });
 
-        function copyAccount(){
+            // Show/Hide Delivery Address
+            function toggleDelivery() {
+                deliveryFields.style.display =
+                    deliveryOption.value === "yes"
+                        ? "block"
+                        : "none";
+            }
 
-            navigator.clipboard.writeText("0123456789");
+            // Show/Hide Bank Details
+            function toggleBank() {
+                bankTransferInfo.style.display =
+                    paymentMethod.value === "Bank Transfer"
+                        ? "block"
+                        : "none";
+            }
 
-            alert("Account Number Copied");
+            // Copy Account Number
+            function copyAccount() {
+                navigator.clipboard.writeText("0123456789");
+                alert("Account Number Copied");
+            }
 
-        }
+            // Events
+            deliveryOption.addEventListener("change", toggleDelivery);
+            paymentMethod.addEventListener("change", toggleBank);
 
-        deliveryOption.addEventListener("change",toggleDelivery);
-
-        paymentMethod.addEventListener("change",toggleBank);
-
-        toggleDelivery();
-
-        toggleBank();
+            // Initialize page
+            toggleDelivery();
+            toggleBank();
 
     </script>
 
