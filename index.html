@@ -89,14 +89,24 @@
 </div>
 
 <div class="showcase-section">
-  <div class="showcase-head">
-    <div>
-      <div class="showcase-eyebrow">Right Now</div>
-      <h2>Trending & Hot Deals</h2>
+
+    <div class="showcase-head">
+
+        <div>
+            <div class="showcase-eyebrow">Right Now</div>
+            <h2>Trending & Hot Deals</h2>
+        </div>
+
+        <p class="showcase-sub">
+            The devices everyone's adding to cart this week.
+        </p>
+
     </div>
-    <p class="showcase-sub">The devices everyone's adding to cart this week.</p>
-  </div>
-  <div class="showcase-track" id="showcase-track"></div>
+
+    <div class="showcase-wrapper">
+        <div class="showcase-track" id="showcase-track"></div>
+    </div>
+
 </div>
 
 <div class="shop-layout">
@@ -386,6 +396,19 @@ document.getElementById("productPopup").addEventListener("click",function(e){
         closeProduct();
     }
 });
+
+
+
+
+const showcaseTrack = document.getElementById("showcase-track");
+
+// Wait until the cards have been created
+setTimeout(() => {
+
+    // Duplicate the cards
+    showcaseTrack.innerHTML += showcaseTrack.innerHTML;
+
+}, 100);
 
 </script>
 

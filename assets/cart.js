@@ -5,18 +5,20 @@
    ============================================ */
 
 const PRODUCTS = [
-{id: 1, name: 'ProMax X15 Smartphone', cat: 'phones', price: 189000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800', badge: 'new', desc: '6.7" AMOLED, 256GB'}, 
- {id:2,name:'BudPro Wireless Earbuds',cat:'audio',price:45000,image:'images/Q10 CYXG.JPG',badge:'sale',desc:'ANC, 30hr battery'},
-  {id:3,name:'SmartWatch Series 8',cat:'wearables',price:98000,emoji:'⌚',badge:'new',desc:'Health tracking, GPS'},
+  {id:1,name: 'ProMax X15 Smartphone', cat: 'phones', price: 189000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800', badge: 'new', desc: '6.7" AMOLED, 256GB'}, 
+  {id:2,name:'BudPro Wireless Earbuds',cat:'audio',price:45000,image:'images/Q10 CYXG.JPG',badge:'sale',desc:'ANC, 30hr battery'},
+  {id:3,name:'SmartWatch Series 8',cat:'wearables',price:35000,image: 'images/RW.jpg',badge:'new',desc:'Bluetooth Call Health & Multifunction Ultral8 - Black'},
   {id:4,name:'UltraBook Pro 14"',cat:'laptops',price:420000,image: 'images/Lenovo Yoga Slim 7.jpg',badge:null,desc:'i7, 16GB RAM, 512GB SSD'},
-  {id:5,name:'Galaxy S24 Ultra',cat:'phones',price:215000,emoji:'📲',badge:'new',desc:'200MP camera, S Pen'},
-  {id:6,name:'PowerBank 20000mAh',cat:'accessories',price:18000,emoji:'🔋',badge:null,desc:'65W fast charge'},
-  {id:7,name:'Noise-Cancel Headphones',cat:'audio',price:72000,emoji:'🎵',badge:null,desc:'Studio-quality sound'},
-  {id:8,name:'USB-C Hub 7-in-1',cat:'accessories',price:22000,emoji:'🔌',badge:'sale',desc:'HDMI, USB 3.0, SD card'},
-  {id:9,name:'FitBand Pro 5',cat:'wearables',price:35000,emoji:'🏃',badge:null,desc:'Sleep & fitness tracker'},
+  {id:5,name:'Galaxy S24 Ultra',cat:'phones',price:1230000,image: 'images/SSP.webp',badge:'new',desc:'200MP camera, S Pen'},
+  {id:6,name:'PowerBank 20000mAh',cat:'accessories',price:18000,image: 'images/ItelPB.webp',badge:null,desc:'65W fast charge'},
+  {id:7,name:'Noise-Cancel Headphones',cat:'audio',price:40500,image: 'images/HPE.jpg',badge:null,desc:'Studio-quality sound'},
+  {id:8,name:'USB-C Hub 7-in-1',cat:'accessories',price:14256,image: 'images/TYC.jpg',badge:'sale',desc:'HDMI, USB 3.0, SD card'},
+  {id:9,name:'FitBand Pro 5',cat:'wearables',price:35000,image: 'images/WWW.webp',badge:null,desc:'Sleep & fitness tracker'},
   {id:10,name:'Tablet Air 11IPAD 11TH GEN',cat:'accessories',price:185000,image: 'images/IPAD 11TH GEN.jpg',badge:'new',desc:'M2 chip, 128GB'},
-  {id:11,name:'Redmi Note 13 Pro',cat:'phones',price:125000,emoji:'📱',badge:'sale',desc:'200MP, 5000mAh'},
+  {id:11,name:'Redmi Note 13 Pro',cat:'phones',price:125000,image: 'images/s-l1600.webp',badge:'sale',desc:'200MP, 5000mAh'},
   {id:12,name:'TWS Gaming Earbuds',cat:'audio',price:28000,image: 'images/T13 Plus.jpg',badge:null,desc:'Low latency, RGB'},
+  
+  
   {
   id:13,
   name:"iPhone 11",
@@ -45,7 +47,7 @@ Camera:"12MP Dual",
 Warranty:"7 Days"
 }
 },
-{id:14,name:'iPhone 17 Pro Max',cat:'phones',price:1980000,image: 'images/iPhone 17_Pro_Max_Uk.jpg',badge:'sale',desc:'UK-Used, physical sim,  BH: 100%, 512GB'},
+  {id:14,name:'iPhone 17 Pro Max',cat:'phones',price:1980000,image: 'images/iPhone 17_Pro_Max_Uk.jpg',badge:'sale',desc:'UK-Used, physical sim,  BH: 100%, 512GB'},
   {id:15,name:'iPhone 16',cat:'phones',price:2540000,image: 'images/iPhone_16.webp',badge:'new',desc:'physical sim,  BH: 100%, 512GB'},
   {id:16,name:'iPhone 12',cat:'phones',price:274000,image: 'images/iPhone 12blue.webp',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
   {id:17,name:'iPhone 13',cat:'phones',price:550000,image: 'images/iPhone 13-blue.webp',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
@@ -87,12 +89,15 @@ function addToCart(id){
   showToast('Added to cart');
 }
 
+/* Buy Now: add the item to the cart so it's included in the order, then
+   send the shopper straight to the order/checkout form instead of just
+   opening the cart drawer. The product id is passed along as a query
+   param so form.html can preselect / highlight it if it wants to. */
 function buyNow(id){
-  const cart = getCart();
-  cart[id] = (cart[id]||0)+1;
-  saveCart(cart);
-  window.location.href = 'checkout.html';
+  addToCart(id);
+  window.location.href = 'form.html?product=' + encodeURIComponent(id);
 }
+
 
 function changeQty(id, delta){
   const cart = getCart();
