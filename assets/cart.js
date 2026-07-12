@@ -1,68 +1,179 @@
 /* ============================================
    O.D.S Enterprise — Shared Data & Cart Logic
    Loaded on every page. Cart persists via localStorage
-   so it carries across shop.html, cart.html, checkout.html etc.
+   so it carries across shop.html, cart.html, form.html etc.
    ============================================ */
 
+/* Only two allowed values for product condition across the whole store. */
+const CONDITIONS = ['Brand New', 'UK-Used'];
+
 const PRODUCTS = [
-  {id:1,name: 'ProMax X15 Smartphone', cat: 'phones', price: 189000, image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800', badge: 'new', desc: '6.7" AMOLED, 256GB'}, 
-  {id:2,name:'BudPro Wireless Earbuds',cat:'audio',price:45000,image:'images/Q10 CYXG.JPG',badge:'sale',desc:'ANC, 30hr battery'},
-  {id:3,name:'SmartWatch Series 8',cat:'wearables',price:35000,image: 'images/RW.jpg',badge:'new',desc:'Bluetooth Call Health & Multifunction Ultral8 - Black'},
-  {id:4,name:'UltraBook Pro 14"',cat:'laptops',price:420000,image: 'images/Lenovo Yoga Slim 7.jpg',badge:null,desc:'i7, 16GB RAM, 512GB SSD'},
-  {id:5,name:'Galaxy S24 Ultra',cat:'phones',price:1230000,image: 'images/SSP.webp',badge:'new',desc:'200MP camera, S Pen'},
-  {id:6,name:'PowerBank 20000mAh',cat:'accessories',price:18000,image: 'images/ItelPB.webp',badge:null,desc:'65W fast charge'},
-  {id:7,name:'Noise-Cancel Headphones',cat:'audio',price:40500,image: 'images/HPE.jpg',badge:null,desc:'Studio-quality sound'},
-  {id:8,name:'USB-C Hub 7-in-1',cat:'accessories',price:14256,image: 'images/TYC.jpg',badge:'sale',desc:'HDMI, USB 3.0, SD card'},
-  {id:9,name:'FitBand Pro 5',cat:'wearables',price:35000,image: 'images/WWW.webp',badge:null,desc:'Sleep & fitness tracker'},
-  {id:10,name:'Tablet Air 11IPAD 11TH GEN',cat:'accessories',price:185000,image: 'images/IPAD 11TH GEN.jpg',badge:'new',desc:'M2 chip, 128GB'},
-  {id:11,name:'Redmi Note 13 Pro',cat:'phones',price:125000,image: 'images/s-l1600.webp',badge:'sale',desc:'200MP, 5000mAh'},
-  {id:12,name:'TWS Gaming Earbuds',cat:'audio',price:28000,image: 'images/T13 Plus.jpg',badge:null,desc:'Low latency, RGB'},
-  
-  
   {
-  id:13,
-  name:"iPhone 11",
-  cat:"phones",
-  price:199000,
-  image:"images/iPhone 11_Uk.jpg",
-
-  gallery:[
-  "images/iPhone 11_Uk.jpg",
-  "images/iPhone11/back.jpg",
-  "images/iPhone11/left.jpg",
-  "images/iPhone11/right.jpg"
-  ],
-
-  badge:"sale",
-
-  desc:"UK Used iPhone 11 in excellent condition with no cracks or faults.",
-
-specs:{
-Condition:"UK Used",
-Storage:"64GB",
-Battery:"76%",
-SIM:"Physical SIM",
-Display:'6.1" Retina',
-Camera:"12MP Dual",
-Warranty:"7 Days"
-}
-},
-  {id:14,name:'iPhone 17 Pro Max',cat:'phones',price:1980000,image: 'images/iPhone 17_Pro_Max_Uk.jpg',badge:'sale',desc:'UK-Used, physical sim,  BH: 100%, 512GB'},
-  {id:15,name:'iPhone 16',cat:'phones',price:2540000,image: 'images/iPhone_16.webp',badge:'new',desc:'physical sim,  BH: 100%, 512GB'},
-  {id:16,name:'iPhone 12',cat:'phones',price:274000,image: 'images/iPhone 12blue.webp',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
-  {id:17,name:'iPhone 13',cat:'phones',price:550000,image: 'images/iPhone 13-blue.webp',badge:'new',desc:'physical sim,  BH: 100%, 128GB'},
-  {id:18,name:'iPhone 14',cat:'phones',price:575000,image: 'images/iPhone 14_Uk.jpg',badge:'sale',desc:'physical sim + eSim,  BH: 87%, 128GB'},
-  {id:19,name:'iPhone 15',cat:'phones',price:850000,image:'images/iPhone 15.png',badge:'new',desc:'physical sim, BH:100%,128GB'},  {id:20,name:'iPhone Air',cat:'phones',price:3850000,image: 'images/iPhone Air.png',badge:'new',desc:'physical sim,  BH: 100%, 512GB'},
-  {id:21,name:'Hand Bag',cat:'wearables',price:19000,image: 'images/Bag_1.jpg',badge:null,desc:'Made in china'},
-  {id:22,name:'Hand Bag',cat:'wearables',price:17000,image: 'images/Bag_2.jpg',badge:null,desc:'Made in china'},
-  {id:23,name:'Hand Bag',cat:'wearables',price:12900,image: 'images/Bag_3.jpg',badge:null,desc:'Made in china'},
-  {id:24,name:'Hand Bag',cat:'wearables',price:15400,image: 'images/Bag_4.jpg',badge:null,desc:'Made in china'},
-  {id:25,name:'Hand Bag',cat:'wearables',price:16700,image: 'images/Bag_5.jpg',badge:null,desc:'Made in china'},
-  {id:26,name:'Hand Bag',cat:'wearables',price:14000,image: 'images/Bag_6.jpg',badge:null,desc:'Made in china'},
-  {id:27,name:'Hand Bag',cat:'wearables',price:18000,image: 'images/Bag_7.jpg',badge:null,desc:'Made in china'},
-  {id:28,name:'Lenovo Yoga',cat:'laptops',price:820000,image: 'images/Lenovo Yoga Slim 7.jpg',badge:null,desc:'Slim 7, 16GB RAM, 256GB SSD'},
-  {id:29,name:'Vacuum Bottle',cat:'accessories',price:6000,image: 'images/Vacuum Bottle.jpeg',badge:'sale',desc:'Vacuum Bottle'},
-
+    id:1,name:'ProMax X15 Smartphone',cat:'phones',condition:'Brand New',price:189000,
+    image:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800',
+    badge:'new',desc:'6.7" AMOLED, 256GB',
+    specs:{Condition:'Brand New',Storage:'256GB',Display:'6.7" AMOLED',Camera:'50MP Triple',Battery:'5000mAh',Warranty:'1 Year'}
+  },
+  {
+    id:2,name:'BudPro Wireless Earbuds',cat:'audio',condition:'Brand New',price:45000,image:'images/Q10 CYXG.JPG',
+    badge:'sale',desc:'ANC, 30hr battery',
+    specs:{Condition:'Brand New','Battery Life':'30 Hours (with case)',Connectivity:'Bluetooth 5.3','Noise Cancellation':'Active (ANC)',Warranty:'6 Months'}
+  },
+  {
+    id:3,name:'SmartWatch Series 8',cat:'wearables',condition:'Brand New',price:35000,image:'images/RW.jpg',
+    badge:'new',desc:'Bluetooth Call Health & Multifunction Ultral8 - Black',
+    specs:{Condition:'Brand New','Battery Life':'Up to 7 Days',Connectivity:'Bluetooth Call','Water Resistance':'IP67',Warranty:'6 Months'}
+  },
+  {
+    id:4,name:'UltraBook Pro 14"',cat:'laptops',condition:'Brand New',price:420000,image:'images/Lenovo Yoga Slim 7.jpg',
+    badge:null,desc:'i7, 16GB RAM, 512GB SSD',
+    specs:{Condition:'Brand New',Processor:'Intel Core i7',RAM:'16GB',Storage:'512GB SSD',Warranty:'1 Year'}
+  },
+  {
+    id:5,name:'Galaxy S24 Ultra',cat:'phones',condition:'Brand New',price:1230000,image:'images/SSP.webp',
+    badge:'new',desc:'200MP camera, S Pen',
+    specs:{Condition:'Brand New',Storage:'256GB',Display:'6.8" Dynamic AMOLED',Camera:'200MP Quad + S Pen',Battery:'5000mAh',Warranty:'1 Year'}
+  },
+  {
+    id:6,name:'PowerBank 20000mAh',cat:'accessories',condition:'Brand New',price:18000,image:'images/ItelPB.webp',
+    badge:null,desc:'65W fast charge',
+    specs:{Condition:'Brand New',Capacity:'20000mAh',Output:'65W Fast Charge',Ports:'USB-C, USB-A',Warranty:'6 Months'}
+  },
+  {
+    id:7,name:'Noise-Cancel Headphones',cat:'audio',condition:'Brand New',price:40500,image:'images/HPE.jpg',
+    badge:null,desc:'Studio-quality sound',
+    specs:{Condition:'Brand New','Battery Life':'20 Hours',Connectivity:'Bluetooth 5.0','Noise Cancellation':'Active (ANC)',Warranty:'6 Months'}
+  },
+  {
+    id:8,name:'USB-C Hub 7-in-1',cat:'accessories',condition:'Brand New',price:14256,image:'images/TYC.jpg',
+    badge:'sale',desc:'HDMI, USB 3.0, SD card',
+    specs:{Condition:'Brand New',Ports:'HDMI, 2x USB 3.0, SD/TF Card',Output:'100W PD Passthrough',Warranty:'3 Months'}
+  },
+  {
+    id:9,name:'FitBand Pro 5',cat:'wearables',condition:'Brand New',price:35000,image:'images/WWW.webp',
+    badge:null,desc:'Sleep & fitness tracker',
+    specs:{Condition:'Brand New','Battery Life':'Up to 10 Days',Connectivity:'Bluetooth','Water Resistance':'IP68',Warranty:'6 Months'}
+  },
+  {
+    id:10,name:'Tablet Air 11IPAD 11TH GEN',cat:'accessories',condition:'Brand New',price:185000,image:'images/IPAD 11TH GEN.jpg',
+    badge:'new',desc:'M2 chip, 128GB',
+    specs:{Condition:'Brand New',Storage:'128GB',Chip:'Apple M2',Display:'10.9" Liquid Retina',Warranty:'1 Year'}
+  },
+  {
+    id:11,name:'Redmi Note 13 Pro',cat:'phones',condition:'Brand New',price:125000,image:'images/s-l1600.webp',
+    badge:'sale',desc:'200MP, 5000mAh',
+    specs:{Condition:'Brand New',Storage:'256GB',Display:'6.67" AMOLED',Camera:'200MP',Battery:'5000mAh',Warranty:'1 Year'}
+  },
+  {
+    id:12,name:'TWS Gaming Earbuds',cat:'audio',condition:'Brand New',price:28000,image:'images/T13 Plus.jpg',
+    badge:null,desc:'Low latency, RGB',
+    specs:{Condition:'Brand New','Battery Life':'24 Hours (with case)',Connectivity:'Bluetooth 5.3, Low Latency Mode',Warranty:'3 Months'}
+  },
+  {
+    id:13,
+    name:"iPhone 11",
+    cat:"phones",
+    condition:'UK-Used',
+    price:199000,
+    image:"images/iPhone 11_Uk.jpg",
+    gallery:[
+      "images/iPhone 11_Uk.jpg",
+      "images/iPhone11/back.jpg",
+      "images/iPhone11/left.jpg",
+      "images/iPhone11/right.jpg"
+    ],
+    badge:"sale",
+    desc:"UK Used iPhone 11 in excellent condition with no cracks or faults.",
+    specs:{
+      Condition:"UK Used",
+      Storage:"64GB",
+      Battery:"76%",
+      SIM:"Physical SIM",
+      Display:'6.1" Retina',
+      Camera:"12MP Dual",
+      Warranty:"7 Days"
+    }
+  },
+  {
+    id:14,name:'iPhone 17 Pro Max',cat:'phones',condition:'UK-Used',price:1980000,image:'images/iPhone 17_Pro_Max_Uk.jpg',
+    badge:'sale',desc:'UK-Used, physical sim, BH: 100%, 512GB',
+    specs:{Condition:'UK Used',Storage:'512GB',Battery:'100%',SIM:'Physical SIM',Display:'6.9" Super Retina XDR',Camera:'48MP Pro Triple',Warranty:'7 Days'}
+  },
+  {
+    id:15,name:'iPhone 16',cat:'phones',condition:'Brand New',price:2540000,image:'images/iPhone_16.webp',
+    badge:'new',desc:'physical sim, BH: 100%, 512GB',
+    specs:{Condition:'Brand New',Storage:'512GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'48MP Dual',Warranty:'1 Year'}
+  },
+  {
+    id:16,name:'iPhone 12',cat:'phones',condition:'Brand New',price:274000,image:'images/iPhone 12blue.webp',
+    badge:'new',desc:'physical sim, BH: 100%, 128GB',
+    specs:{Condition:'Brand New',Storage:'128GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'1 Year'}
+  },
+  {
+    id:17,name:'iPhone 13',cat:'phones',condition:'Brand New',price:550000,image:'images/iPhone 13-blue.webp',
+    badge:'new',desc:'physical sim, BH: 100%, 128GB',
+    specs:{Condition:'Brand New',Storage:'128GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'1 Year'}
+  },
+  {
+    id:18,name:'iPhone 14',cat:'phones',condition:'UK-Used',price:575000,image:'images/iPhone 14_Uk.jpg',
+    badge:'sale',desc:'physical sim + eSim, BH: 87%, 128GB',
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'87%',SIM:'Physical SIM + eSIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+  },
+  {
+    id:19,name:'iPhone 15',cat:'phones',condition:'Brand New',price:850000,image:'images/iPhone 15.png',
+    badge:'new',desc:'physical sim, BH:100%,128GB',
+    specs:{Condition:'Brand New',Storage:'128GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'48MP Dual',Warranty:'1 Year'}
+  },
+  {
+    id:20,name:'iPhone Air',cat:'phones',condition:'Brand New',price:3850000,image:'images/iPhone Air.png',
+    badge:'new',desc:'physical sim, BH: 100%, 512GB',
+    specs:{Condition:'Brand New',Storage:'512GB',Battery:'100%',SIM:'Physical SIM',Display:'6.5" Super Retina XDR',Camera:'48MP Dual',Warranty:'1 Year'}
+  },
+  {
+    id:21,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:19000,image:'images/Bag_1.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:22,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:17000,image:'images/Bag_2.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:23,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12900,image:'images/Bag_3.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:24,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:15400,image:'images/Bag_4.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:25,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:16700,image:'images/Bag_5.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:26,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:14000,image:'images/Bag_6.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:27,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:18000,image:'images/Bag_7.jpg',
+    badge:null,desc:'Made in china',
+    specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
+  },
+  {
+    id:28,name:'Lenovo Yoga',cat:'laptops',condition:'Brand New',price:820000,image:'images/Lenovo Yoga Slim 7.jpg',
+    badge:null,desc:'Slim 7, 16GB RAM, 256GB SSD',
+    specs:{Condition:'Brand New',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Year'}
+  },
+  {
+    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:6000,image:'images/Vacuum Bottle.jpeg',
+    badge:'sale',desc:'Vacuum Bottle',
+    specs:{Condition:'Brand New',Capacity:'500ml',Material:'Stainless Steel',Warranty:'3 Months'}
+  },
 ];
 
 const ORDERS = [

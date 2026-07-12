@@ -11,23 +11,37 @@
 <body>
 
 <nav class="nav">
+
   <div class="nav-brand">
-    <div class="nav-logo"><img src="assets/logo.png" alt="O.D.S Enterprise Logo"></div>
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="O.D.S Enterprise Logo">
+    </div>
+
     <div class="nav-brand-text">
       <span class="nav-brand-name">ODS Enterprise</span>
       <span class="nav-brand-sub">Electronics & Phones</span>
     </div>
   </div>
-  <div class="nav-links">
+
+  <div class="nav-links" id="navLinks">
     <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
     <a class="nav-btn" data-page="about" href="about.html">About Us</a>
-    <a class="nav-btn" id="accountBtn" href="#">Account
-</a>
+    <a class="nav-btn" id="accountBtn" href="#">Account</a>
   </div>
+
   <a class="cart-btn" href="cart.html">
     <i class="ti ti-shopping-cart" aria-hidden="true"></i>
-    Cart <span class="cart-badge" id="cart-count">0</span>
+    Cart
+    <span class="cart-badge" id="cart-count">0</span>
   </a>
+
+  <!-- MOBILE MENU BUTTON -->
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+  <span class="hamburger"></span>
+  <span class="hamburger"></span>
+  <span class="hamburger"></span>
+</button>
+
 </nav>
 
 <section class="hero">
@@ -55,7 +69,7 @@
 
             <div class="hero-actions">
 
-                <button class="btn-primary">
+                <button class="btn-primary" href="#shop-layout" onclick="document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});">
                     Shop Now
                 </button>
 
@@ -409,6 +423,40 @@ setTimeout(() => {
     showcaseTrack.innerHTML += showcaseTrack.innerHTML;
 
 }, 100);
+
+
+/*Mobile NAV*/
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const navLinks = document.getElementById("navLinks");
+
+mobileMenuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+    mobileMenuBtn.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+        mobileMenuBtn.setAttribute(
+            "aria-label",
+            "Close navigation menu"
+        );
+    } else {
+        mobileMenuBtn.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+    }
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        mobileMenuBtn.classList.remove("active");
+
+        mobileMenuBtn.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+    });
+});
 
 </script>
 
