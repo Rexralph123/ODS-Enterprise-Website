@@ -1,3 +1,20 @@
+
+/*====================
+Table of content*
+======================/
+/* 1. Reset & Base Styles
+   2. Navigation
+   3. Hero Section
+   4. Premium Stats Section
+   5. Trending / Showcase Section
+   6. Shop / Products Section
+   7. Cart Section
+   8. Account Section
+*/
+
+
+
+
 /* ============================================
    O.D.S Enterprise — Shared Stylesheet
    ============================================ */
@@ -475,6 +492,12 @@ Mobile View Hero
         width: 350px;
         height: 350px;
     }
+
+    .hero-media{
+        justify-content: center;
+        align-items: center;
+        margin-left: 80px;
+    }
 }
 
 
@@ -888,19 +911,43 @@ Mobile View Hero
 .product-price{font-size:16px;font-weight:600;color:var(--ods-burgundy)}
 .add-btn{background:var(--bg-secondary);border:1px solid var(--border-color);color:var(--ods-burgundy);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .buy-btn{background:var(--ods-burgundy);color:#fff;border:none;padding:8px 0;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:600;width:100%;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit}
-.badge-new{background:var(--ods-burgundy-light);color:var(--ods-burgundy);font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;display:inline-block;margin-bottom:6px}
-.badge-sale{background:var(--ods-gold-light);color:var(--ods-tan-dark);font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;display:inline-block;margin-bottom:6px}
+.badge-new,
+.badge-sale {
+    display: inline-flex;
+    width: fit-content;
+    align-self: flex-start;
+
+    padding: 5px 10px;
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.badge-new {
+    background: #6b4226;
+    color: #fff;
+}
+
+.badge-sale {
+    background: #111;
+    color: #fff;
+}
+
+
+
 
 /* ===== CART ===== */
+
 .cart-layout{
-  max-width:920px;
-  margin:0 auto;
-  padding:32px 24px 64px;
-  display:grid;
-  grid-template-columns:1fr 320px;
-  gap:24px;
-  align-items:start;
+    max-width:900px;
+    width:100%;
+    margin:0 auto;
+    padding:32px 24px 64px;
 }
+
 .cart-title{
   font-size:22px;
   font-weight:700;
@@ -1391,780 +1438,1441 @@ border-bottom:1px solid #eee;
 }
 
 
-/*====================================
-    CHECKOUT PAGE
-====================================*/
 
-.checkout-page{
-    background:linear-gradient(
-        180deg,
-        #f7f7f8 0%,
-        #f1f1f2 100%
-    );
-    min-height:calc(100vh - 62px);
-    padding:60px 20px;
+
+
+
+
+
+
+/*CUT-----OUT---CHECKOUT PAGE STYLES-----CUT*/
+/* =========================================================
+   O.D.S ENTERPRISE — CHECKOUT PAGE
+========================================================= */
+
+.checkout-layout {
+    width: 100%;
+    max-width: 920px;
+    min-height: calc(100vh - 62px);
+    margin: 0 auto;
+    padding: 55px 20px 80px;
 }
 
-.checkout-container{
-    max-width:900px;
-    margin:auto;
-    background:#fff;
-    border:1px solid var(--border-color);
-    border-radius:22px;
-    overflow:hidden;
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.08);
+
+/* =========================================================
+   CHECKOUT STEPS
+========================================================= */
+
+.checkout-steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 35px;
 }
 
-/*====================================
-    HEADER
-====================================*/
+.step {
+    position: relative;
+    width: 150px;
+    text-align: center;
+}
 
-.checkout-container h1{
-    background:linear-gradient(
+.step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 65%;
+    width: 70%;
+    height: 2px;
+    background: var(--border-color);
+}
+
+.step.active:not(:last-child)::after,
+.step.done:not(:last-child)::after {
+    background: var(--ods-gold);
+}
+
+.step-circle {
+    position: relative;
+    z-index: 2;
+
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 9px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+
+    background: #fff;
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: .3s ease;
+}
+
+.step.active .step-circle,
+.step.done .step-circle {
+    color: #fff;
+    border-color: var(--ods-burgundy);
+
+    background: linear-gradient(
         135deg,
         var(--ods-burgundy),
         var(--ods-burgundy-dark)
     );
-    color:#fff;
-    text-align:center;
-    padding:35px;
-    font-size:34px;
-    font-weight:700;
-    letter-spacing:.5px;
+
+    box-shadow: 0 8px 20px rgba(107, 30, 46, .22);
 }
 
-.checkout-container h1::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:4px;
-    background:var(--ods-gold);
-    margin:18px auto 0;
-    border-radius:50px;
+.step-label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
 }
 
-/*====================================
-    SECTIONS
-====================================*/
-
-.section{
-    margin:35px;
-    background:#fff;
-    border:1px solid var(--border-color);
-    border-radius:18px;
-    padding:28px;
-    transition:.3s;
+.step.active .step-label {
+    color: var(--ods-burgundy);
 }
 
-.section:hover{
-    border-color:var(--ods-gold);
-    box-shadow:0 12px 30px rgba(0,0,0,.05);
+
+/* =========================================================
+   CHECKOUT CARDS
+========================================================= */
+
+.checkout-card {
+    margin-bottom: 22px;
+    padding: 28px;
+
+    background: #fff;
+
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .05);
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
 }
 
-.section h3{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:var(--ods-burgundy);
-    font-size:20px;
-    margin-bottom:25px;
-    padding-bottom:15px;
-    border-bottom:2px solid var(--ods-gold-light);
+.checkout-card:hover {
+    border-color: rgba(201, 151, 58, .5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .07);
 }
 
-.section h3 i{
-    color:var(--ods-gold);
-    font-size:24px;
+.checkout-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 24px;
+    padding-bottom: 15px;
+
+    color: var(--ods-burgundy);
+
+    border-bottom: 2px solid var(--ods-gold-light);
+
+    font-size: 19px;
+    font-weight: 700;
 }
 
-.field-error{
-    color:#c0392b;
-    font-size:12px;
-    margin-top:-14px;
-    margin-bottom:14px;
-    display:none;
+
+
+
+
+
+
+
+
+/* =====================================
+   MOBILE NAVIGATION
+===================================== */
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.mobile-menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    z-index: 1002;
 }
 
-.field-error.show{display:block}
-
-/*====================================
-    FORM
-====================================*/
-
-.row{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:4px 20px;
-    margin-bottom:4px;
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 10px;
+    transition: 0.3s ease;
 }
 
-label{
-    display:block;
-    margin-bottom:8px;
-    font-size:13px;
-    font-weight:600;
-    color:var(--text-secondary);
+
+/* X ANIMATION */
+
+.mobile-menu-btn.active .hamburger:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
 
-input,
-select,
-textarea{
-
-    width:100%;
-    padding:15px 18px;
-    margin-bottom:16px;
-
-    background:#fff;
-
-    border:1.5px solid var(--border-color);
-
-    border-radius:14px;
-
-    font-size:15px;
-
-    font-family:inherit;
-    color:var(--text-primary);
-
-    transition:border-color .25s, box-shadow .25s, background .25s;
+.mobile-menu-btn.active .hamburger:nth-child(2) {
+    opacity: 0;
 }
 
-select{
-    appearance:none;
-    -webkit-appearance:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'><path d='M1 1L7 7L13 1' stroke='%236B1E2E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-repeat:no-repeat;
-    background-position:right 18px center;
-    padding-right:44px;
-    cursor:pointer;
+.mobile-menu-btn.active .hamburger:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
-textarea{
-    min-height:120px;
-    resize:vertical;
+
+/* =========================
+   MOBILE VIEW
+========================= */
+
+@media (max-width: 768px) {
+
+    .nav {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        background: #111;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 0;
+        margin: 0;
+        gap: 0;
+
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links .nav-btn {
+        display: block;
+        width: 100%;
+        padding: 18px 25px;
+
+        color: #fff;
+        background: #111;
+
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        text-align: left;
+    }
+
+    .nav-links .nav-btn:hover {
+        background: #6b4226;
+        color: #fff;
+    }
 }
 
-input::placeholder,
-textarea::placeholder{color:#B4B4B8}
 
-input:hover,
-select:hover,
-textarea:hover{border-color:var(--ods-tan)}
 
-input:focus,
-select:focus,
-textarea:focus{
 
-    outline:none;
 
-    border-color:var(--ods-gold);
 
-    background:var(--ods-gold-light);
 
-    box-shadow:
-        0 0 0 4px rgba(201,151,58,.18);
 
+/* =========================================================
+   O.D.S ENTERPRISE FORM,HTML, AND CHECKOUT PAGE STYLES
+========================================================= */
+
+.checkout-page {
+    min-height: 100vh;
+    background: #f7f7f8;
+    padding: 55px 20px 110px;
 }
 
-input.invalid,
-textarea.invalid{
-    border-color:#c0392b;
-    background:#FBEEEC;
-    box-shadow:0 0 0 4px rgba(192,57,43,.12);
+.checkout-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-/*====================================
-    DELIVERY NOTICE
-====================================*/
+.checkout-container > h1 {
+    margin: 0 0 30px;
+    color: var(--ods-burgundy, #6b1e2e);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
 
-.notice{
 
+/* =========================================================
+   CHECKOUT SECTION
+========================================================= */
+
+.checkout-page .section {
+    background: #ffffff;
+    border: 1px solid var(--border-color, #e8e8e8);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-page .section h3 {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0 0 25px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid var(--border-color, #e8e8e8);
+    color: var(--ods-burgundy, #6b1e2e);
+    font-size: 19px;
+}
+
+.checkout-page .section h3 i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(107, 30, 46, 0.08);
+    color: var(--ods-burgundy, #6b1e2e);
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   FORM 
+========================================================= */
+
+.checkout-page .row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.checkout-page label:not(.checkbox) {
+    display: block;
+    margin: 0 0 8px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.checkout-page input,
+.checkout-page select,
+.checkout-page textarea {
+    width: 100%;
+    border: 1.5px solid #dedede;
+    border-radius: 12px;
+    background: #fff;
+    color: #171717;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+
+.checkout-page input,
+.checkout-page select {
+    height: 52px;
+    padding: 0 16px;
+}
+
+.checkout-page textarea {
+    min-height: 125px;
+    padding: 15px 16px;
+    resize: vertical;
+}
+
+.checkout-page input::placeholder,
+.checkout-page textarea::placeholder {
+    color: #a0a0a0;
+}
+
+.checkout-page input:focus,
+.checkout-page select:focus,
+.checkout-page textarea:focus {
+    outline: none;
+    border-color: var(--ods-gold, #c9973a);
+    box-shadow: 0 0 0 4px rgba(201, 151, 58, 0.14);
+}
+
+.checkout-page .section > input,
+.checkout-page .section > select,
+.checkout-page .section > textarea,
+#deliveryFields > textarea {
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   INVALID FIELDS
+========================================================= */
+
+.checkout-page input.invalid,
+.checkout-page textarea.invalid {
+    border-color: #d83b3b;
+    background: #fff8f8;
+}
+
+.checkout-page input.invalid:focus,
+.checkout-page textarea.invalid:focus {
+    box-shadow: 0 0 0 4px rgba(216, 59, 59, 0.12);
+}
+
+.field-error {
+    display: none;
+    margin: 7px 0 12px;
+    color: #c62f2f;
+    font-size: 12px;
+}
+
+.field-error.show {
+    display: block;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice {
+    margin-top: 10px;
+    padding: 18px;
+    border-left: 4px solid var(--ods-gold, #c9973a);
+    border-radius: 12px;
+    background: #fff9ed;
+}
+
+.notice strong {
+    color: var(--ods-burgundy, #6b1e2e);
+    font-size: 14px;
+}
+
+.notice p {
+    margin: 8px 0 0;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BANK TRANSFER
+========================================================= */
+
+.bank-transfer-box{
     margin-top:20px;
-
-    background:var(--ods-gold-light);
-
-    border-left:5px solid var(--ods-gold);
-
-    padding:18px;
-
-    border-radius:12px;
-
-    color:var(--text-secondary);
-
-    line-height:1.8;
-
-    font-size:14px;
-}
-
-.notice strong{
-    color:var(--ods-burgundy);
-}
-
-/*====================================
-    ORDER SUMMARY
-====================================*/
-
-.order-box{
-
-    background:var(--bg-secondary);
-
-    border:1px solid var(--border-color);
-
-    border-radius:16px;
-
-    padding:22px;
-}
-
-.order-item{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    padding:16px 4px;
-
-    border-bottom:1px solid var(--border-color);
-
-    font-size:15px;
-
-    transition:background .15s;
-
-    border-radius:8px;
-}
-
-.order-item:hover{background:rgba(107,30,46,.03)}
-
-.order-item span:first-child{
-    color:var(--text-primary);
-}
-
-.order-item:last-child{
-
-    border:none;
-
-    font-size:20px;
-
-    color:var(--ods-burgundy);
-
-    font-weight:700;
-}
-
-.order-item:last-child:hover{background:none}
-
-.order-box hr{
-    border:none;
-    border-top:1px dashed var(--border-color);
-    margin:6px 4px;
-}
-
-.order-empty{
-    color:var(--text-secondary);
-    font-size:14px;
-    text-align:center;
-    padding:34px 10px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-}
-
-.order-empty i{
-    font-size:40px;
-    color:var(--ods-tan);
-}
-
-.order-empty a{
-    color:var(--ods-burgundy);
-    font-weight:600;
-}
-
-/*====================================
-    TERMS
-====================================*/
-
-.checkbox{
-
-    margin:35px;
-
-    display:flex;
-
-    gap:12px;
-
-    align-items:flex-start;
-
-    font-size:14px;
-
-    color:var(--text-secondary);
-}
-
-.checkbox input{
-
-    width:20px;
-    height:20px;
-    accent-color:var(--ods-burgundy);
-    margin-top:2px;
-}
-
-/*====================================
-    BUTTONS
-====================================*/
-
-.buttons{
-
-    display:flex;
-
-    gap:20px;
-
-    margin:35px;
-
-    margin-top:0;
-
-    flex-wrap:wrap;
-}
-
-.order-btn,
-.whatsapp-btn{
-
-    flex:1;
-
-    min-width:240px;
-
-    height:58px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:12px;
-
-    border-radius:15px;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.35s;
-}
-
-/* Place Order */
-
-.order-btn{
-
-    border:none;
-
-    color:#fff;
-
-    background:linear-gradient(
-        135deg,
-        var(--ods-burgundy),
-        var(--ods-burgundy-dark)
-    );
-
-    box-shadow:
-        0 15px 35px rgba(107,30,46,.25);
-}
-
-.order-btn:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 22px 45px rgba(107,30,46,.35);
-}
-
-.order-btn:disabled{
-    opacity:.55;
-    cursor:not-allowed;
-    transform:none;
-    box-shadow:none;
-}
-
-/* WhatsApp */
-
-.whatsapp-btn{
-
-    text-decoration:none;
-
-    color:#fff;
-
-    background:#25D366;
-
-    box-shadow:
-        0 15px 35px rgba(37,211,102,.25);
-}
-
-.whatsapp-btn:hover{
-
-    transform:translateY(-5px);
-
-    background:#1db954;
-}
-
-/*====================================
-    RESPONSIVE
-====================================*/
-
-@media(max-width:768px){
-
-.checkout-page{
-    padding:30px 15px;
-}
-
-.checkout-container h1{
-    font-size:26px;
-    padding:26px 20px;
-}
-
-.section{
-    margin:16px;
-    padding:18px;
-}
-
-.row{
-    grid-template-columns:1fr;
-    gap:14px;
-}
-
-.buttons{
-    margin:16px;
-    flex-direction:column;
-}
-
-.buttons .order-btn,
-.buttons .whatsapp-btn{
-    min-width:0;
-    width:100%;
-}
-
-.checkbox{
-    margin:16px;
-}
-
-input,select,textarea{
-    padding:13px 14px;
-    font-size:14px;
-}
-
-.bank-row{
-    flex-wrap:wrap;
-}
-
-}
-
-
-.bank-info{
-
-    display:none;
-
-    margin-top:25px;
-
-    background:var(--ods-gold-light);
-
     border:1px solid rgba(201,151,58,.35);
-
-    border-radius:16px;
-
-    padding:25px;
-
+    border-radius:20px;
+    background:linear-gradient(145deg,#fffdf7,#fbf4df);
+    padding:24px;
+    overflow:hidden;
 }
 
-.bank-info h4{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    color:var(--ods-burgundy);
-
-    margin-bottom:18px;
-
-}
-
-.bank-card{
-
-    background:#fff;
-
-    border-radius:14px;
-
-    padding:18px;
-
-    border:1px solid var(--border-color);
-
-}
-
-.bank-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:14px 0;
-
-    border-bottom:1px solid var(--border-color);
-
-}
-
-.bank-row:last-child{
-
-    border-bottom:none;
-
-}
-
-.copy-btn{
-
-    border:none;
-
-    width:36px;
-
-    height:36px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    background:var(--ods-burgundy);
-
-    color:#fff;
-
-}
-
-.bank-note{
-
-    margin-top:18px;
-
-    font-size:13px;
-
-    color:var(--text-secondary);
-
-}
-
-
-/* Floating WhatsApp Customer Care */
-
-.customer-care-btn{
-    position:fixed;
-    right:25px;
-    bottom:25px;
+.bank-transfer-head{
     display:flex;
     align-items:center;
     gap:15px;
-    padding:14px 18px;
-    background:#ffffff;
-    border-radius:18px;
-    text-decoration:none;
-    box-shadow:0 12px 35px rgba(0,0,0,.15);
-    z-index:9999;
-    transition:.35s ease;
-    min-width:320px;
-    border:1px solid #e5e7eb;
+    margin-bottom:22px;
 }
 
-.customer-care-btn:hover{
-    transform:translateY(-5px);
-    box-shadow:0 18px 45px rgba(0,0,0,.2);
-}
-
-.care-icon{
+.opay-logo-box{
     width:58px;
     height:58px;
-    border-radius:50%;
-    background:#25D366;
+    min-width:58px;
+
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+
+    background:#fff;
+    border:1px solid rgba(0,0,0,.07);
+    border-radius:16px;
+
+    padding:9px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.07);
+}
+
+.opay-logo{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+.bank-transfer-title{
+    min-width:0;
+}
+
+.bank-transfer-title strong{
+    display:block;
+    color:var(--text-primary);
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.bank-transfer-title p{
+    margin:0;
+    color:var(--text-secondary);
+    font-size:12px;
+    line-height:1.6;
+}
+
+
+/* BANK ACCOUNT CARD */
+
+.bank-account-card{
+    background:#fff;
+    border:1px solid rgba(107,30,46,.10);
+    border-radius:16px;
+    padding:5px 18px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.04);
+}
+
+.bank-detail-row{
+    min-height:65px;
+
+    display:grid;
+    grid-template-columns:minmax(120px,1fr) minmax(0,1.5fr);
+    align-items:center;
+
+    gap:20px;
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(107,30,46,.09);
+}
+
+.bank-detail-row:last-child{
+    border-bottom:none;
+}
+
+.bank-detail-label{
+    color:var(--text-secondary);
+    font-size:13px;
+    font-weight:500;
+}
+
+.bank-detail-value{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+
+    min-width:0;
+
+    color:var(--text-primary);
+    font-size:14px;
+
+    text-align:right;
+}
+
+.bank-detail-value strong{
+    overflow-wrap:anywhere;
+}
+
+
+/* OPAY BANK NAME */
+
+.opay-bank{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:9px;
+}
+
+.opay-mini-logo{
+    width:30px;
+    height:30px;
+
+    object-fit:contain;
+
+    border-radius:8px;
+
+    background:#f5fffb;
+    padding:3px;
+}
+
+
+/* ACCOUNT NUMBER */
+
+.account-number{
+    font-size:16px;
+    letter-spacing:1px;
+    color:var(--ods-burgundy);
+}
+
+.copy-bank-btn{
+    border:none;
+
+    min-height:36px;
+
+    padding:8px 12px;
+
+    border-radius:9px;
+
+    background:var(--ods-burgundy);
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+
+    font-family:inherit;
+    font-size:12px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.copy-bank-btn:hover{
+    background:var(--ods-burgundy-dark);
+    transform:translateY(-1px);
+}
+
+
+/* TRANSFER AMOUNT */
+
+.transfer-amount{
+    color:var(--ods-burgundy);
+    font-size:17px;
+}
+
+
+/* BANK NOTICE */
+
+.bank-notice{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+
+    margin-top:18px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    color:var(--text-secondary);
+
+    font-size:12px;
+    line-height:1.6;
+
+    border:1px solid rgba(107,30,46,.08);
+}
+
+.bank-notice i{
+    color:var(--ods-gold);
+    font-size:19px;
     flex-shrink:0;
 }
 
-.care-icon i{
-    font-size:34px;
-    color:#fff;
-}
 
-.care-text{
-    display:flex;
-    flex-direction:column;
-    flex:1;
-}
+/* =========================================================
+   BANK TRANSFER MOBILE
+========================================================= */
 
-.care-text span{
-    color:#111827;
-    font-size:16px;
-    font-weight:700;
-}
+@media(max-width:500px){
 
-.care-text small{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    margin-top:4px;
-    color:#6b7280;
-    font-size:13px;
-}
-
-.online-status{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    font-size:12px;
-    font-weight:600;
-    color:#16a34a;
-    white-space:nowrap;
-}
-
-.online-status span{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:#16a34a;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{
-        box-shadow:0 0 0 0 rgba(22,163,74,.6);
-    }
-    70%{
-        box-shadow:0 0 0 10px rgba(22,163,74,0);
-    }
-    100%{
-        box-shadow:0 0 0 0 rgba(22,163,74,0);
-    }
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
-    .customer-care-btn{
-        right:15px;
-        left:15px;
-        bottom:15px;
-        min-width:auto;
-        padding:12px 15px;
+    .bank-transfer-box{
+        padding:15px;
+        border-radius:16px;
     }
 
-    .care-icon{
+    .bank-transfer-head{
+        align-items:center;
+        gap:12px;
+        margin-bottom:17px;
+    }
+
+    .opay-logo-box{
         width:50px;
         height:50px;
+        min-width:50px;
+        border-radius:13px;
+        padding:7px;
     }
 
-    .care-icon i{
-        font-size:30px;
-    }
-
-    .care-text span{
+    .bank-transfer-title strong{
         font-size:15px;
     }
 
-    .online-status{
-        display:none;
+    .bank-transfer-title p{
+        font-size:11px;
+    }
+
+    .bank-account-card{
+        padding:4px 14px;
+        border-radius:14px;
+    }
+
+    .bank-detail-row{
+        min-height:auto;
+
+        grid-template-columns:1fr;
+
+        gap:7px;
+
+        padding:14px 0;
+    }
+
+    .bank-detail-label{
+        font-size:11px;
+    }
+
+    .bank-detail-value{
+        width:100%;
+
+        justify-content:space-between;
+
+        text-align:left;
+
+        font-size:13px;
+    }
+
+    .opay-bank{
+        justify-content:flex-start;
+    }
+
+    .account-number{
+        font-size:15px;
+    }
+
+    .copy-bank-btn{
+        min-width:75px;
+        flex-shrink:0;
+    }
+
+    .transfer-amount{
+        font-size:16px;
     }
 
 }
 
 
-/* ==========================
-      SUCCESS POPUP
-========================== */
+/* =========================================================
+   TERMS & CONDITIONS CHECKBOX FIX
+========================================================= */
 
-.popup-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    opacity:0;
-    visibility:hidden;
-    transition:.35s;
-    z-index:10000;
-    padding:16px;
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    width: 100%;
+    margin: 25px 0;
+    padding: 16px 18px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    cursor: pointer;
 }
 
-.popup-overlay.show{
-    opacity:1;
-    visibility:visible;
+.checkbox input[type="checkbox"] {
+    appearance: auto;
+    -webkit-appearance: checkbox;
+
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px;
+
+    margin: 2px 0 0 !important;
+    padding: 0 !important;
+
+    border: initial;
+    border-radius: 3px;
+
+    box-shadow: none !important;
+
+    accent-color: var(--ods-burgundy, #6b1e2e);
+
+    flex: 0 0 18px;
+
+    cursor: pointer;
 }
 
-.popup-box{
-    width:90%;
-    max-width:430px;
-    background:#fff;
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-    animation:popup .35s ease;
+.checkbox input[type="checkbox"]:focus {
+    outline: 2px solid rgba(107, 30, 46, 0.2);
+    outline-offset: 3px;
+    box-shadow: none !important;
 }
 
-@keyframes popup{
+.checkbox span {
+    flex: 1;
 
-    from{
-        transform:translateY(40px) scale(.9);
-        opacity:0;
+    color: #555;
+
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   MOBILE CHECKBOX
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .checkbox {
+        align-items: flex-start;
+
+        gap: 10px;
+
+        margin: 18px 0;
+
+        padding: 14px;
+
+        border-radius: 11px;
     }
 
-    to{
-        transform:translateY(0) scale(1);
-        opacity:1;
+    .checkbox input[type="checkbox"] {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px;
+
+        flex-basis: 18px;
+
+        margin-top: 2px !important;
+    }
+
+    .checkbox span {
+        font-size: 12px;
+        line-height: 1.5;
     }
 
 }
 
-.popup-icon{
-    width:90px;
-    height:90px;
-    margin:auto;
-    border-radius:50%;
-    background:#e8f8ee;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+/* =========================================================
+   ORDER SUMMARY  (checkout / form.html)
+   Previously had zero base styling — .order-box and
+   .order-item rendered as plain unstyled divs. This gives
+   the summary a real card layout with thumbnails, condition
+   badges, and a clearly separated totals block.
+========================================================= */
+
+.order-box {
+    display: flex;
+    flex-direction: column;
 }
 
-.popup-icon i{
-    font-size:55px;
-    color:#16a34a;
+.order-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--border-color, #e8e8e8);
 }
 
-.popup-box h2{
-    margin:20px 0 10px;
-    color:#222;
+.order-item:first-child {
+    padding-top: 4px;
 }
 
-.popup-box p{
-    color:#666;
-    line-height:1.7;
-    margin-bottom:25px;
+.order-item-thumb {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    background: var(--bg-secondary, #f7f7f8);
+    border: 1px solid var(--border-color, #e8e8e8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.popup-btn{
-    width:100%;
-    border:none;
-    padding:14px;
-    background:#16a34a;
-    color:#fff;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:600;
-    transition:.3s;
+.order-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.popup-btn:hover{
-    background:#15803d;
+.order-item-main {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-item-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.order-item-name {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    line-height: 1.35;
+}
+
+.order-condition-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.order-condition-badge.brand-new {
+    background: #eaf3de;
+    color: #27500a;
+}
+
+.order-condition-badge.uk-used {
+    background: #fff3e0;
+    color: var(--ods-tan-dark, #a06438);
+}
+
+.order-item-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.order-item-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-item-price {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ods-burgundy);
+    white-space: nowrap;
+}
+
+/* Totals block */
+
+.order-totals {
+    margin-top: 8px;
+    padding-top: 4px;
+}
+
+.order-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 9px 0;
+
+    font-size: 13.5px;
+    color: var(--text-secondary, #6b6b70);
+}
+
+.order-tbc {
+    font-style: italic;
+    color: var(--text-secondary, #6b6b70);
+}
+
+.order-total-row.grand {
+    margin-top: 6px;
+    padding-top: 16px;
+
+    border-top: 2px dashed var(--border-color, #e8e8e8);
+
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ods-burgundy);
+}
+
+/* Empty state */
+
+.order-empty {
+    text-align: center;
+    padding: 44px 16px 36px;
+    color: var(--text-secondary, #6b6b70);
+}
+
+.order-empty i {
+    font-size: 42px;
+    display: block;
+    margin-bottom: 12px;
+    color: var(--ods-tan, #d4956a);
+}
+
+.order-empty p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.order-empty a {
+    color: var(--ods-burgundy);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.order-empty a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile: stack qty controls under price instead of squeezing them */
+
+@media (max-width: 480px) {
+
+    .order-item {
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .order-item-thumb {
+        width: 54px;
+        height: 54px;
+    }
+
+    .order-item-bottom {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .order-item-right {
+        justify-content: space-between;
+    }
+
+    .order-total-row.grand {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================================
+   CHECKOUT — BUTTONS ROW  (ADDED)
+   The stylesheet previously only had a mobile override for
+   .buttons — Place Order / Ask on WhatsApp had no layout at
+   all on desktop or tablet. This block fixes that.
+========================================================= */
+
+.checkout-page .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.checkout-page .order-btn,
+.checkout-page .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 54px;
+    border-radius: 13px;
+
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 700;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.checkout-page .order-btn {
+    border: none;
+    color: #fff;
+    background: linear-gradient(135deg, var(--ods-burgundy), var(--ods-burgundy-dark));
+    box-shadow: 0 14px 30px rgba(107, 30, 46, .25);
+}
+
+.checkout-page .order-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 38px rgba(107, 30, 46, .32);
+}
+
+.checkout-page .order-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.checkout-page .whatsapp-btn {
+    border: 1.5px solid #25d366;
+    color: #128c3e;
+    background: #fff;
+}
+
+.checkout-page .whatsapp-btn:hover {
+    background: #e9f9ef;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FLOATING CUSTOMER CARE
+========================================================= */
+
+.customer-care-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 900;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 320px;
+    padding: 12px 15px;
+
+    border-radius: 18px;
+    background: #fff;
+    color: #222;
+    text-decoration: none;
+
+    border: 1px solid #e8e8e8;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s;
+}
+
+.customer-care-btn:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.2);
+}
+
+.care-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #25d366;
+    color: #fff;
+    font-size: 25px;
+}
+
+.care-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.care-text span {
+    color: #222;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.care-text small {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #777;
+    font-size: 11px;
+}
+
+.online-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #16803c;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.online-status > span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #25d366;
+}
+
+
+/* =========================================================
+   SUCCESS POPUP
+========================================================= */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 30px;
+    border-radius: 22px;
+    background: #fff;
+    text-align: center;
+    transform: translateY(25px) scale(0.96);
+    transition: 0.3s;
+}
+
+.popup-overlay.show .popup-box {
+    transform: translateY(0) scale(1);
+}
+
+.popup-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9f9ef;
+    color: #16803c;
+    font-size: 45px;
+}
+
+.popup-box h2 {
+    margin: 0 0 15px;
+    color: var(--ods-burgundy, #6b1e2e);
+}
+
+.popup-box p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.popup-btn {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--ods-burgundy, #6b1e2e);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .checkout-page .row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .checkout-page .row > div:last-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .checkout-page {
+        padding: 30px 12px 100px;
+    }
+
+    .checkout-container > h1 {
+        margin-bottom: 22px;
+        font-size: 28px;
+    }
+
+    .checkout-page .section {
+        padding: 18px;
+        margin-bottom: 15px;
+        border-radius: 15px;
+    }
+
+    .checkout-page .section h3 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .checkout-page .section h3 i {
+        width: 36px;
+        height: 36px;
+        font-size: 19px;
+    }
+
+    .checkout-page .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .checkout-page .row > div:last-child {
+        grid-column: auto;
+    }
+
+    .checkout-page .row > div {
+        margin-bottom: 15px;
+    }
+
+    .checkout-page input,
+    .checkout-page select {
+        height: 50px;
+    }
+
+    .bank-row {
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        padding: 14px;
+    }
+
+    .bank-row span {
+        grid-column: 1 / -1;
+    }
+
+    .bank-row strong {
+        word-break: break-word;
+    }
+
+    .order-item {
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CUSTOMER SUPPORT MOBILE FIX */
+
+    .customer-care-btn {
+        right: 14px;
+        bottom: 14px;
+
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+
+        padding: 0;
+
+        border: none;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #25d366;
+
+        box-shadow:
+            0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+
+    .customer-care-btn .care-icon {
+        width: 56px;
+        height: 56px;
+        background: transparent;
+        font-size: 29px;
+    }
+
+    .customer-care-btn .care-text,
+    .customer-care-btn .online-status {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .checkout-page {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .checkout-page .section {
+        padding: 15px;
+    }
+
+    .order-item {
+        font-size: 12px;
+    }
+
+    .qty-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .qty-num {
+        min-width: 30px;
+    }
+
 }

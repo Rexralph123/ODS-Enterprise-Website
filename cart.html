@@ -11,22 +11,37 @@
 <body>
 
 <nav class="nav">
+
   <div class="nav-brand">
-    <div class="nav-logo"><img src="assets/logo.png" alt="O.D.S Enterprise Logo"></div>
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="O.D.S Enterprise Logo">
+    </div>
+
     <div class="nav-brand-text">
       <span class="nav-brand-name">ODS Enterprise</span>
       <span class="nav-brand-sub">Electronics & Phones</span>
     </div>
   </div>
-  <div class="nav-links">
+
+  <div class="nav-links" id="navLinks">
     <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
     <a class="nav-btn" data-page="about" href="about.html">About Us</a>
-    <a class="nav-btn" id="accountBtn" href="#">Account</a>  
-</div>
+    <a class="nav-btn" id="accountBtn" href="#">Account</a>
+  </div>
+
   <a class="cart-btn" href="cart.html">
     <i class="ti ti-shopping-cart" aria-hidden="true"></i>
-    Cart <span class="cart-badge" id="cart-count">0</span>
+    Cart
+    <span class="cart-badge" id="cart-count">0</span>
   </a>
+
+  <!-- MOBILE MENU BUTTON -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+  </button>
+
 </nav>
 
 <div class="cart-layout">
@@ -57,20 +72,27 @@ function renderCart(){
     const p = PRODUCTS.find(x => x.id == id);
     const qty = cart[id];
     subtotal += p.price * qty;
-    return `<div class="cart-item">
+
+    return `
+    <div class="cart-item">
       <div class="cart-item-img">
         <img src="${p.image}" alt="${p.name}">
       </div>
+
       <div class="cart-item-info">
         <div class="cart-item-name">${p.name}</div>
         <div class="cart-item-price">${fmt(p.price)} each</div>
       </div>
+
       <div class="qty-ctrl">
         <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
         <span class="qty-num">${qty}</span>
         <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
       </div>
-      <button class="remove-btn" onclick="removeItem(${id})" aria-label="Remove"><i class="ti ti-trash" aria-hidden="true"></i></button>
+
+      <button class="remove-btn" onclick="removeItem(${id})" aria-label="Remove">
+        <i class="ti ti-trash" aria-hidden="true"></i>
+      </button>
     </div>`;
   }).join('');
 
@@ -79,23 +101,63 @@ function renderCart(){
 
   container.innerHTML = itemsHtml + `
     <div class="cart-summary">
-      <div class="summary-row"><span>Subtotal</span><span>${fmt(subtotal)}</span></div>
-      <div class="summary-row"><span>Shipping</span><span>${shipping===0 ? '<span style="color:#27500A">₦6000</span>' : fmt(shipping)}</span></div>
-      <div class="summary-total"><span>Total</span><span style="color:var(--ods-burgundy)">${fmt(total)}</span></div>
-      <a class="checkout-btn" style="display:block;text-align:center;box-sizing:border-box" href="checkout.html">Proceed to Checkout <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>${fmt(subtotal)}</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span>${shipping===0 ? '<span style="color:#27500A">₦6000</span>' : fmt(shipping)}</span>
+      </div>
+
+      <div class="summary-total">
+        <span>Total</span>
+        <span style="color:var(--ods-burgundy)">${fmt(total)}</span>
+      </div>
+
+      <!-- UPDATED BUTTON -->
+      <a class="checkout-btn"
+         style="display:block;text-align:center;box-sizing:border-box"
+         href="form.html">
+         Proceed to Checkout
+         <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </a>
     </div>`;
 }
 
 setActiveNav('cart');
 renderCart();
 
-
-/*Page comming soon (Account)*/
+/* Page coming soon (Account) */
 document.getElementById("accountBtn").addEventListener("click", function (e) {
     e.preventDefault();
     alert("🚧 Account page is coming soon!");
 });
 
+/* Mobile NAV */
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const navLinks = document.getElementById("navLinks");
+
+mobileMenuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+    mobileMenuBtn.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+        mobileMenuBtn.setAttribute("aria-label", "Close navigation menu");
+    } else {
+        mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+    }
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        mobileMenuBtn.classList.remove("active");
+        mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+    });
+});
 </script>
+
 </body>
 </html>

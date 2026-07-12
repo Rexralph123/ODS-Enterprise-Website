@@ -41,15 +41,18 @@
             <a class="nav-btn" data-page="account" href="#">Account</a>
         </div>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <i class="ti ti-menu-2"></i>
-        </button>
-
         <a class="cart-btn" href="cart.html">
             <i class="ti ti-shopping-cart"></i>
             Cart
             <span class="cart-badge" id="cart-count">0</span>
         </a>
+
+        <!-- MOBILE MENU BUTTON (single source of truth for the hamburger) -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
 
     </nav>
 
@@ -149,51 +152,73 @@
                     <option>Card Payment</option>
                 </select>
 
-                <div id="bankTransferInfo" class="bank-info">
+                <!-- BANK TRANSFER (now using the bank-transfer-box design system + logo) -->
+                <div id="bankTransferInfo" class="bank-transfer-box">
 
-                    <h4>
-                        <i class="ti ti-building-bank"></i>
-                        Bank Transfer Details
-                    </h4>
+                    <div class="bank-transfer-head">
 
-                    <div class="bank-card">
-
-                        <div class="bank-row">
-                            <span>Bank</span>
-                            <strong>Opay</strong>
+                        <div class="opay-logo-box">
+                            <img src="assets/opay-logo.png" alt="Opay" class="opay-logo"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('i'),{className:'ti ti-building-bank',style:'font-size:26px;color:var(--ods-gold)'}))">
                         </div>
 
-                        <div class="bank-row">
-                            <span>Account Name</span>
-                            <strong>O.D.S Enterprise</strong>
-                        </div>
-
-                        <div class="bank-row">
-                            <span>Account Number</span>
-                            <strong id="accountNumber">6104090884</strong>
-                            <button type="button" class="copy-btn" onclick="copyAccount()">
-                                <i class="ti ti-copy"></i>
-                            </button>
+                        <div class="bank-transfer-title">
+                            <strong>Bank Transfer Details</strong>
+                            <p>Transfer the order total to the account below, then keep your receipt handy.</p>
                         </div>
 
                     </div>
 
-                    <p class="bank-note">
-                        <strong>Payment Confirmation Notice</strong><br><br>
-                        • After making your bank transfer, payment confirmation typically takes
-                        <strong>10 minutes to 2 hours</strong>, depending on the banking network.
-                        <br><br>
-                        • Once your payment has been verified, our team will contact you via your
-                        <strong>Email Address</strong> and <strong>WhatsApp Number</strong> to confirm
-                        receipt of your payment.
-                        <br><br>
-                        • During this confirmation, we will also discuss and agree on the
-                        <strong>delivery fee</strong>, delivery schedule, and any other necessary
-                        order details before dispatching your items.
-                        <br><br>
-                        • Please ensure the phone number, WhatsApp number, and email address you
-                        provide are correct so we can reach you without delay.
-                    </p>
+                    <div class="bank-account-card">
+
+                        <div class="bank-detail-row">
+                            <span class="bank-detail-label">Bank</span>
+                            <div class="bank-detail-value opay-bank">
+                                <img src="assets/opay-logo.png" alt="" class="opay-mini-logo"
+                                     onerror="this.style.display='none'">
+                                <strong>Opay</strong>
+                            </div>
+                        </div>
+
+                        <div class="bank-detail-row">
+                            <span class="bank-detail-label">Account Name</span>
+                            <div class="bank-detail-value">
+                                <strong>O.D.S Enterprise</strong>
+                            </div>
+                        </div>
+
+                        <div class="bank-detail-row">
+                            <span class="bank-detail-label">Account Number</span>
+                            <div class="bank-detail-value">
+                                <strong id="accountNumber" class="account-number">6104090884</strong>
+                                <button type="button" class="copy-bank-btn" onclick="copyAccount()">
+                                    <i class="ti ti-copy"></i>
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bank-detail-row">
+                            <span class="bank-detail-label">Amount</span>
+                            <div class="bank-detail-value">
+                                <strong class="transfer-amount" id="bankTransferAmount">—</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="bank-notice">
+                        <i class="ti ti-info-circle"></i>
+                        <span>
+                            After transferring, payment confirmation typically takes
+                            <strong>10 minutes to 2 hours</strong> depending on the banking network.
+                            Once verified, our team will contact you via your
+                            <strong>Email</strong> and <strong>WhatsApp Number</strong> to confirm
+                            receipt and agree on the delivery fee, schedule, and other order
+                            details before dispatch. Please make sure your phone, WhatsApp, and
+                            email are correct so we can reach you without delay.
+                        </span>
+                    </div>
 
                 </div>
 
@@ -315,7 +340,7 @@
             SCRIPTS
     =========================== -->
 
-    <script src="assets/script.js"></script>
+    <script src="assets/cart.js"></script>
 
     <script>
 
@@ -330,14 +355,31 @@
         const agreeTerms       = document.getElementById("agreeTerms");
         const whatsappAsk      = document.getElementById("whatsappAsk");
         const popup            = document.getElementById("successPopup");
-        const navToggle        = document.getElementById("navToggle");
         const navLinks         = document.getElementById("navLinks");
+        const mobileMenuBtn    = document.getElementById("mobileMenuBtn");
+        const bankTransferAmount = document.getElementById("bankTransferAmount");
 
         let currentTotal = 0;
         let cartIsEmpty  = true;
 
         /* ---------- Mobile nav toggle ---------- */
-        navToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
+        mobileMenuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+            mobileMenuBtn.classList.toggle("active");
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                navLinks.classList.contains("active") ? "Close navigation menu" : "Open navigation menu"
+            );
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                mobileMenuBtn.classList.remove("active");
+                mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+            });
+        });
 
         /* ---------- Show/Hide Delivery Address ---------- */
         function toggleDelivery() {
@@ -367,10 +409,13 @@
                 currentTotal = 0;
                 orderBox.innerHTML = `
                     <div class="order-empty">
-                        Your cart is empty. <a href="index.html">Browse products</a> to add something first.
+                        <i class="ti ti-shopping-cart-off"></i>
+                        <p>Your cart is empty.</p>
+                        <a href="index.html">Browse products →</a>
                     </div>`;
                 orderBtn.disabled = true;
                 updateWhatsappLink([]);
+                bankTransferAmount.textContent = "—";
                 return;
             }
 
@@ -390,38 +435,52 @@
 
                 rows += `
                     <div class="order-item">
-                        <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
-                            <span style="font-weight:600">${product.name}</span>
-                            <div class="qty-ctrl">
-                                <button type="button" class="qty-btn" onclick="adjustQty(${product.id},-1)">−</button>
-                                <span class="qty-num">${qty}</span>
-                                <button type="button" class="qty-btn" onclick="adjustQty(${product.id},1)">+</button>
-                            </div>
+                        <div class="order-item-thumb">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'">
                         </div>
-                        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
-                            <span>${fmt(lineTotal)}</span>
-                            <button type="button" class="remove-btn" onclick="removeOrderItem(${product.id})" title="Remove">
-                                <i class="ti ti-trash"></i>
-                            </button>
+                        <div class="order-item-main">
+                            <div class="order-item-top">
+                                <span class="order-item-name">${product.name}</span>
+                                <span class="order-condition-badge ${product.condition==='UK-Used' ? 'uk-used' : 'brand-new'}">${product.condition||'Brand New'}</span>
+                            </div>
+                            <div class="order-item-bottom">
+                                <div class="qty-ctrl">
+                                    <button type="button" class="qty-btn" onclick="adjustQty(${product.id},-1)">−</button>
+                                    <span class="qty-num">${qty}</span>
+                                    <button type="button" class="qty-btn" onclick="adjustQty(${product.id},1)">+</button>
+                                </div>
+                                <div class="order-item-right">
+                                    <span class="order-item-price">${fmt(lineTotal)}</span>
+                                    <button type="button" class="remove-btn" onclick="removeOrderItem(${product.id})" title="Remove">
+                                        <i class="ti ti-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>`;
             });
 
             rows += `
-                <div class="order-item">
-                    <span>Delivery</span>
-                    <span>To Be Confirmed</span>
-                </div>
-                <hr>
-                <div class="order-item">
-                    <strong>Total</strong>
-                    <strong>${fmt(total)}</strong>
+                <div class="order-totals">
+                    <div class="order-total-row">
+                        <span>Subtotal</span>
+                        <span>${fmt(total)}</span>
+                    </div>
+                    <div class="order-total-row">
+                        <span>Delivery</span>
+                        <span class="order-tbc">To Be Confirmed</span>
+                    </div>
+                    <div class="order-total-row grand">
+                        <span>Total</span>
+                        <span>${fmt(total)}</span>
+                    </div>
                 </div>`;
 
             orderBox.innerHTML = rows;
             currentTotal = total;
             orderBtn.disabled = false;
             updateWhatsappLink(summaryLines, total);
+            bankTransferAmount.textContent = fmt(total);
         }
 
         function adjustQty(id, delta) {
