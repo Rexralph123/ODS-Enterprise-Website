@@ -9,10 +9,12 @@ const CONDITIONS = ['Brand New', 'UK-Used'];
 
 const PRODUCTS = [
   {
-    id:1,name:'ProMax X15 Smartphone',cat:'phones',condition:'Brand New',price:189000,
-    image:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800',
-    badge:'new',desc:'6.7" AMOLED, 256GB',
-    specs:{Condition:'Brand New',Storage:'256GB',Display:'6.7" AMOLED',Camera:'50MP Triple',Battery:'5000mAh',Warranty:'1 Year'}
+    id:1,
+    name:"iPhone 15 ProMax",cat:"phones",condition:'Brand New',price:2099000.0,image:"images/iPhone_15_Pro_Max_Black_Titanium.webp",
+    gallery:[
+      "images/iPhone_15_Pro_Max_Black_Titanium.webp","images/iPhone_15_Pro_Max_Black_Titanium2.webp","images/iPhone_15_Pro_Max_Black_Titanium3.webp","images/iPhone_15_Pro_Max_Blue_Titanium4.webp"
+    ],
+    badge:"sale",desc:'6.7" AMOLED 256GB',specs:{Condition:'Brand New',Storage:'256GB',Display:'6.7" AMOLED',Camera:'50MP Triple',Battery:'5000mAh',Warranty:'1 Year'}
   },
   {
     id:2,name:'BudPro Wireless Earbuds',cat:'audio',condition:'Brand New',price:45000,image:'images/Q10 CYXG.JPG',
@@ -55,12 +57,12 @@ const PRODUCTS = [
     specs:{Condition:'Brand New','Battery Life':'Up to 10 Days',Connectivity:'Bluetooth','Water Resistance':'IP68',Warranty:'6 Months'}
   },
   {
-    id:10,name:'Tablet Air 11IPAD 11TH GEN',cat:'accessories',condition:'Brand New',price:185000,image:'images/IPAD 11TH GEN.jpg',
+    id:10,name:'Tablet Air 11IPAD 11TH GEN',cat:'accessories',condition:'Brand New',price:585000,image:'images/IPAD 11TH GEN.jpg',
     badge:'new',desc:'M2 chip, 128GB',
     specs:{Condition:'Brand New',Storage:'128GB',Chip:'Apple M2',Display:'10.9" Liquid Retina',Warranty:'1 Year'}
   },
   {
-    id:11,name:'Redmi Note 13 Pro',cat:'phones',condition:'Brand New',price:125000,image:'images/s-l1600.webp',
+    id:11,name:'Redmi Note 13 Pro',cat:'phones',condition:'Brand New',price:750000,image:'images/s-l1600.webp',
     badge:'sale',desc:'200MP, 5000mAh',
     specs:{Condition:'Brand New',Storage:'256GB',Display:'6.67" AMOLED',Camera:'200MP',Battery:'5000mAh',Warranty:'1 Year'}
   },
@@ -112,14 +114,20 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Storage:'512GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'48MP Dual',Warranty:'1 Year'}
   },
   {
-    id:16,name:'iPhone 12',cat:'phones',condition:'Brand New',price:274000,image:'images/iPhone 12blue.webp',
-    badge:'new',desc:'physical sim, BH: 100%, 128GB',
-    specs:{Condition:'Brand New',Storage:'128GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'1 Year'}
+    id:16,
+    name:"iPhone 12",cat:"phones",condition:'Brand New',price:274000,image:"images/iphone-12.jpg",
+    gallery:[
+      "images/iphone-12.jpg","images/iPhone 12blue.webp","images/iPhone 12_p.webp","images/iPhone 12_red.webp"
+    ],
+    badge:"New",desc:"physical sim, BH: 100%, 128GB.",specs:{Condition:"Brand New",Storage:"128GB",Battery:"100%",SIM:"Physical SIM",Display:'6.1" Super Retina XDR',Camera:"12MP Dual",Warranty:"1 Year"}
   },
   {
-    id:17,name:'iPhone 13',cat:'phones',condition:'Brand New',price:550000,image:'images/iPhone 13-blue.webp',
-    badge:'new',desc:'physical sim, BH: 100%, 128GB',
-    specs:{Condition:'Brand New',Storage:'128GB',Battery:'100%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'1 Year'}
+    id:17,
+    name:"iPhone 13",cat:"phones",condition:'Brand New',price:550000,image:"images/iPhone-13-Body.webp",
+    gallery:[
+      "images/iPhone-13.jpg","images/iphone-13c.jpg","images/iphone-13s.jpg","images/iphone 13-ft.jpg"
+    ],
+    badge:"sale",desc:"physical sim, BH: 100%, 128GB.",specs:{Condition:"Brand New",Storage:"128GB",Battery:"100%",SIM:"Physical SIM",Display:'6.1" Super Retina XDR',Camera:"12MP Dual",Warranty:"1 Year"}
   },
   {
     id:18,name:'iPhone 14',cat:'phones',condition:'UK-Used',price:575000,image:'images/iPhone 14_Uk.jpg',
@@ -177,10 +185,67 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Year'}
   },
   {
-    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:6000,image:'images/Vacuum Bottle.jpeg',
+    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:8781.52,image:'images/Vacuum Bottle.jpeg',
     badge:'sale',desc:'Vacuum Bottle',
     specs:{Condition:'Brand New',Capacity:'500ml',Material:'Stainless Steel',Warranty:'3 Months'}
   },
+  {
+    id:30,
+    name:"Fan",cat:"accessories",condition:'Brand New',price:9000,image:"images/Fan.jpg",
+    gallery:[
+      "images/Fan.jpg","images/Fan1.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+  {
+    id:31,
+    name:"Bag",cat:"accessories",condition:'Brand New',price:13531.5,image:"images/Laptop Bag.jpg",
+    gallery:[
+      "images/Laptop Bag.jpg","images/Fan1.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Bag in excellent condition with no faults.",specs:{Condition:"New",Capacity:"Nil",Material:"Cloth",Warranty:"1 Day"}
+  },
+  {
+    id:32,
+    name:"Fan",cat:"accessories",condition:'Brand New',price:9781.5,image:"images/Blow Fan.jpg",
+    gallery:[
+      "images/Blow Fan.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+  {
+    id:33,
+    name:"Neck Fan",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Neck Fan.jpg",
+    gallery:[
+      "images/Neck Fan.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Neck Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+  {
+    id:34,
+    name:"Fan",cat:"accessories",condition:'Brand New',price:43781.5,image:"images/Solar Fan.jpg",
+    gallery:[
+      "images/Solar Fan.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+  {
+    id:35,
+    name:"Massaging Gun",cat:"accessories",condition:'Brand New',price:9406.5,image:"images/Massaging Gun.jpg",
+    gallery:[
+      "images/Massaging Gun.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Massaging Gun in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+  {
+    id:36,
+    name:"Brush",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Brush.jpg",
+    gallery:[
+      "images/Brush.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
+    ],
+    badge:"sale",desc:"Brand New Brush in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+
 ];
 
 const ORDERS = [

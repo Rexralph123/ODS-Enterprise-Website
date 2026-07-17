@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
     <link rel="icon" type="image/png" href="assets/backgroundless logo 1.png">
 
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
 
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -79,20 +80,25 @@
 
                     <div>
                         <label>Full Name</label>
+
                         <input type="text" id="fullName" placeholder="Enter your full name">
                         <span class="field-error" id="fullNameError">Please enter your full name.</span>
+
                     </div>
 
                     <div>
                         <label>Phone Number</label>
+
                         <input type="tel" id="phone" placeholder="+234...">
                         <span class="field-error" id="phoneError">Please enter a valid phone number.</span>
+
                     </div>
 
                     <div>
                         <label>WhatsApp Number</label>
                         <input type="tel" id="whatsapp" placeholder="+234 801 234 5678">
                         <span class="field-error" id="whatsappError">Please enter a valid WhatsApp number.</span>
+
                     </div>
 
                 </div>
@@ -100,6 +106,7 @@
                 <label>Email Address</label>
                 <input type="email" id="email" placeholder="Enter your email">
                 <span class="field-error" id="emailError">Please enter a valid email address.</span>
+
 
             </div>
 
@@ -122,8 +129,10 @@
                 <div id="deliveryFields">
 
                     <label>Delivery Address</label>
+
                     <textarea id="address" placeholder="Enter your delivery address"></textarea>
                     <span class="field-error" id="addressError">Please enter your delivery address.</span>
+
 
                     <div class="notice">
                         <strong>Delivery Notice</strong>
@@ -165,6 +174,21 @@
                         <div class="bank-transfer-title">
                             <strong>Bank Transfer Details</strong>
                             <p>Transfer the order total to the account below, then keep your receipt handy.</p>
+                        </div>
+
+                        <div class="bank-row">
+                            <span>Account Name</span>
+                            <strong>O.D.S Enterprise</strong>
+                        </div>
+
+                        <div class="bank-row">
+                            <span>Account Number</span>
+
+                            <strong id="accountNumber">6104090884</strong>
+                            <button type="button" class="copy-btn" onclick="copyAccount()">
+
+                                <i class="ti ti-copy"></i>
+                            </button>
                         </div>
 
                     </div>
@@ -222,6 +246,7 @@
 
                 </div>
 
+
                 <div id="cardPaymentInfo" class="notice" style="display:none">
                     <strong>Card Payment</strong>
                     <p>
@@ -268,8 +293,9 @@
                 </button>
 
                 <a class="whatsapp-btn" id="whatsappAsk"
-                   href="https://wa.me/2348012345678?text=Hello,%20I%20need%20more%20information%20about%20this%20product."
+                   href="https://wa.me/2349138708525?text=Hello,%20I%20need%20more%20information%20about%20this%20product."
                    target="_blank">
+
                     <i class="ti ti-brand-whatsapp"></i>
                     Ask on WhatsApp
                 </a>
@@ -282,10 +308,11 @@
                 FLOATING CUSTOMER CARE
         ========================== -->
 
-        <a href="https://wa.me/2348012345678"
+        <a href="https://wa.me/2349138708525"
            class="customer-care-btn"
            target="_blank"
            title="Chat with Customer Care on WhatsApp">
+
 
             <div class="care-icon">
                 <i class="ti ti-brand-whatsapp"></i>
@@ -296,6 +323,7 @@
                 <small>
                     <i class="ti ti-phone-call"></i>
                     +234 913 870 8525
+
                 </small>
             </div>
 
@@ -540,6 +568,10 @@
                 if (!addrOk) firstInvalid = firstInvalid || address;
                 valid = valid && addrOk;
             }
+        }
+
+            }
+        });
 
             valid = nameOk && phoneOk && waOk && emailOk && valid;
 
@@ -592,7 +624,9 @@
         toggleBank();
         renderOrder();
 
+
     </script>
 
 </body>
+
 </html>
