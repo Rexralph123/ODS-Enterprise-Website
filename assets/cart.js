@@ -66,27 +66,33 @@ const PRODUCTS = [
     badge:'sale',desc:'200MP, 5000mAh',
     specs:{Condition:'Brand New',Storage:'256GB',Display:'6.67" AMOLED',Camera:'200MP',Battery:'5000mAh',Warranty:'1 Year'}
   },
+  
   {
-    id:12,name:'TWS Gaming Earbuds',cat:'audio',condition:'Brand New',price:28000,image:'images/T13 Plus.jpg',
-    badge:null,desc:'Low latency, RGB',
-    specs:{Condition:'Brand New','Battery Life':'24 Hours (with case)',Connectivity:'Bluetooth 5.3, Low Latency Mode',Warranty:'3 Months'}
-  },
-  {
-    id:13,
-    name:"iPhone 11",
-    cat:"phones",
-    condition:'UK-Used',
-    price:199000,
-    image:"images/iPhone 11_Uk.jpg",
+    id:12,name:'TWS Gaming Earbuds',cat:'audio',condition:'Brand New',price:28000,
+    image:'images/T13 Plus.jpg',
     gallery:[
       "images/iPhone 11_Uk.jpg",
       "images/iPhone11/back.jpg",
       "images/iPhone11/left.jpg",
       "images/iPhone11/right.jpg"
     ],
-    badge:"sale",
-    desc:"UK Used iPhone 11 in excellent condition with no cracks or faults.",
-    specs:{
+    badge:null,desc:'Low latency, RGB',
+    specs:{Condition:'Brand New','Battery Life':'24 Hours (with case)',Connectivity:'Bluetooth 5.3, Low Latency Mode',Warranty:'3 Months'}
+  },
+
+
+  {
+    id:13,
+    name:"iPhone 11", cat:"phones", condition:'UK-Used', price:199000,
+    image:"images/iPhone 11_Uk.jpg", 
+    gallery:[
+      "images/iPhone 11_Uk.jpg",
+      "images/iPhone11/back.jpg",
+      "images/iPhone11/left.jpg",
+      "images/iPhone11/right.jpg"
+    ],
+    badge:"sale", desc:"UK Used iPhone 11 in excellent condition with no cracks or faults.", 
+      specs:{
       Condition:"UK Used",
       Storage:"64GB",
       Battery:"76%",
@@ -96,6 +102,7 @@ const PRODUCTS = [
       Warranty:"7 Days"
     }
   },
+
   {
     id:14,name:'iPhone 17 Pro Max',cat:'phones',condition:'UK-Used',price:1980000,image:'images/iPhone 17_Pro_Max_Uk.jpg',
     badge:'sale',desc:'UK-Used, physical sim, BH: 100%, 512GB',
