@@ -495,7 +495,8 @@ Mobile View Hero
     .hero-media{
         justify-content: center;
         align-items: center;
-        margin-left: 80px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 
