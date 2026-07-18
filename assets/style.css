@@ -1,4 +1,3 @@
-
 /*====================
 Table of content*
 ======================/
@@ -59,7 +58,7 @@ a{text-decoration:none;color:inherit}
 .nav-brand-name{font-size:15px;font-weight:600;color:#fff;letter-spacing:0.2px;white-space:nowrap}
 .nav-brand-sub{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
 .nav-links{display:flex;gap:4px}
-.nav-btn{background:transparent;border:none;padding:8px 12px;font-size:13px;color:rgba(255,255,255,0.65);cursor:pointer;border-radius:6px;transition:all 0.15s;white-space:nowrap;font-family:inherit}
+.nav-btn{background:transparent;border:none;padding:8px 12px;font-size:13px;color:rgba(255,255,255,0.65);cursor:pointer;border-radius:6px;transition:all 0.15s;white-space:nowrap;font-family:inherit;display:flex;align-items:center;gap:6px}
 .nav-btn:hover{background:rgba(255,255,255,0.1);color:#fff}
 .nav-btn.active{color:#fff;background:rgba(255,255,255,0.12)}
 .cart-btn{background:var(--ods-gold);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;font-weight:600;font-family:inherit;flex-shrink:0}
@@ -593,6 +592,13 @@ Mobile View Hero
     border-color:var(--ods-gold);
 }
 
+.stat-icon{
+    display:block;
+    font-size:22px;
+    color:var(--ods-gold);
+    margin-bottom:10px;
+}
+
 .stat-item .num{
 
     font-size:2rem;
@@ -611,25 +617,6 @@ Mobile View Hero
     font-size:.95rem;
 
     line-height:1.5;
-}
-
-/* Gold line on top */
-
-.stat-item::before{
-
-    content:"";
-
-    display:block;
-
-    width:55px;
-
-    height:4px;
-
-    margin:0 auto 18px;
-
-    background:var(--ods-gold);
-
-    border-radius:30px;
 }
 
 /* Responsive */
@@ -656,11 +643,6 @@ Mobile View Hero
     .stat-item .lbl{
         font-size: .85rem;
     }
-
-    .stat-item::before{
-        width: 45px;
-        margin-bottom: 14px;
-    }
 }
 
 
@@ -680,6 +662,11 @@ Mobile View Hero
         border-radius: 14px;
     }
 
+    .stat-icon{
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
     .stat-item .num{
         font-size: 1.25rem;
         margin-bottom: 5px;
@@ -688,12 +675,6 @@ Mobile View Hero
     .stat-item .lbl{
         font-size: .75rem;
         line-height: 1.3;
-    }
-
-    .stat-item::before{
-        width: 35px;
-        height: 3px;
-        margin-bottom: 10px;
     }
 }
 
@@ -740,6 +721,7 @@ Mobile View Hero
   height:fit-content;
 }
 .showcase-eyebrow{
+  display:flex;align-items:center;gap:6px;
   font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--ods-tan-dark);margin-bottom:4px;
 }
@@ -833,9 +815,11 @@ Mobile View Hero
    gutter with screen size instead of a fixed centered column */
 .shop-layout{max-width:1800px;margin:0 auto;padding:24px clamp(14px,4vw,56px) 48px}
 .filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
-.filter-btn{background:transparent;border:1px solid var(--border-color);padding:6px 14px;border-radius:20px;font-size:13px;cursor:pointer;color:var(--text-secondary);transition:all 0.15s;font-family:inherit}
+.filter-btn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--border-color);padding:6px 14px;border-radius:20px;font-size:13px;cursor:pointer;color:var(--text-secondary);transition:all 0.15s;font-family:inherit}
 .filter-btn:hover,.filter-btn.active{background:var(--ods-burgundy);color:#fff;border-color:var(--ods-burgundy)}
-.search-input{margin-left:auto;padding:7px 14px;border:1px solid var(--border-color);border-radius:8px;font-size:13px;background:var(--bg-primary);color:var(--text-primary);width:200px;font-family:inherit}
+.search-wrap{margin-left:auto;position:relative;display:flex;align-items:center;width:200px}
+.search-icon{position:absolute;left:12px;font-size:14px;color:var(--text-secondary);pointer-events:none}
+.search-input{padding:7px 14px 7px 34px;border:1px solid var(--border-color);border-radius:8px;font-size:13px;background:var(--bg-primary);color:var(--text-primary);width:100%;font-family:inherit}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;align-items:stretch}
 
 /* Card is a fixed-shape column: image → info block → price/buy pinned to the
@@ -911,9 +895,12 @@ Mobile View Hero
 .product-price{font-size:16px;font-weight:600;color:var(--ods-burgundy)}
 .add-btn{background:var(--bg-secondary);border:1px solid var(--border-color);color:var(--ods-burgundy);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .buy-btn{background:var(--ods-burgundy);color:#fff;border:none;padding:8px 0;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:600;width:100%;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit}
+.buy-btn i{font-size:15px}
 .badge-new,
 .badge-sale {
     display: inline-flex;
+    align-items:center;
+    gap:5px;
     width: fit-content;
     align-self: flex-start;
 
@@ -1309,13 +1296,7 @@ Mobile View Hero
 
   /* Shop filter bar: full-width search, wraps cleanly */
   .filter-bar{gap:8px}
-  .search-input{margin-left:0;width:100%;order:10}
-
-  /* Product popup: stack image over details, allow scrolling */
-  .popup{grid-template-columns:1fr;max-height:92vh;overflow-y:auto}
-  .popup-left{padding:20px}
-  .popup-right{padding:20px}
-  #popupImage{height:240px}
+  .search-wrap{margin-left:0;width:100%;order:10}
 }
 
 @media (max-width:420px){
@@ -1323,6 +1304,10 @@ Mobile View Hero
   .shop-layout{padding-left:12px;padding-right:12px}
 }
 
+
+/* =========================================================
+   PRODUCT POPUP  (desktop base)
+========================================================= */
 
 .product-popup{
 position:fixed;
@@ -1360,6 +1345,10 @@ background:#fafafa;
 .popup-right{
 padding:35px;
 overflow-y:auto;
+}
+
+.popup-drag-handle{
+    display:none; /* shown only on mobile bottom-sheet layout */
 }
 
 #popupImage{
@@ -1403,10 +1392,15 @@ border-radius:50%;
 cursor:pointer;
 font-size:22px;
 z-index:2;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 #popupBadge{
-display:inline-block;
+display:inline-flex;
+align-items:center;
+gap:6px;
 padding:6px 12px;
 background:#8B1E3F;
 color:#fff;
@@ -1419,6 +1413,9 @@ margin-bottom:10px;
 }
 
 #popupPrice{
+display:flex;
+align-items:center;
+gap:4px;
 font-size:30px;
 color:#8B1E3F;
 margin-bottom:20px;
@@ -1433,16 +1430,27 @@ color:#666;
 .spec{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:12px 0;
 border-bottom:1px solid #eee;
 }
+.spec strong{
+display:flex;
+align-items:center;
+gap:8px;
+color:var(--text-primary);
+}
+.spec strong i{
+color:var(--ods-gold);
+font-size:16px;
+}
 
-
-
-
-
-
-
+/* Add to cart / buy now row — on desktop these stay as plain stacked
+   .buy-btn elements (same as the original layout); the side-by-side /
+   outline treatment below is mobile-only. */
+#popupBuy{
+    color:#fff;
+}
 
 
 /*CUT-----OUT---CHECKOUT PAGE STYLES-----CUT*/
@@ -1675,7 +1683,9 @@ border-bottom:1px solid #eee;
     }
 
     .nav-links .nav-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         width: 100%;
         padding: 18px 25px;
 
@@ -2876,3 +2886,95 @@ border-bottom:1px solid #eee;
     }
 
 }
+
+
+/* =========================================================
+   PRODUCT POPUP — MOBILE BOTTOM SHEET
+   Replaces the plain "shrink the grid to one column" mobile
+   fix with a proper slide-up sheet: image pinned at the top,
+   only the details column scrolls, and Add to Cart / Buy Now
+   stay reachable in a sticky action bar at the bottom.
+========================================================= */
+
+@media (max-width:700px){
+
+  .product-popup{
+    align-items:flex-end;
+    padding:0;
+  }
+
+  .popup{
+    width:100%;
+    max-width:100%;
+    max-height:94vh;
+    height:94vh;
+    border-radius:20px 20px 0 0;
+    grid-template-columns:1fr;
+    grid-template-rows:auto 1fr;
+    overflow:hidden;         /* only .popup-right scrolls, not the whole sheet */
+    animation:popupSlideUp .3s ease;
+  }
+
+  .popup-drag-handle{
+    display:block;
+    width:44px;
+    height:4px;
+    margin:2px auto 12px;
+    border-radius:4px;
+    background:var(--border-color);
+  }
+
+  .popup-left{
+    padding:14px 16px 0;
+    flex-shrink:0;
+  }
+
+  .popup-right{
+    padding:16px 16px 20px;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    display:flex;
+    flex-direction:column;
+  }
+
+  #popupImage{ height:200px }
+  #popupGallery{ margin-top:14px }
+  #popupGallery img{ width:56px; height:56px }
+
+  .popup-close{
+    top:10px; right:10px;
+    width:38px; height:38px;
+    font-size:18px;
+  }
+
+  #popupName{ font-size:18px; margin-bottom:6px }
+  #popupPrice{ font-size:24px; margin-bottom:14px }
+  #popupDesc{ margin-bottom:18px; font-size:13.5px }
+
+  .spec{
+    font-size:13px;
+    padding:10px 0;
+  }
+
+  /* Buttons pinned to the bottom of the sheet, always reachable
+     regardless of how far the user scrolls the specs */
+  .popup-actions{
+    position:sticky;
+    bottom:-20px;             /* cancels .popup-right's own bottom padding */
+    margin:16px -16px -20px;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:#fff;
+    border-top:1px solid var(--border-color);
+    box-shadow:0 -8px 20px rgba(0,0,0,.06);
+  }
+}
+
+@keyframes popupSlideUp{
+  from{ transform:translateY(40px); opacity:0 }
+  to{ transform:translateY(0); opacity:1 }
+}
+
+@media (max-width:380px){
+  .popup-actions{ flex-direction:column }
+}
+
