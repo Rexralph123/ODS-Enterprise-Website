@@ -13,6 +13,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.44.0/tabler-icons.min.css">
 
     <link rel="stylesheet" href="assets/style.css">
+
+    <!-- EmailJS library must load before any script that calls emailjs.* -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script src="assets/cart.js"></script>
 </head>
 
 <body>
@@ -168,7 +173,7 @@
 
                         <div class="opay-logo-box">
                             <img src="assets/opay-logo.png" alt="Opay" class="opay-logo"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('i'),{className:'ti ti-building-bank',style:'font-size:26px;color:var(--ods-gold)'}))">
+                                onerror="this.replaceWith(Object.assign(document.createElement('i'),{className:'ti ti-building-bank',style:'font-size:26px;color:var(--ods-gold)'}))">
                         </div>
 
                         <div class="bank-transfer-title">
@@ -199,7 +204,7 @@
                             <span class="bank-detail-label">Bank</span>
                             <div class="bank-detail-value opay-bank">
                                 <img src="assets/opay-logo.png" alt="" class="opay-mini-logo"
-                                     onerror="this.style.display='none'">
+                                    onerror="this.style.display='none'">
                                 <strong>Opay</strong>
                             </div>
                         </div>
@@ -214,7 +219,7 @@
                         <div class="bank-detail-row">
                             <span class="bank-detail-label">Account Number</span>
                             <div class="bank-detail-value">
-                                <strong id="accountNumber" class="account-number">6104090884</strong>
+                                <strong id="accountNumber2" class="account-number">6104090884</strong>
                                 <button type="button" class="copy-bank-btn" onclick="copyAccount()">
                                     <i class="ti ti-copy"></i>
                                     Copy
@@ -364,13 +369,46 @@
 
     </div>
 
+    <!-- ORDER ERROR POPUP -->
+
+    <div id="errorPopup" class="popup-overlay">
+
+        <div class="popup-box">
+
+            <div class="popup-icon" style="color:#c0392b;">
+                <i class="ti ti-alert-circle"></i>
+            </div>
+
+            <h2>Couldn't Send Order</h2>
+
+            <p>
+                Something went wrong while sending your order. Please check your
+                connection and try again, or reach us directly on WhatsApp.
+            </p>
+
+            <button onclick="closeErrorPopup()" class="popup-btn">
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+
     <!-- ==========================
             SCRIPTS
     =========================== -->
 
-    <script src="assets/cart.js"></script>
-
     <script>
+
+        /* ---------- EmailJS setup ---------- */
+        emailjs.init({ publicKey: "1pt2wGkoqvDpi9u2o" });
+
+        const EMAILJS_SERVICE_ID  = "service_uixwzq5";
+        const EMAILJS_TEMPLATE_ID = "template_bvg2k6j";
+
+        /* Where the order-notification email is delivered (your store's inbox).
+           Must match the {{to_email}} field configured in the EmailJS template. */
+        const STORE_EMAIL = "berrystark99@gmail.com";
 
         /* ---------- Elements ---------- */
         const deliveryOption   = document.getElementById("deliveryOption");
@@ -379,16 +417,19 @@
         const bankTransferInfo = document.getElementById("bankTransferInfo");
         const cardPaymentInfo  = document.getElementById("cardPaymentInfo");
         const orderBtn         = document.getElementById("orderBtn");
+        const orderBtnLabel    = orderBtn.innerHTML;
         const orderBox         = document.getElementById("orderBox");
         const agreeTerms       = document.getElementById("agreeTerms");
         const whatsappAsk      = document.getElementById("whatsappAsk");
         const popup            = document.getElementById("successPopup");
+        const errorPopup       = document.getElementById("errorPopup");
         const navLinks         = document.getElementById("navLinks");
         const mobileMenuBtn    = document.getElementById("mobileMenuBtn");
         const bankTransferAmount = document.getElementById("bankTransferAmount");
 
         let currentTotal = 0;
         let cartIsEmpty  = true;
+        let currentOrderLines = []; // [{name, qty, price, lineTotal}]
 
         /* ---------- Mobile nav toggle ---------- */
         mobileMenuBtn.addEventListener("click", function () {
@@ -427,10 +468,52 @@
             navigator.clipboard.writeText(num).then(() => showToast("Account number copied"));
         }
 
+        /* ---------- Escape helper for building the HTML email body ---------- */
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, s => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            }[s]));
+        }
+
+        /* ---------- Build the order-items table for the HTML email ---------- */
+        function buildOrderItemsHtml(lines, total) {
+            const rows = lines.map(l => `
+                <tr>
+                    <td style="padding:6px 0;border-bottom:1px solid #eee;">${escapeHtml(l.name)}</td>
+                    <td style="padding:6px 0;border-bottom:1px solid #eee;text-align:center;">${l.qty}</td>
+                    <td style="padding:6px 0;border-bottom:1px solid #eee;text-align:right;">${fmt(l.lineTotal)}</td>
+                </tr>`).join("");
+
+            return `
+                <table style="width:100%;font-size:14px;border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;padding:6px 0;border-bottom:2px solid #111827;color:#6b7280;">Item</th>
+                            <th style="text-align:center;padding:6px 0;border-bottom:2px solid #111827;color:#6b7280;">Qty</th>
+                            <th style="text-align:right;padding:6px 0;border-bottom:2px solid #111827;color:#6b7280;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" style="padding:10px 0 0;text-align:right;font-weight:bold;">Total</td>
+                            <td style="padding:10px 0 0;text-align:right;font-weight:bold;">${fmt(total)}</td>
+                        </tr>
+                    </tfoot>
+                </table>`;
+        }
+
+        /* ---------- Build a plain-text version of the order items ---------- */
+        function buildOrderItemsText(lines, total) {
+            const body = lines.map(l => `- ${l.name} x${l.qty} — ${fmt(l.lineTotal)}`).join("\n");
+            return `${body}\n\nTotal: ${fmt(total)}`;
+        }
+
         /* ---------- Render Order Summary from the real cart ---------- */
         function renderOrder() {
             const cart = getCart();
             const ids = Object.keys(cart);
+            currentOrderLines = [];
 
             if (ids.length === 0) {
                 cartIsEmpty = true;
@@ -460,6 +543,7 @@
                 const lineTotal = product.price * qty;
                 total += lineTotal;
                 summaryLines.push(`${product.name} x${qty}`);
+                currentOrderLines.push({ name: product.name, qty, price: product.price, lineTotal });
 
                 rows += `
                     <div class="order-item">
@@ -512,12 +596,12 @@
         }
 
         function adjustQty(id, delta) {
-            changeQty(id, delta);   // from script.js, updates localStorage + badge
+            changeQty(id, delta);   // from cart.js, updates localStorage + badge
             renderOrder();
         }
 
         function removeOrderItem(id) {
-            removeItem(id);         // from script.js
+            removeItem(id);         // from cart.js
             renderOrder();
         }
 
@@ -562,14 +646,14 @@
             setFieldError(email, document.getElementById("emailError"), !emailOk);
             if (!emailOk) firstInvalid = firstInvalid || email;
 
+            valid = nameOk && phoneOk && waOk && emailOk;
+
             if (deliveryOption.value === "yes") {
                 const addrOk = address.value.trim().length > 4;
                 setFieldError(address, document.getElementById("addressError"), !addrOk);
                 if (!addrOk) firstInvalid = firstInvalid || address;
                 valid = valid && addrOk;
             }
-
-            valid = nameOk && phoneOk && waOk && emailOk && valid;
 
             if (!valid && firstInvalid) firstInvalid.focus();
             return valid;
@@ -581,7 +665,7 @@
             el.addEventListener("input", () => el.classList.remove("invalid"));
         });
 
-        /* ---------- Place Order ---------- */
+        /* ---------- Place Order (validates, then emails the order via EmailJS) ---------- */
         orderBtn.addEventListener("click", function (e) {
             e.preventDefault();
 
@@ -595,20 +679,70 @@
                 return;
             }
 
-            // Order confirmed: clear the cart and show success
-            localStorage.removeItem("ods_cart");
-            updateCartBadge();
-            popup.classList.add("show");
+            const isDelivery = deliveryOption.value === "yes";
+
+            const templateParams = {
+                to_email:          STORE_EMAIL,
+                customer_name:     document.getElementById("fullName").value.trim(),
+                customer_phone:    document.getElementById("phone").value.trim(),
+                customer_whatsapp: document.getElementById("whatsapp").value.trim(),
+                customer_email:    document.getElementById("email").value.trim(),
+                delivery_option:   isDelivery ? "Home Delivery" : "Store Pickup",
+                delivery_address:  isDelivery ? document.getElementById("address").value.trim() : "N/A (Store Pickup)",
+                payment_method:    paymentMethod.value,
+                order_total:       fmt(currentTotal),
+                order_date:        new Date().toLocaleString("en-NG", { dateStyle: "medium", timeStyle: "short" }),
+                order_items_html:  buildOrderItemsHtml(currentOrderLines, currentTotal),
+                order_items:       buildOrderItemsText(currentOrderLines, currentTotal)
+            };
+
+            orderBtn.disabled = true;
+            orderBtn.innerHTML = `<i class="ti ti-loader-2"></i> Sending Order...`;
+
+            /* FIX: these must be the string constants defined above (EMAILJS_SERVICE_ID /
+               EMAILJS_TEMPLATE_ID), not the bare, unquoted identifiers service_uixwzq5 /
+               template_bvg2k6j — those aren't defined anywhere and threw a ReferenceError
+               before .then()/.catch() could ever run, which is why nothing appeared to
+               happen (no success popup, no error popup, no email). */
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(() => {
+                    localStorage.removeItem("ods_cart");
+                    updateCartBadge();
+                    orderBtn.disabled = false;
+                    orderBtn.innerHTML = orderBtnLabel;
+                    popup.classList.add("show");
+                })
+                .catch((error) => {
+                    console.error("EmailJS Error:", error);
+
+                alert(`
+                Status: ${error.status}
+                Message: ${error.text}
+                `);
+
+                    orderBtn.disabled = false;
+                    orderBtn.innerHTML = orderBtnLabel;
+
+                    errorPopup.classList.add("show");
+                });
         });
 
-        /* ---------- Close popup ---------- */
+        /* ---------- Close popups ---------- */
         function closePopup() {
             popup.classList.remove("show");
             window.location.href = "index.html";
         }
 
+        function closeErrorPopup() {
+            errorPopup.classList.remove("show");
+        }
+
         popup.addEventListener("click", function (e) {
             if (e.target === popup) closePopup();
+        });
+
+        errorPopup.addEventListener("click", function (e) {
+            if (e.target === errorPopup) closeErrorPopup();
         });
 
         /* ---------- Events ---------- */
@@ -619,7 +753,6 @@
         toggleDelivery();
         toggleBank();
         renderOrder();
-
 
     </script>
 
