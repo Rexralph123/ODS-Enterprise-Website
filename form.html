@@ -163,10 +163,13 @@
 
                 <select id="paymentMethod">
                     <option>Bank Transfer</option>
-                    <option>Card Payment</option>
+                    <option disabled>Card Payment (Currently Unavailable)</option>
                 </select>
 
-                <!-- BANK TRANSFER (now using the bank-transfer-box design system + logo) -->
+                <!-- BANK TRANSFER (design-system box + logo). Everything that belongs
+                     to "bank transfer mode" — header, account card, and notice — now
+                     lives INSIDE #bankTransferInfo so toggleBank() shows/hides it as
+                     one unit instead of leaving parts permanently visible. -->
                 <div id="bankTransferInfo" class="bank-transfer-box">
 
                     <div class="bank-transfer-head">
@@ -179,8 +182,6 @@
                         <div class="bank-transfer-title">
                             <strong>Bank Transfer Details</strong>
                             <p>Transfer the order total to the account below, then keep your receipt handy.</p>
-                        </div>
-
                         </div>
 
                     </div>
@@ -238,13 +239,12 @@
 
                 </div>
 
-
                 <div id="cardPaymentInfo" class="notice" style="display:none">
-                    <strong>Card Payment</strong>
+                    <strong>Card Payment — Currently Unavailable</strong>
                     <p>
-                        Card payment is arranged directly with our support team after your
-                        order is placed. We'll send a secure payment link to your email and
-                        WhatsApp number once your order is confirmed.
+                        We don't support card payments just yet. Please select
+                        <strong>Bank Transfer</strong> to complete your order, or reach us
+                        on WhatsApp if you'd like help with an alternative payment option.
                     </p>
                 </div>
 
@@ -451,7 +451,7 @@
 
         /* ---------- Copy Account Number ---------- */
         function copyAccount() {
-            const num = document.getElementById("accountNumber").textContent.trim();
+            const num = document.getElementById("accountNumber2").textContent.trim();
             navigator.clipboard.writeText(num).then(() => showToast("Account number copied"));
         }
 
@@ -686,11 +686,6 @@
             orderBtn.disabled = true;
             orderBtn.innerHTML = `<i class="ti ti-loader-2"></i> Sending Order...`;
 
-            /* FIX: these must be the string constants defined above (EMAILJS_SERVICE_ID /
-               EMAILJS_TEMPLATE_ID), not the bare, unquoted identifiers service_uixwzq5 /
-               template_bvg2k6j — those aren't defined anywhere and threw a ReferenceError
-               before .then()/.catch() could ever run, which is why nothing appeared to
-               happen (no success popup, no error popup, no email). */
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
                 .then(() => {
                     localStorage.removeItem("ods_cart");
@@ -701,11 +696,6 @@
                 })
                 .catch((error) => {
                     console.error("EmailJS Error:", error);
-
-                alert(`
-                Status: ${error.status}
-                Message: ${error.text}
-                `);
 
                     orderBtn.disabled = false;
                     orderBtn.innerHTML = orderBtnLabel;
