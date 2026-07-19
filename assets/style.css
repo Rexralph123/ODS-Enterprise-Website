@@ -1967,22 +1967,26 @@ font-size:16px;
     }
 
     .bank-transfer-head{
-        align-items:flex-start;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
         gap:14px;
+        text-align:center;
     }
 
-    .opay-logo-box{
-        width:54px;
-        height:54px;
-        border-radius:15px;
+    .bank-transfer-title{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
     }
 
     .bank-transfer-title strong{
-        font-size:16px;
+        text-align:center;
     }
 
     .bank-transfer-title p{
-        font-size:12px;
+        text-align:center;
     }
 
 }
