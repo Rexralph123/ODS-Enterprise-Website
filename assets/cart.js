@@ -17,9 +17,9 @@ const PRODUCTS = [
     badge:"sale",desc:'6.7" AMOLED 256GB',specs:{Condition:'Brand New',Storage:'256GB',Display:'6.7" AMOLED',Camera:'50MP Triple',Battery:'5000mAh',Warranty:'1 Year'}
   },
   {
-    id:2,name:'BudPro Wireless Earbuds',cat:'audio',condition:'Brand New',price:45000,image:'images/Q10 CYXG.JPG',
-    badge:'sale',desc:'ANC, 30hr battery',
-    specs:{Condition:'Brand New','Battery Life':'30 Hours (with case)',Connectivity:'Bluetooth 5.3','Noise Cancellation':'Active (ANC)',Warranty:'6 Months'}
+    id:2,name:'CYXG Wireless Earbuds',cat:'audio',condition:'Brand New',price:13200,image:'images/Q10 CYXG.JPG',
+    badge:'sale', desc:'Two in one, ANC, 10hr battery',
+    specs:{Condition:'Brand New','Battery Life':'10 Hours (with case)',Connectivity:'Bluetooth 5.3','Noise Cancellation':'Active (ANC)',Warranty:'6 Months'}
   },
   {
     id:3,name:'SmartWatch Series 8',cat:'wearables',condition:'Brand New',price:35000,image:'images/RW.jpg',
