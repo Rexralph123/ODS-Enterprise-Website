@@ -27,7 +27,7 @@ const PRODUCTS = [
     specs:{Condition:'Brand New','Battery Life':'Up to 7 Days',Connectivity:'Bluetooth Call','Water Resistance':'IP67',Warranty:'6 Months'}
   },
   {
-    id:4,name:'UltraBook Pro 14"',cat:'laptops',condition:'Brand New',price:420000,image:'images/Lenovo Yoga Slim 7.jpg',
+    id:4,name:'UltraBook Pro 14"',cat:'laptops',condition:'Brand New',price:420000, image:'images/Dell-Notebook.jpg',
     badge:null,desc:'i7, 16GB RAM, 512GB SSD',
     specs:{Condition:'Brand New',Processor:'Intel Core i7',RAM:'16GB',Storage:'512GB SSD',Warranty:'1 Year'}
   },
@@ -66,20 +66,16 @@ const PRODUCTS = [
     badge:'sale',desc:'200MP, 5000mAh',
     specs:{Condition:'Brand New',Storage:'256GB',Display:'6.67" AMOLED',Camera:'200MP',Battery:'5000mAh',Warranty:'1 Year'}
   },
-  
+
   {
     id:12,name:'TWS Gaming Earbuds',cat:'audio',condition:'Brand New',price:28000,
     image:'images/T13 Plus.jpg',
-    gallery:[
-      "images/iPhone 11_Uk.jpg",
-      "images/iPhone11/back.jpg",
-      "images/iPhone11/left.jpg",
-      "images/iPhone11/right.jpg"
-    ],
+    /* Removed gallery — it was pointing at unrelated iPhone 11 photos
+       and at broken paths ("images/Fan1/.jpg" style). Falls back to
+       the single main image, same as most other products. */
     badge:null,desc:'Low latency, RGB',
     specs:{Condition:'Brand New','Battery Life':'24 Hours (with case)',Connectivity:'Bluetooth 5.3, Low Latency Mode',Warranty:'3 Months'}
   },
-
 
   {
     id:13,
@@ -192,57 +188,38 @@ const PRODUCTS = [
   {
     id:30,
     name:"Fan",cat:"accessories",condition:'Brand New',price:9000,image:"images/Fan.jpg",
-    gallery:[
-      "images/Fan.jpg","images/Fan1.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
+    /* Removed broken gallery ("images/Fan1/.jpg", "images/Fan/right.jpg" —
+       neither file exists; these were leftover placeholders). */
     badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:31,
     name:"Bag",cat:"accessories",condition:'Brand New',price:13531.5,image:"images/Laptop Bag.jpg",
-    gallery:[
-      "images/Laptop Bag.jpg","images/Fan1.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
     badge:"sale",desc:"Brand New Bag in excellent condition with no faults.",specs:{Condition:"New",Capacity:"Nil",Material:"Cloth",Warranty:"1 Day"}
   },
   {
     id:32,
     name:"Fan",cat:"accessories",condition:'Brand New',price:9781.5,image:"images/Blow Fan.jpg",
-    gallery:[
-      "images/Blow Fan.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
     badge:"sale",desc:"Brand New Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:33,
     name:"Neck Fan",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Neck Fan.jpg",
-    gallery:[
-      "images/Neck Fan.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
     badge:"sale",desc:"Brand New Neck Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:34,
     name:"Fan",cat:"accessories",condition:'Brand New',price:43781.5,image:"images/Solar Fan.jpg",
-    gallery:[
-      "images/Solar Fan.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
     badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:35,
     name:"Massaging Gun",cat:"accessories",condition:'Brand New',price:9406.5,image:"images/Massaging Gun.jpg",
-    gallery:[
-      "images/Massaging Gun.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
     badge:"sale",desc:"Brand New Massaging Gun in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:36,
     name:"Brush",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Brush.jpg",
-    gallery:[
-      "images/Brush.jpg","images/Fan1/.jpg","images/Fan1/.jpg","images/Fan/right.jpg"
-    ],
     badge:"sale",desc:"Brand New Brush in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
 
