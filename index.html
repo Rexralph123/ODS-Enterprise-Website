@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O.D.S Enterprise Electronics & Phones</title>
 <link rel="icon" type="image/png" href="assets/backgroundless logo 1.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.44.0/tabler-icons.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -24,9 +24,9 @@
   </div>
 
   <div class="nav-links" id="navLinks">
-    <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
-    <a class="nav-btn" data-page="about" href="about.html">About Us</a>
-    <a class="nav-btn" id="accountBtn" href="#">Account</a>
+    <a class="nav-btn" data-page="shop" href="index.html"><i class="ti ti-device-mobile"></i> Shop</a>
+    <a class="nav-btn" data-page="about" href="about.html"><i class="ti ti-info-circle"></i> About Us</a>
+    <a class="nav-btn" id="accountBtn" href="#"><i class="ti ti-user"></i> Account</a>
   </div>
 
   <a class="cart-btn" href="cart.html">
@@ -70,11 +70,11 @@
             <div class="hero-actions">
 
                 <button class="btn-primary" href="#shop-layout" onclick="document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});">
-                    Shop Now
+                    <i class="ti ti-shopping-bag"></i> Shop Now
                 </button>
 
                 <a href="about.html" class="btn-outline">
-                    Learn More
+                    <i class="ti ti-arrow-right"></i> Learn More
                 </a>
 
             </div>
@@ -96,10 +96,10 @@
 </section>
 
 <div class="stats-bar">
-  <div class="stat-item"><div class="num">500+</div><div class="lbl">Products</div></div>
-  <div class="stat-item"><div class="num">12k+</div><div class="lbl">Happy Customers</div></div>
-  <div class="stat-item"><div class="num">2-Day</div><div class="lbl">Delivery</div></div>
-  <div class="stat-item"><div class="num">24/7</div><div class="lbl">Support</div></div>
+  <div class="stat-item"><i class="ti ti-package stat-icon"></i><div class="num">500+</div><div class="lbl">Products</div></div>
+  <div class="stat-item"><i class="ti ti-mood-smile stat-icon"></i><div class="num">12k+</div><div class="lbl">Happy Customers</div></div>
+  <div class="stat-item"><i class="ti ti-truck-delivery stat-icon"></i><div class="num">2-Day</div><div class="lbl">Delivery</div></div>
+  <div class="stat-item"><i class="ti ti-headset stat-icon"></i><div class="num">24/7</div><div class="lbl">Support</div></div>
 </div>
 
 <div class="showcase-section">
@@ -107,7 +107,7 @@
     <div class="showcase-head">
 
         <div>
-            <div class="showcase-eyebrow">Right Now</div>
+            <div class="showcase-eyebrow"><i class="ti ti-flame"></i> Right Now</div>
             <h2>Trending & Hot Deals</h2>
         </div>
 
@@ -125,13 +125,16 @@
 
 <div class="shop-layout">
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterCat('all',this)">All</button>
-    <button class="filter-btn" onclick="filterCat('phones',this)">Phones</button>
-    <button class="filter-btn" onclick="filterCat('audio',this)">Audio</button>
-    <button class="filter-btn" onclick="filterCat('wearables',this)">Wearables</button>
-    <button class="filter-btn" onclick="filterCat('accessories',this)">Accessories</button>
-    <button class="filter-btn" onclick="filterCat('laptops',this)">Laptops</button>
-    <input type="text" class="search-input" placeholder="Search products…" oninput="searchProducts(this.value)">
+    <button class="filter-btn active" onclick="filterCat('all',this)"><i class="ti ti-apps"></i> All</button>
+    <button class="filter-btn" onclick="filterCat('phones',this)"><i class="ti ti-device-mobile"></i> Phones</button>
+    <button class="filter-btn" onclick="filterCat('audio',this)"><i class="ti ti-headphones"></i> Audio</button>
+    <button class="filter-btn" onclick="filterCat('wearables',this)"><i class="ti ti-watch"></i> Wearables</button>
+    <button class="filter-btn" onclick="filterCat('accessories',this)"><i class="ti ti-plug"></i> Accessories</button>
+    <button class="filter-btn" onclick="filterCat('laptops',this)"><i class="ti ti-device-laptop"></i> Laptops</button>
+    <div class="search-wrap">
+      <i class="ti ti-search search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search products…" oninput="searchProducts(this.value)">
+    </div>
   </div>
   <div class="products-grid" id="products-grid"></div>
 </div>
@@ -183,17 +186,17 @@
 
         <div class="footer-col">
           <h4>Shop</h4>
-          <a href="index.html">All Products</a>
-          <a href="#" onclick="filterCat('phones', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;">Phones</a>
-          <a href="#" onclick="filterCat('laptops', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;">Laptops</a>
-          <a href="#" onclick="filterCat('accessories', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;">Accessories</a>
+          <a href="index.html"><i class="ti ti-apps"></i> All Products</a>
+          <a href="#" onclick="filterCat('phones', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;"><i class="ti ti-device-mobile"></i> Phones</a>
+          <a href="#" onclick="filterCat('laptops', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;"><i class="ti ti-device-laptop"></i> Laptops</a>
+          <a href="#" onclick="filterCat('accessories', document.querySelector('.filter-btn'));document.querySelector('.shop-layout').scrollIntoView({behavior:'smooth'});return false;"><i class="ti ti-plug"></i> Accessories</a>
         </div>
 
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="about.html">About Us</a>
-          <a href="cart.html">Your Cart</a>
-          <a href="#" id="footerAccountLink">Account</a>
+          <a href="about.html"><i class="ti ti-info-circle"></i> About Us</a>
+          <a href="cart.html"><i class="ti ti-shopping-cart"></i> Your Cart</a>
+          <a href="#" id="footerAccountLink"><i class="ti ti-user"></i> Account</a>
         </div>
 
         <div class="footer-col">
@@ -220,6 +223,7 @@
         </button>
 
         <div class="popup-left">
+            <div class="popup-drag-handle"></div>
             <img id="popupImage" alt="Product Image">
             <div id="popupGallery"></div>
         </div>
@@ -235,13 +239,15 @@
 
             <div id="popupSpecs"></div>
 
-            <button id="popupCart" class="buy-btn">
-                Add To Cart
-            </button>
+            <div class="popup-actions">
+                <button id="popupCart" class="buy-btn buy-btn-outline">
+                    <i class="ti ti-shopping-cart-plus"></i> Add To Cart
+                </button>
 
-            <button id="popupBuy" class="buy-btn">
-                Buy Now
-            </button>
+                <button id="popupBuy" class="buy-btn">
+                    <i class="ti ti-bolt"></i> Buy Now
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -253,6 +259,15 @@
 <script>
 let currentCat = 'all', currentSearch = '';
 
+const SPEC_ICONS = {
+  Condition:'ti-certificate', Storage:'ti-device-sd-card', Display:'ti-device-mobile',
+  Camera:'ti-camera', Battery:'ti-battery-4', 'Battery Life':'ti-battery-4',
+  Warranty:'ti-shield-check', Connectivity:'ti-bluetooth', SIM:'ti-sim-card',
+  Processor:'ti-cpu', RAM:'ti-cpu', Capacity:'ti-battery-3', Material:'ti-texture',
+  Origin:'ti-map-pin', Output:'ti-plug', Ports:'ti-usb', 'Water Resistance':'ti-droplet',
+  'Noise Cancellation':'ti-headphones', Chip:'ti-cpu'
+};
+
 function renderProducts(){
   const grid = document.getElementById('products-grid');
   let filtered = PRODUCTS.filter(p=>{
@@ -260,7 +275,7 @@ function renderProducts(){
            (!currentSearch || p.name.toLowerCase().includes(currentSearch.toLowerCase()));
   });
   if(!filtered.length){
-    grid.innerHTML = '<p style="color:var(--text-secondary);font-size:14px;padding:20px 0">No products found.</p>';
+    grid.innerHTML = '<p style="color:var(--text-secondary);font-size:14px;padding:20px 0"><i class="ti ti-mood-sad" style="margin-right:6px"></i>No products found.</p>';
     return;
   }
 grid.innerHTML = filtered.map(p => `
@@ -272,7 +287,7 @@ grid.innerHTML = filtered.map(p => `
 
     <div class="product-info">
 
-        ${p.badge ? `<span class="badge-${p.badge}">${p.badge === 'new' ? 'New' : 'Sale'}</span>` : '<div style="height:20px"></div>'}
+        ${p.badge ? `<span class="badge-${p.badge}"><i class="ti ${p.badge === 'new' ? 'ti-sparkles' : 'ti-tag'}"></i> ${p.badge === 'new' ? 'New' : 'Sale'}</span>` : '<div style="height:20px"></div>'}
 
         <div class="product-name">${p.name}</div>
 
@@ -283,9 +298,12 @@ grid.innerHTML = filtered.map(p => `
         <div class="product-row">
             <span class="product-price">${fmt(p.price)}</span>
 
-            <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})">
-                <i class="ti ti-plus"></i>
-            </button>
+        <button class="add-btn"
+            onclick="event.stopPropagation();addToCart(${p.id})"
+            title="Add to Cart"
+            aria-label="Add ${p.name} to Cart">
+            <i class="ti ti-plus"></i>
+        </button>
         </div>
 
         <button class="buy-btn" onclick="event.stopPropagation();buyNow(${p.id})">
@@ -358,17 +376,23 @@ function openProduct(id){
     if(!p) return;
 
     document.getElementById("productPopup").classList.add("active");
+    document.body.style.overflow = 'hidden'; // lock background scroll (mobile bottom-sheet)
 
     document.getElementById("popupImage").src=p.image;
     document.getElementById("popupName").textContent=p.name;
-    document.getElementById("popupPrice").textContent=fmt(p.price);
-    document.getElementById("popupDesc").textContent=p.desc;
-    document.getElementById("popupBadge").textContent=p.badge ? p.badge.toUpperCase() : "";
+    document.getElementById("popupPrice").innerHTML=`<i class="ti ti-currency-naira"></i>${fmt(p.price).replace('₦','')}`;
+
+    const badgeEl = document.getElementById("popupBadge");
+    if(p.badge){
+        const icon = p.badge === 'new' ? 'ti-sparkles' : 'ti-tag';
+        badgeEl.innerHTML = `<i class="ti ${icon}"></i> ${p.badge.toUpperCase()}`;
+        badgeEl.style.display = 'inline-flex';
+    } else {
+        badgeEl.style.display = 'none';
+        badgeEl.innerHTML = '';
+    }
 
     const gallery=document.getElementById("popupGallery");
-    gallery.innerHTML="";
-
-
     gallery.innerHTML="";
 
     const images=p.gallery&&p.gallery.length?p.gallery:[p.image];
@@ -384,9 +408,10 @@ function openProduct(id){
 
     if(p.specs){
         Object.entries(p.specs).forEach(([key,value])=>{
+            const icon = SPEC_ICONS[key] || 'ti-info-circle';
             specs.innerHTML+=`
                 <div class="spec">
-                    <strong>${key}</strong>
+                    <strong><i class="ti ${icon}"></i> ${key}</strong>
                     <span>${value}</span>
                 </div>
             `;
@@ -403,6 +428,7 @@ function changePopupImage(img){
 
 function closeProduct(){
     document.getElementById("productPopup").classList.remove("active");
+    document.body.style.overflow = '';
 }
 
 document.getElementById("productPopup").addEventListener("click",function(e){

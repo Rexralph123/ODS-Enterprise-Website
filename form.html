@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="assets/backgroundless logo 1.png">
 
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.44.0/tabler-icons.min.css">
 
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -37,9 +37,9 @@
         </div>
 
         <div class="nav-links" id="navLinks">
-            <a class="nav-btn" data-page="shop" href="index.html">Shop</a>
-            <a class="nav-btn" data-page="about" href="about.html">About Us</a>
-            <a class="nav-btn" data-page="account" href="#">Account</a>
+            <a class="nav-btn" data-page="shop" href="index.html"><i class="ti ti-device-mobile"></i> Shop</a>
+            <a class="nav-btn" data-page="about" href="about.html"><i class="ti ti-info-circle"></i> About Us</a>
+            <a class="nav-btn" data-page="account" href="#"><i class="ti ti-user"></i> Account</a>
         </div>
 
         <a class="cart-btn" href="cart.html">
@@ -527,7 +527,7 @@
                 msg += "%0A%0AItems:%0A" + lines.map(l => "• " + l).join("%0A");
                 msg += `%0A%0ATotal: ${fmt(total).replace("₦","₦")}`;
             }
-            whatsappAsk.href = "https://wa.me/2348012345678?text=" + encodeURIComponent(msg.replace(/%0A/g, "\n"));
+            whatsappAsk.href = "https://wa.me/2349138708525?text=" + encodeURIComponent(msg.replace(/%0A/g, "\n"));
         }
 
         /* ---------- Field validation helpers ---------- */
@@ -568,10 +568,6 @@
                 if (!addrOk) firstInvalid = firstInvalid || address;
                 valid = valid && addrOk;
             }
-        }
-
-            }
-        });
 
             valid = nameOk && phoneOk && waOk && emailOk && valid;
 
