@@ -126,7 +126,7 @@ const PRODUCTS = [
     badge:"sale",desc:"physical sim, BH: 100%, 128GB.",specs:{Condition:"Brand New",Storage:"128GB",Battery:"100%",SIM:"Physical SIM",Display:'6.1" Super Retina XDR',Camera:"12MP Dual",Warranty:"1 Year"}
   },
   {
-    id:18,name:'iPhone 14',cat:'phones',condition:'UK-Used',price:575000,image:'images/Iphone 14 uk used.PNG',
+    id:18,name:'iPhone 14',cat:'phones',condition:'UK-Used',price:575000,image:'images/iPhone 14_Uk.JPG',
     badge:'sale',desc:'physical sim + eSim, BH: 87%, 128GB',
     specs:{Condition:'UK Used',Storage:'128GB',Battery:'87%',SIM:'Physical SIM + eSIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
   },
@@ -223,22 +223,22 @@ const PRODUCTS = [
     badge:"sale",desc:"Brand New Brush in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
-    id:37,name:'HP Laptop 15',cat:'laptops',condition:'Brand New',price:528984.17,image:'images/HP Laptop 15-fd0xxx.JPG',
+    id:37,name:'HP Laptop 15',cat:'laptops',condition:'Brand New',price:528984.17,image:'images/HP Laptop 15-fd0xxx.jpg',
     badge:null,desc:'8GB SDRAM RAM | 256GB SSD Storage | 15.6-inch Full HD (1920 × 1080) IPS Display | Windows 11 | Touchscreen | 1× Thunderbolt USB Type-C Port | 2× USB Ports | HDMI Port | Wi-Fi | Bluetooth | Excellent Battery Life',
     specs:{Condition:'American Used',Processor:'Intel Core i3',RAM:'8GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
   {
-    id:38,name:'HP ProBook 440 G8 Notebook PC',cat:'laptops',condition:'Brand New',price:643984.17,image:'images/HP ProBook 440 G8 Notebook PC.JPG',
+    id:38,name:'HP ProBook 440 G8 Notebook PC',cat:'laptops',condition:'Brand New',price:643984.17,image:'images/HP ProBook 440 G8 Notebook PC.jpg',
     badge:null,desc:'11th Gen Intel® Core™ i7-1165G7 Processor (2.80GHz, Turbo Boost Technology) | 16GB DDR4 SDRAM RAM | 512GB SSD Storage | Windows 11 | 14.0-inch Full HD (1920 × 1080) Display | Backlit Keyboard | Fingerprint Reader | USB Type-C Port | Wi-Fi | Bluetooth | 3 × USB 4.0 Ports | HDMI Port | Headphone/Microphone Combo Jack | Excellent Battery Life',
     specs:{Condition:'American Used',Processor:'Intel Core i7',RAM:'16GB',Storage:'512GB SSD',Warranty:'1 Week'}
   },
   {
-    id:39,name:'HP 250 G9 Notebook',cat:'laptops',condition:'Brand New',price:494484.17,image:'images/HP 250 G9 Notebook.JPG',
+    id:39,name:'HP 250 G9 Notebook',cat:'laptops',condition:'Brand New',price:494484.17,image:'images/HP 250 G9 Notebook.jpg',
     badge:null,desc:'HP 250 G9 Notebook | 12th Gen Intel® Core™ i5-1235U Processor (1.30GHz, Turbo Boost Technology) | 16GB DDR4 SDRAM RAM (Upgradeable to 32GB) | 256GB SSD (Upgradeable to 1TB) | Intel® Iris® Plus Graphics | Windows 11 | 15.6-inch Full HD (1920 × 1080) Display | Backlit Keyboard | Wi-Fi | Bluetooth | 2 × USB 4.0 Ports | HDMI Port | Headphone/Microphone Combo Jack | Excellent Battery Life.',
     specs:{Condition:'American Used',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
   {
-    id:40,name:'Apple MacBook Pro (2018)',cat:'laptops',condition:'Brand New',price:885000.00,image:'images/Apple MacBook Pro (2018).JPG',
+    id:40,name:'Apple MacBook Pro (2018)',cat:'laptops',condition:'Brand New',price:885000.00,image:'images/Apple MacBook Pro (2018).jpg',
     badge:null,desc:'15-inch | Intel® Core™ i9 Processor | 16GB RAM | 1TB SSD Storage | 4GB Dedicated Graphics | Retina Display | Touch Bar | Touch ID Fingerprint Sensor | macOS | Wi-Fi | Bluetooth | Backlit Magic Keyboard | Force Touch Trackpad | Thunderbolt 3 (USB-C) Ports | Comes with Original Charger',
     specs:{Condition:'American Used',Processor:'Intel Core i9',RAM:'16GB',Storage:'1TB SSD',Warranty:'1 Week'}
   },
