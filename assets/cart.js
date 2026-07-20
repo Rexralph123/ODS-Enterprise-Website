@@ -178,7 +178,7 @@ const PRODUCTS = [
   {
     id:28,name:'Lenovo Yoga',cat:'laptops',condition:'Brand New',price:820000,image:'images/Lenovo Yoga Slim.JPG',
     badge:null,desc:'Slim 7, 16GB RAM, 256GB SSD',
-    specs:{Condition:'Brand New',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Year'}
+    specs:{Condition:'Brand New',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
   {
     id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:8781.52,image:'images/Vacuum Bottle.jpeg',
@@ -221,6 +221,31 @@ const PRODUCTS = [
     id:36,
     name:"Brush",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Brush.JPG",
     badge:"sale",desc:"Brand New Brush in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
+  },
+  {
+    id:37,name:'HP Laptop 15',cat:'laptops',condition:'Brand New',price:528984.17,image:'images/HP Laptop 15-fd0xxx.JPG',
+    badge:null,desc:'8GB SDRAM RAM | 256GB SSD Storage | 15.6-inch Full HD (1920 × 1080) IPS Display | Windows 11 | Touchscreen | 1× Thunderbolt USB Type-C Port | 2× USB Ports | HDMI Port | Wi-Fi | Bluetooth | Excellent Battery Life',
+    specs:{Condition:'American Used',Processor:'Intel Core i3',RAM:'8GB',Storage:'256GB SSD',Warranty:'1 Week'}
+  },
+  {
+    id:38,name:'HP ProBook 440 G8 Notebook PC',cat:'laptops',condition:'Brand New',price:643984.17,image:'images/HP ProBook 440 G8 Notebook PC.JPG',
+    badge:null,desc:'11th Gen Intel® Core™ i7-1165G7 Processor (2.80GHz, Turbo Boost Technology) | 16GB DDR4 SDRAM RAM | 512GB SSD Storage | Windows 11 | 14.0-inch Full HD (1920 × 1080) Display | Backlit Keyboard | Fingerprint Reader | USB Type-C Port | Wi-Fi | Bluetooth | 3 × USB 4.0 Ports | HDMI Port | Headphone/Microphone Combo Jack | Excellent Battery Life',
+    specs:{Condition:'American Used',Processor:'Intel Core i7',RAM:'16GB',Storage:'512GB SSD',Warranty:'1 Week'}
+  },
+  {
+    id:39,name:'HP 250 G9 Notebook',cat:'laptops',condition:'Brand New',price:494484.17,image:'images/HP 250 G9 Notebook.JPG',
+    badge:null,desc:'HP 250 G9 Notebook | 12th Gen Intel® Core™ i5-1235U Processor (1.30GHz, Turbo Boost Technology) | 16GB DDR4 SDRAM RAM (Upgradeable to 32GB) | 256GB SSD (Upgradeable to 1TB) | Intel® Iris® Plus Graphics | Windows 11 | 15.6-inch Full HD (1920 × 1080) Display | Backlit Keyboard | Wi-Fi | Bluetooth | 2 × USB 4.0 Ports | HDMI Port | Headphone/Microphone Combo Jack | Excellent Battery Life.',
+    specs:{Condition:'American Used',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
+  },
+  {
+    id:40,name:'Apple MacBook Pro (2018)',cat:'laptops',condition:'Brand New',price:885000.00,image:'images/Apple MacBook Pro (2018).JPG',
+    badge:null,desc:'15-inch | Intel® Core™ i9 Processor | 16GB RAM | 1TB SSD Storage | 4GB Dedicated Graphics | Retina Display | Touch Bar | Touch ID Fingerprint Sensor | macOS | Wi-Fi | Bluetooth | Backlit Magic Keyboard | Force Touch Trackpad | Thunderbolt 3 (USB-C) Ports | Comes with Original Charger',
+    specs:{Condition:'American Used',Processor:'Intel Core i9',RAM:'16GB',Storage:'1TB SSD',Warranty:'1 Week'}
+  },
+  {
+    id:41,name:'Sony PlayStation 5',cat:'accessories',condition:'Brand New',price:978984.86,image:'images/Ps5 Slim.jpg',
+    badge:'new',desc:'PS5 Console | Ultra-High-Speed Custom SSD | AMD Zen 2 8-Core Processor | AMD RDNA 2 Graphics (Ray Tracing Support) | 4K Gaming up to 120Hz | 8K Output Support | HDR Technology | Tempest 3D AudioTech | Wi-Fi | Bluetooth 5.1 | Gigabit Ethernet | HDMI 2.1 | USB Type-C | USB Type-A Ports | Includes 2 DualSense Wireless Controllers (White & Pink) | Excellent Condition',
+    specs:{Condition:'Excellent',Storage:'Custom Ultra-High-Speed SSD',Processor:'AMD Zen 2 8-Core',Connectivity:'Wi-Fi, Bluetooth 5.1, Gigabit Ethernet',Ports:'HDMI 2.1, USB-C, USB-A',Controllers:'2 DualSense Wireless Controllers (White & Pink)'}
   },
 
 ];
