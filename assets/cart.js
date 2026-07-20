@@ -176,7 +176,7 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:28,name:'Lenovo Yoga',cat:'laptops',condition:'Brand New',price:820000,image:'images/Lenovo Yoga Slim 7.JPG',
+    id:28,name:'Lenovo Yoga',cat:'laptops',condition:'Brand New',price:820000,image:'images/Lenovo Yoga Slim.JPG',
     badge:null,desc:'Slim 7, 16GB RAM, 256GB SSD',
     specs:{Condition:'Brand New',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Year'}
   },
