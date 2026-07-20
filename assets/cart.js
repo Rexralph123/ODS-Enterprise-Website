@@ -69,7 +69,7 @@ const PRODUCTS = [
 
   {
     id:12,name:'TWS Gaming Earbuds',cat:'audio',condition:'Brand New',price:28000,
-    image:'images/TWS Gaming Earbuds.JPG',
+    image:'images/TW b earbuds.jpg',
     /* Removed gallery — it was pointing at unrelated iPhone 11 photos
        and at broken paths ("images/Fan1/.jpg" style). Falls back to
        the single main image, same as most other products. */
