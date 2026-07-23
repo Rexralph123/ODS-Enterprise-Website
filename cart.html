@@ -83,16 +83,21 @@ function renderCart(){
         <div class="cart-item-price">${fmt(p.price)} each</div>
       </div>
 
-      <div class="qty-ctrl">
-        <button class="qty-btn" onclick="changeQty(${id},-1)" aria-label="Decrease quantity">−</button>
-        <span class="qty-num">${qty}</span>
-        <button class="qty-btn" onclick="changeQty(${id},1)" aria-label="Increase quantity">+</button>
-      </div>
+  <div class="cart-item-actions">
 
-      <button class="remove-btn" onclick="removeItem(${id})" aria-label="Remove item">
-        <i class="ti ti-trash" aria-hidden="true"></i>
-      </button>
+    <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
+        <span class="qty-num">${qty}</span>
+        <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
+    </div>
+
+    <button class="remove-btn" onclick="removeItem(${id})">
+        <i class="ti ti-trash"></i>
+    </button>
+
+  </div>
     </div>`;
+
   }).join('');
 
   /* Shipping fee removed — total is simply the subtotal */
