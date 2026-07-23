@@ -1113,59 +1113,140 @@ Mobile View Hero
 }
 
 /* ===== CART — MOBILE REFINEMENTS ===== */
-@media (max-width:600px){
-  .cart-title{ font-size:20px }
+@media (max-width:768px){
+  .cart-layout{
+    padding:20px 15px 40px;
+  }
+
+  .cart-title{
+    font-size:24px;
+    margin-bottom:18px;
+  }
   .cart-title i{ width:32px; height:32px; font-size:16px }
 
   .cart-item{
+    display:flex;
     flex-wrap:wrap;
-    row-gap:12px;
-    padding:14px;
+    align-items:center;
+    gap:12px;
+    padding:15px;
     border-radius:14px;
+    position:relative;
   }
 
   .cart-item-img{
-    width:64px;
-    height:64px;
+    width:80px;
+    height:80px;
   }
 
   /* name + price take the top row, next to the thumbnail */
   .cart-item-info{
-    flex:1 1 calc(100% - 76px); /* 64px image + 12px gap */
+    flex:1 1 calc(100% - 92px); /* 80px image + 12px gap */
     min-width:0;
   }
 
+  .cart-item-name{
+    font-size:16px;
+    line-height:1.4;
+    height:auto;               /* override the desktop 1-line lock */
+    -webkit-line-clamp:2;
+  }
+
   .cart-item-price{
+    display:inline-block;
+    margin-top:6px;
+    font-size:14px;
     max-width:100%;
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
   }
 
-  /* qty controls + remove button drop to their own full row,
-     indented to line up under the item name instead of
-     overlapping the price */
+  /* qty controls drop to their own row, indented to line up
+     under the item name instead of overlapping the price */
   .qty-ctrl{
-    margin-left:76px;
+    margin-left:92px;
   }
 
+  /* remove button pinned to the top-right corner of the card */
   .remove-btn{
-    margin-left:auto;
+    position:absolute;
+    top:15px;
+    right:15px;
+    margin:0;
   }
 
-  .cart-summary{ padding:18px; border-radius:16px }
+  .cart-summary{
+    position:static;
+    margin-top:20px;
+    padding:20px;
+    border-radius:16px;
+  }
+
+  .summary-total{
+    font-size:18px;
+  }
+
+  .checkout-btn{
+    width:100%;
+  }
 }
 
-@media (max-width:380px){
+/* Small phones */
+@media (max-width:480px){
+  .cart-item{
+    padding:14px;
+  }
   .cart-item-img{
-    width:56px;
-    height:56px;
+    width:70px;
+    height:70px;
   }
   .cart-item-info{
-    flex-basis:calc(100% - 68px);
+    flex-basis:calc(100% - 82px);
+  }
+  .cart-item-name{
+    font-size:15px;
+  }
+  .cart-item-price{
+    font-size:13px;
   }
   .qty-ctrl{
-    margin-left:68px;
+    margin-left:82px;
+  }
+  .qty-btn{
+    width:34px;
+    height:34px;
+  }
+  .qty-num{
+    min-width:26px;
+    font-size:14px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width:360px){
+  .cart-item-img{
+    width:60px;
+    height:60px;
+  }
+  .cart-item-info{
+    flex-basis:100%;
+  }
+  .cart-item-name{
+    font-size:14px;
+  }
+  .cart-item-price{
+    font-size:12px;
+  }
+  .qty-ctrl{
+    width:100%;
+    justify-content:center;
+    margin-left:0;
+    margin-top:10px;
+  }
+  .remove-btn{
+    top:12px;
+    right:12px;
   }
 }
 
