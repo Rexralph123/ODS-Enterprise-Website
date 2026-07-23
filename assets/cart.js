@@ -243,8 +243,8 @@ const PRODUCTS = [
     specs:{Condition:'American Used',Processor:'Intel Core i9',RAM:'16GB',Storage:'1TB SSD',Warranty:'1 Week'}
   },
   {
-    id:41,name:'Sony PlayStation 5',cat:'accessories',condition:'Brand New',price:978984.86,image:'images/Ps5 Slim.jpg',
-    badge:'new',desc:'PS5 Console | Ultra-High-Speed Custom SSD | AMD Zen 2 8-Core Processor | AMD RDNA 2 Graphics (Ray Tracing Support) | 4K Gaming up to 120Hz | 8K Output Support | HDR Technology | Tempest 3D AudioTech | Wi-Fi | Bluetooth 5.1 | Gigabit Ethernet | HDMI 2.1 | USB Type-C | USB Type-A Ports | Includes 2 DualSense Wireless Controllers (White & Pink) | Excellent Condition',
+    id:41,name:'Sony PlayStation 5',cat:'accessories',condition:'null',price:978984.86,image:'images/Ps5 Slim.jpg',
+    badge:'null',desc:'PS5 Console | Ultra-High-Speed Custom SSD | AMD Zen 2 8-Core Processor | AMD RDNA 2 Graphics (Ray Tracing Support) | 4K Gaming up to 120Hz | 8K Output Support | HDR Technology | Tempest 3D AudioTech | Wi-Fi | Bluetooth 5.1 | Gigabit Ethernet | HDMI 2.1 | USB Type-C | USB Type-A Ports | Includes 2 DualSense Wireless Controllers (White & Pink) | Excellent Condition',
     specs:{Condition:'Excellent',Storage:'Custom Ultra-High-Speed SSD',Processor:'AMD Zen 2 8-Core',Connectivity:'Wi-Fi, Bluetooth 5.1, Gigabit Ethernet',Ports:'HDMI 2.1, USB-C, USB-A',Controllers:'2 DualSense Wireless Controllers (White & Pink)'}
   },
 

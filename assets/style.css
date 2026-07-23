@@ -3018,3 +3018,52 @@ font-size:16px;
   .popup-actions{ flex-direction:column }
 }
 
+/* ===== CART ITEM — MOBILE FIX ===== */
+@media (max-width:600px){
+  .cart-item{
+    flex-wrap:wrap;
+    row-gap:12px;
+    padding:12px;
+  }
+
+  .cart-item-img{
+    width:64px;
+    height:64px;
+  }
+
+  /* name + price take the top row, next to the thumbnail */
+  .cart-item-info{
+    flex:1 1 calc(100% - 76px); /* 64px image + 12px gap */
+    min-width:0;
+  }
+
+  .cart-item-price{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  /* qty controls + remove button drop to their own full row,
+     indented to line up under the item name instead of
+     overlapping the price */
+  .qty-ctrl{
+    margin-left:76px;
+  }
+
+  .remove-btn{
+    margin-left:auto;
+  }
+}
+
+@media (max-width:380px){
+  .cart-item-img{
+    width:56px;
+    height:56px;
+  }
+  .cart-item-info{
+    flex-basis:calc(100% - 68px);
+  }
+  .qty-ctrl{
+    margin-left:68px;
+  }
+}
