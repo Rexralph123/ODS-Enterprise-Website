@@ -17,7 +17,7 @@ const PRODUCTS = [
     badge:"sale",desc:'6.7" AMOLED 256GB',specs:{Condition:'Brand New',Storage:'256GB',Display:'6.7" AMOLED',Camera:'50MP Triple',Battery:'5000mAh',Warranty:'1 Year'}
   },
   {
-    id:2,name:'CYXG Wireless Earbuds',cat:'audio',condition:'Brand New',price:13200,image:'images/Q10 CYXG.JPG',
+    id:2,name:'CYXG Wireless Earbuds',cat:'audio',condition:'Brand New',price:9200,image:'images/Q10 CYXG.JPG',
     badge:'sale', desc:'Two in one, ANC, 10hr battery',
     specs:{Condition:'Brand New','Battery Life':'10 Hours (with case)',Connectivity:'Bluetooth 5.3','Noise Cancellation':'Active (ANC)',Warranty:'6 Months'}
   },
@@ -141,12 +141,12 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Storage:'512GB',Battery:'100%',SIM:'Physical SIM',Display:'6.5" Super Retina XDR',Camera:'48MP Dual',Warranty:'1 Year'}
   },
   {
-    id:21,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:19000,image:'images/Bag_1.JPG',
+    id:21,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_1.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:22,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:17000,image:'images/Bag_2.JPG',
+    id:22,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_2.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
@@ -156,84 +156,84 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:24,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:15400,image:'images/Bag_4.JPG',
+    id:24,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12400,image:'images/Bag_4.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:25,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:16700,image:'images/Bag_5.jpg',
+    id:25,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12700,image:'images/Bag_5.jpg',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:26,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:14000,image:'images/Bag_6.JPG',
+    id:26,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_6.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:27,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:18000,image:'images/Bag_7.jpg',
+    id:27,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_7.jpg',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:28,name:'Lenovo Yoga',cat:'laptops',condition:'Brand New',price:820000,image:'images/Lenovo Yoga Slim.JPG',
+    id:28,name:'Lenovo Yoga',cat:'laptops',condition:'Brand New',price:550000,image:'images/Lenovo Yoga Slim.JPG',
     badge:null,desc:'Slim 7, 16GB RAM, 256GB SSD',
-    specs:{Condition:'Brand New',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
+    specs:{Condition:'Brand New',Processor:'Intel Core i8',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
   {
-    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:8781.52,image:'images/Vacuum Bottle.jpeg',
+    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:7080,image:'images/Vacuum Bottle.jpeg',
     badge:'sale',desc:'Vacuum Bottle',
     specs:{Condition:'Brand New',Capacity:'500ml',Material:'Stainless Steel',Warranty:'3 Months'}
   },
   {
     id:30,
-    name:"Fan",cat:"accessories",condition:'Brand New',price:9000,image:"images/Fan.JPG",
+    name:"Fan",cat:"accessories",condition:'Brand New',price:6999,image:"images/Fan.JPG",
     /* Removed broken gallery ("images/Fan1/.jpg", "images/Fan/right.jpg" —
        neither file exists; these were leftover placeholders). */
     badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:31,
-    name:"Bag",cat:"accessories",condition:'Brand New',price:13531.5,image:"images/Laptop Bag.JPG",
+    name:"Bag",cat:"accessories",condition:'Brand New',price:10350,image:"images/Laptop Bag.JPG",
     badge:"sale",desc:"Brand New Bag in excellent condition with no faults.",specs:{Condition:"New",Capacity:"Nil",Material:"Cloth",Warranty:"1 Day"}
   },
   {
     id:32,
-    name:"Fan",cat:"accessories",condition:'Brand New',price:9781.5,image:"images/Blow Fan.JPG",
+    name:"Fan",cat:"accessories",condition:'Brand New',price:6981.5,image:"images/Blow Fan.JPG",
     badge:"sale",desc:"Brand New Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:33,
-    name:"Neck Fan",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Neck Fan.jpg",
+    name:"Neck Fan",cat:"accessories",condition:'Brand New',price:5975.00,image:"images/Neck Fan.jpg",
     badge:"sale",desc:"Brand New Neck Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:34,
-    name:"Fan",cat:"accessories",condition:'Brand New',price:43781.5,image:"images/Solar Fan.JPG",
+    name:"Fan",cat:"accessories",condition:'Brand New',price:39100,image:"images/Solar Fan.JPG",
     badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:35,
-    name:"Massaging Gun",cat:"accessories",condition:'Brand New',price:9406.5,image:"images/Massaging Gun.JPG",
+    name:"Massaging Gun",cat:"accessories",condition:'Brand New',price:7475.00,image:"images/Massaging Gun.JPG",
     badge:"sale",desc:"Brand New Massaging Gun in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:36,
-    name:"Brush",cat:"accessories",condition:'Brand New',price:7906.5,image:"images/Brush.JPG",
+    name:"Brush",cat:"accessories",condition:'Brand New',price:5175.00,image:"images/Brush.JPG",
     badge:"sale",desc:"Brand New Brush in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
-    id:37,name:'HP Laptop 15',cat:'laptops',condition:'Brand New',price:528984.17,image:'images/HP Laptop 15-fd0xxx.jpg',
+    id:37,name:'HP Laptop 15',cat:'laptops',condition:'Brand New',price:505984.86,image:'images/HP Laptop 15-fd0xxx.jpg',
     badge:null,desc:'8GB SDRAM RAM | 256GB SSD Storage | 15.6-inch Full HD (1920 × 1080) IPS Display | Windows 11 | Touchscreen | 1× Thunderbolt USB Type-C Port | 2× USB Ports | HDMI Port | Wi-Fi | Bluetooth | Excellent Battery Life',
     specs:{Condition:'American Used',Processor:'Intel Core i3',RAM:'8GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
   {
-    id:38,name:'HP ProBook 440 G8 Notebook PC',cat:'laptops',condition:'Brand New',price:643984.17,image:'images/HP ProBook 440 G8 Notebook PC.jpg',
+    id:38,name:'HP ProBook 440 G8 Notebook PC',cat:'laptops',condition:'Brand New',price:615984.86,image:'images/HP ProBook 440 G8 Notebook PC.jpg',
     badge:null,desc:'11th Gen Intel® Core™ i7-1165G7 Processor (2.80GHz, Turbo Boost Technology) | 16GB DDR4 SDRAM RAM | 512GB SSD Storage | Windows 11 | 14.0-inch Full HD (1920 × 1080) Display | Backlit Keyboard | Fingerprint Reader | USB Type-C Port | Wi-Fi | Bluetooth | 3 × USB 4.0 Ports | HDMI Port | Headphone/Microphone Combo Jack | Excellent Battery Life',
     specs:{Condition:'American Used',Processor:'Intel Core i7',RAM:'16GB',Storage:'512GB SSD',Warranty:'1 Week'}
   },
   {
-    id:39,name:'HP 250 G9 Notebook',cat:'laptops',condition:'Brand New',price:494484.17,image:'images/HP 250 G9 Notebook.jpg',
+    id:39,name:'HP 250 G9 Notebook',cat:'laptops',condition:'Brand New',price:472984.86,image:'images/HP 250 G9 Notebook.jpg',
     badge:null,desc:'HP 250 G9 Notebook | 12th Gen Intel® Core™ i5-1235U Processor (1.30GHz, Turbo Boost Technology) | 16GB DDR4 SDRAM RAM (Upgradeable to 32GB) | 256GB SSD (Upgradeable to 1TB) | Intel® Iris® Plus Graphics | Windows 11 | 15.6-inch Full HD (1920 × 1080) Display | Backlit Keyboard | Wi-Fi | Bluetooth | 2 × USB 4.0 Ports | HDMI Port | Headphone/Microphone Combo Jack | Excellent Battery Life.',
     specs:{Condition:'American Used',Processor:'Intel Core i5',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
