@@ -17,7 +17,7 @@ const PRODUCTS = [
     badge:"sale",desc:'6.7" AMOLED 256GB',specs:{Condition:'Brand New',Storage:'256GB',Display:'6.7" AMOLED',Camera:'50MP Triple',Battery:'5000mAh',Warranty:'1 Year'}
   },
   {
-    id:2,name:'CYXG Wireless Earbuds',cat:'audio',condition:'Brand New',price:9200,image:'images/Q10 CYXG.JPG',
+    id:2,name:'CYXG Wireless Earbuds',cat:'audio',condition:'Brand New',price:10200,image:'images/Q10 CYXG.JPG',
     badge:'sale', desc:'Two in one, ANC, 10hr battery',
     specs:{Condition:'Brand New','Battery Life':'10 Hours (with case)',Connectivity:'Bluetooth 5.3','Noise Cancellation':'Active (ANC)',Warranty:'6 Months'}
   },
@@ -79,24 +79,9 @@ const PRODUCTS = [
 
   {
     id:13,
-    name:"iPhone 11", cat:"phones", condition:'UK-Used', price:199000,
-    image:"images/iPhone 11_Uk.JPG", 
-    gallery:[
-      "images/iPhone 11_Uk.jpg",
-      "images/iPhone11/back.jpg",
-      "images/iPhone11/left.jpg",
-      "images/iPhone11/right.jpg"
-    ],
+    name:"iPhone 11", cat:"phones", condition:'UK-Used', price:210899.23, image:"images/iPhone 11_Uk.JPG", gallery:["images/iPhone 11_Uk.jpg","images/iPhone11/back.jpg","images/iPhone11/left.jpg","images/iPhone11/right.jpg"],
     badge:"sale", desc:"UK Used iPhone 11 in excellent condition with no cracks or faults.", 
-      specs:{
-      Condition:"UK Used",
-      Storage:"64GB",
-      Battery:"76%",
-      SIM:"Physical SIM",
-      Display:'6.1" Retina',
-      Camera:"12MP Dual",
-      Warranty:"7 Days"
-    }
+    specs:{Condition:"UK Used",Storage:"64GB",Battery:"76%",SIM:"Physical SIM",Display:'6.1" Retina',Camera:"12MP Dual",Warranty:"7 Days"}
   },
 
   {
@@ -126,7 +111,7 @@ const PRODUCTS = [
     badge:"sale",desc:"physical sim, BH: 100%, 128GB.",specs:{Condition:"Brand New",Storage:"128GB",Battery:"100%",SIM:"Physical SIM",Display:'6.1" Super Retina XDR',Camera:"12MP Dual",Warranty:"1 Year"}
   },
   {
-    id:18,name:'iPhone 14',cat:'phones',condition:'UK-Used',price:575000,image:'images/iPhone 14_Uk.JPG',
+    id:18,name:'iPhone 14',cat:'phones',condition:'UK-Used',price:529899.23,image:'images/iPhone 14_Uk.JPG',
     badge:'sale',desc:'physical sim + eSim, BH: 87%, 128GB',
     specs:{Condition:'UK Used',Storage:'128GB',Battery:'87%',SIM:'Physical SIM + eSIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
   },
@@ -141,12 +126,12 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Storage:'512GB',Battery:'100%',SIM:'Physical SIM',Display:'6.5" Super Retina XDR',Camera:'48MP Dual',Warranty:'1 Year'}
   },
   {
-    id:21,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_1.JPG',
+    id:21,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:13000,image:'images/Bag_1.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:22,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_2.JPG',
+    id:22,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:13000,image:'images/Bag_2.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
@@ -156,22 +141,22 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:24,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12400,image:'images/Bag_4.JPG',
+    id:24,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:13400,image:'images/Bag_4.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:25,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12700,image:'images/Bag_5.jpg',
+    id:25,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:13700,image:'images/Bag_5.jpg',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:26,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_6.JPG',
+    id:26,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:13000,image:'images/Bag_6.JPG',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
   {
-    id:27,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:12000,image:'images/Bag_7.jpg',
+    id:27,name:'Hand Bag',cat:'wearables',condition:'Brand New',price:13000,image:'images/Bag_7.jpg',
     badge:null,desc:'Made in china',
     specs:{Condition:'Brand New',Material:'PU Leather',Origin:'China',Warranty:'7 Days Return'}
   },
@@ -181,45 +166,45 @@ const PRODUCTS = [
     specs:{Condition:'Brand New',Processor:'Intel Core i8',RAM:'16GB',Storage:'256GB SSD',Warranty:'1 Week'}
   },
   {
-    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:7080,image:'images/Vacuum Bottle.jpeg',
+    id:29,name:'Vacuum Bottle',cat:'accessories',condition:'Brand New',price:8080,image:'images/Vacuum Bottle.jpeg',
     badge:'sale',desc:'Vacuum Bottle',
     specs:{Condition:'Brand New',Capacity:'500ml',Material:'Stainless Steel',Warranty:'3 Months'}
   },
   {
     id:30,
-    name:"Fan",cat:"accessories",condition:'Brand New',price:6999,image:"images/Fan.JPG",
+    name:"Fan",cat:"accessories",condition:'Brand New',price:7999,image:"images/Fan.JPG",
     /* Removed broken gallery ("images/Fan1/.jpg", "images/Fan/right.jpg" —
        neither file exists; these were leftover placeholders). */
     badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:31,
-    name:"Bag",cat:"accessories",condition:'Brand New',price:10350,image:"images/Laptop Bag.JPG",
+    name:"Bag",cat:"accessories",condition:'Brand New',price:11350,image:"images/Laptop Bag.JPG",
     badge:"sale",desc:"Brand New Bag in excellent condition with no faults.",specs:{Condition:"New",Capacity:"Nil",Material:"Cloth",Warranty:"1 Day"}
   },
   {
     id:32,
-    name:"Fan",cat:"accessories",condition:'Brand New',price:6981.5,image:"images/Blow Fan.JPG",
+    name:"Fan",cat:"accessories",condition:'Brand New',price:7981.5,image:"images/Blow Fan.JPG",
     badge:"sale",desc:"Brand New Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:33,
-    name:"Neck Fan",cat:"accessories",condition:'Brand New',price:5975.00,image:"images/Neck Fan.jpg",
+    name:"Neck Fan",cat:"accessories",condition:'Brand New',price:6975.00,image:"images/Neck Fan.jpg",
     badge:"sale",desc:"Brand New Neck Fan in excellent condition with no cracks or faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:34,
-    name:"Fan",cat:"accessories",condition:'Brand New',price:39100,image:"images/Solar Fan.JPG",
+    name:"Fan",cat:"accessories",condition:'Brand New',price:40100,image:"images/Solar Fan.JPG",
     badge:"sale",desc:"Brand New Fan in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:35,
-    name:"Massaging Gun",cat:"accessories",condition:'Brand New',price:7475.00,image:"images/Massaging Gun.JPG",
+    name:"Massaging Gun",cat:"accessories",condition:'Brand New',price:8475.00,image:"images/Massaging Gun.JPG",
     badge:"sale",desc:"Brand New Massaging Gun in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
     id:36,
-    name:"Brush",cat:"accessories",condition:'Brand New',price:5175.00,image:"images/Brush.JPG",
+    name:"Brush",cat:"accessories",condition:'Brand New',price:6175.00,image:"images/Brush.JPG",
     badge:"sale",desc:"Brand New Brush in excellent condition with no faults.",specs:{Condition:"New",Capacity:"4Hrs",Material:"Plastic",Warranty:"1 Day"}
   },
   {
@@ -246,6 +231,36 @@ const PRODUCTS = [
     id:41,name:'Sony PlayStation 5',cat:'accessories',condition:'null',price:978984.86,image:'images/Ps5 Slim.jpg',
     badge:'null',desc:'PS5 Console | Ultra-High-Speed Custom SSD | AMD Zen 2 8-Core Processor | AMD RDNA 2 Graphics (Ray Tracing Support) | 4K Gaming up to 120Hz | 8K Output Support | HDR Technology | Tempest 3D AudioTech | Wi-Fi | Bluetooth 5.1 | Gigabit Ethernet | HDMI 2.1 | USB Type-C | USB Type-A Ports | Includes 2 DualSense Wireless Controllers (White & Pink) | Excellent Condition',
     specs:{Condition:'Excellent',Storage:'Custom Ultra-High-Speed SSD',Processor:'AMD Zen 2 8-Core',Connectivity:'Wi-Fi, Bluetooth 5.1, Gigabit Ethernet',Ports:'HDMI 2.1, USB-C, USB-A',Controllers:'2 DualSense Wireless Controllers (White & Pink)'}
+  },
+  {
+    id:42,name:"iPhone X", cat:"phones", condition:'UK-Used', price:172399.23, image:"images/IMG_1616.jpg", gallery:["images/iPhone x.jpg","images/IMG_1616.jpg","images/iPhone11/left.jpg","images/iPhone11/right.jpg"],
+    badge:"sale", desc:"UK Used iPhone x in excellent condition with no cracks or faults.", 
+    specs:{Condition:"UK Used",Storage:"64GB",Battery:"76%",SIM:"Physical SIM",Display:'5.8-inch Super Retina OLED',Camera:"12MP Dual",Warranty:"7 Days"}
+  },
+  {
+    id:43,name:'iPhone 14 Plus',cat:'phones',condition:'UK-Used', price:612399.23, image:'images/iPhone 14 plus.jpg',
+    badge:'sale',desc:'eSim, BH: 85%, 128GB',
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'85%',SIM:'eSIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+  },
+   {
+    id:44,name:'iPhone 14 ProMax',cat:'phones',condition:'UK-Used', price:802399.23, image:'images/iPhone 14_Pro_Max_Uk.JPG',
+    badge:'sale',desc:'Physical SIM, BH: 89%, 128GB',
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'89%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+  },
+  {
+    id:45,name:'iPhone 12 ProMax',cat:'phones',condition:'UK-Used', price:513399.23, image:'images/iPhone 12_Pro_Max_Uk.jpg',
+    badge:'sale',desc:'Physical SIM, BH: 79%, 128GB',
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'79%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+  },
+  {
+    id:45,name:'iPhone 15',cat:'phones',condition:'UK-Used', price:645399.23, image:'images/iPhone 15_Uk.JPG',
+    badge:'sale',desc:'Physical SIM, BH: 90%, 128GB',
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'90%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+  },
+  {
+    id:46,name:'JAMAX AIRPOD PRO',cat:'audio',condition:'Brand New',price:6600,image:'images/jamax beyond.jpg', gallery:["images/jamax beyond.JPG","images/jamax airpod.jpg"],
+    badge:'sale', desc:'one, ANC, 6hr battery',
+    specs:{Condition:'Brand New','Battery Life':'6 Hours (with case)',Connectivity:'Bluetooth 5.3',Warranty:'2 Days'}
   },
 
 ];
