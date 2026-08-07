@@ -233,7 +233,7 @@ const PRODUCTS = [
     specs:{Condition:'Excellent',Storage:'Custom Ultra-High-Speed SSD',Processor:'AMD Zen 2 8-Core',Connectivity:'Wi-Fi, Bluetooth 5.1, Gigabit Ethernet',Ports:'HDMI 2.1, USB-C, USB-A',Controllers:'2 DualSense Wireless Controllers (White & Pink)'}
   },
   {
-    id:42,name:"iPhone X", cat:"phones", condition:'UK-Used', price:172399.23, image:"images/IMG_1616.jpg", gallery:["images/iPhone x.jpg","images/IMG_1616.jpg","images/iPhone11/left.jpg","images/iPhone11/right.jpg"],
+    id:42,name:"iPhone X", cat:"phones", condition:'UK-Used', price:172399.23, image:"images/IMG_1616.JPG", gallery:["images/iPhone x.jpg","images/IMG_1616.JPG"],
     badge:"sale", desc:"UK Used iPhone x in excellent condition with no cracks or faults.", 
     specs:{Condition:"UK Used",Storage:"64GB",Battery:"76%",SIM:"Physical SIM",Display:'5.8-inch Super Retina OLED',Camera:"12MP Dual",Warranty:"7 Days"}
   },
@@ -261,6 +261,16 @@ const PRODUCTS = [
     id:46,name:'JAMAX AIRPOD PRO',cat:'audio',condition:'Brand New',price:6600,image:'images/jamax beyond.jpg', gallery:["images/jamax beyond.JPG","images/jamax airpod.jpg"],
     badge:'sale', desc:'one, ANC, 6hr battery',
     specs:{Condition:'Brand New','Battery Life':'6 Hours (with case)',Connectivity:'Bluetooth 5.3',Warranty:'2 Days'}
+  },
+  {
+    id:47,name:'Samsung MG S20',cat:'audio',condition:'Brand New',price:14600,image:'images/Samsung MG S20.jpg', gallery:["images/Samsung MG S202.jpg","images/.jpg"],
+    badge:'sale', desc:'Samsung MG S20 WIRELESS NOISE CANCELLING LED BUDS',
+    specs:{Condition:'Brand New','Battery Life':'6 Hours (with case)',Connectivity:'Bluetooth 5.3',Warranty:'2 Days'}
+  },
+  {
+    id:48,name:'Baseus Bipow PowerBank',cat:'accessories',condition:'Brand New',price:35000,image:'images/Baseus Bipow PowerBank 20w.jpg',
+    badge:null,desc:'20W fast charge',
+    specs:{Condition:'Brand New',Capacity:'30000mAh',Output:'20W Fast Charge',Ports:'USB, USB-A',Warranty:'3 Days'}
   },
 
 ];
