@@ -235,42 +235,47 @@ const PRODUCTS = [
   {
     id:42,name:"iPhone X", cat:"phones", condition:'UK-Used', price:172399.23, image:"images/IMG_1616.JPG", gallery:["images/iPhone x.jpg","images/IMG_1616.JPG"],
     badge:"sale", desc:"UK Used iPhone x in excellent condition with no cracks or faults.", 
-    specs:{Condition:"UK Used",Storage:"64GB",Battery:"76%",SIM:"Physical SIM",Display:'5.8-inch Super Retina OLED',Camera:"12MP Dual",Warranty:"7 Days"}
+    specs:{Condition:"UK Used",Storage:"64GB",Battery:"76%",SIM:"Physical SIM",Display:'5.8-inch Super Retina OLED',Camera:"7MP,12MP Dual",Warranty:"7 Days"}
   },
   {
     id:43,name:'iPhone 14 Plus',cat:'phones',condition:'UK-Used', price:612399.23, image:'images/iPhone 14 plus.jpg',
     badge:'sale',desc:'eSim, BH: 85%, 128GB',
-    specs:{Condition:'UK Used',Storage:'128GB',Battery:'85%',SIM:'eSIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'85%',SIM:'eSIM',Display:'6.7" Super Retina XDR',Camera:'12MP',Warranty:'7 Days'}
   },
    {
     id:44,name:'iPhone 14 ProMax',cat:'phones',condition:'UK-Used', price:802399.23, image:'images/iPhone 14_Pro_Max_Uk.JPG',
     badge:'sale',desc:'Physical SIM, BH: 89%, 128GB',
-    specs:{Condition:'UK Used',Storage:'128GB',Battery:'89%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'89%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'48MP Triple',Warranty:'7 Days'}
   },
   {
     id:45,name:'iPhone 12 ProMax',cat:'phones',condition:'UK-Used', price:513399.23, image:'images/iPhone 12_Pro_Max_Uk.jpg',
     badge:'sale',desc:'Physical SIM, BH: 79%, 128GB',
-    specs:{Condition:'UK Used',Storage:'128GB',Battery:'79%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+    specs:{Condition:'UK Used',Storage:'128GB',Battery:'79%',SIM:'Physical SIM',Display:'6.7" Super Retina XDR',Camera:'12MP Triple',Warranty:'7 Days'}
   },
   {
-    id:45,name:'iPhone 15',cat:'phones',condition:'UK-Used', price:645399.23, image:'images/iPhone 15_Uk.JPG',
+    id:46,name:'iPhone 15',cat:'phones',condition:'UK-Used', price:635399.23, image:'images/iPhone 15_Uk.JPG',
     badge:'sale',desc:'Physical SIM, BH: 90%, 128GB',
-    specs:{Condition:'UK Used',Storage:'128GB',Battery:'90%',SIM:'Physical SIM',Display:'6.1" Super Retina XDR',Camera:'12MP Dual',Warranty:'7 Days'}
+    specs:{Condition:'UK Used',RAM:'6 GB',Storage:'128GB',Battery:'90%',Display:'6.1" Super Retina XDR OLED',Camera:'48MP',Warranty:'7 Days'}
   },
   {
-    id:46,name:'JAMAX AIRPOD PRO',cat:'audio',condition:'Brand New',price:6600,image:'images/jamax beyond.jpg', gallery:["images/jamax beyond.JPG","images/jamax airpod.jpg"],
+    id:47,name:'JAMAX AIRPOD PRO',cat:'audio',condition:'Brand New',price:6600,image:'images/jamax beyond.jpg', gallery:["images/jamax beyond.JPG","images/jamax airpod.jpg"],
     badge:'sale', desc:'one, ANC, 6hr battery',
     specs:{Condition:'Brand New','Battery Life':'6 Hours (with case)',Connectivity:'Bluetooth 5.3',Warranty:'2 Days'}
   },
   {
-    id:47,name:'Samsung MG S20',cat:'audio',condition:'Brand New',price:14600,image:'images/Samsung MG S20.jpg', gallery:["images/Samsung MG S202.jpg","images/.jpg"],
+    id:48,name:'Samsung MG S20',cat:'audio',condition:'Brand New',price:14600,image:'images/Samsung MG S20.jpg', gallery:["images/Samsung MG S202.jpg","images/.jpg"],
     badge:'sale', desc:'Samsung MG S20 WIRELESS NOISE CANCELLING LED BUDS',
-    specs:{Condition:'Brand New','Battery Life':'6 Hours (with case)',Connectivity:'Bluetooth 5.3',Warranty:'2 Days'}
+    specs:{Condition:'Brand New','Battery Life':'24 Hours (with case)',Connectivity:'Bluetooth 5.3',Warranty:'2 Days'}
   },
   {
-    id:48,name:'Baseus Bipow PowerBank',cat:'accessories',condition:'Brand New',price:35000,image:'images/Baseus Bipow PowerBank 20w.jpg',
+    id:49,name:'Baseus Bipow PowerBank',cat:'accessories',condition:'Brand New',price:35000,image:'images/Baseus Bipow PowerBank 20w.jpg',
     badge:null,desc:'20W fast charge',
     specs:{Condition:'Brand New',Capacity:'30000mAh',Output:'20W Fast Charge',Ports:'USB, USB-A',Warranty:'3 Days'}
+  },
+  {
+    id:50,name:'iPhone 15 ProMax',cat:'phones',condition:'UK-Used', price:945500.23, image:'images/15PROMAX.webp',
+    badge:'sale',desc:'Physical SIM, BH: 90%, 128GB',
+    specs:{Condition:'UK Used',RAM:'8 GB',Storage:'128GB',Battery:'90%',Display:'6.7" Super Retina XDR OLED',Camera:'48MP Triple',Warranty:'7 Days'}
   },
 
 ];
