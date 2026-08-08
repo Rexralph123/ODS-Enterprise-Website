@@ -270,7 +270,7 @@ const PRODUCTS = [
   {
     id:49,name:'Baseus Bipow PowerBank',cat:'accessories',condition:'Brand New',price:35000,image:'images/Baseus Bipow PowerBank 20w.jpg',
     badge:null,desc:'20W fast charge',
-    specs:{Condition:'Brand New',Capacity:'30000mAh',Output:'20W Fast Charge',Ports:'USB, USB-A',Warranty:'3 Days'}
+    specs:{Condition:'Brand New',Capacity:'30000mAh',Output:'20W Fast Charge',Ports:'USB',Warranty:'3 Days'}
   },
   {
     id:50,name:'iPhone 15 ProMax',cat:'phones',condition:'UK-Used', price:945500.23, image:'images/15PROMAX.webp',
