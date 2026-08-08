@@ -44,7 +44,7 @@
 </nav>
 
 <div class="cart-layout">
-  <div class="cart-title">Shopping Cart</div>
+  <div class="cart-title"><i class="ti ti-shopping-cart"></i> Shopping Cart</div>
   <div id="cart-items-container"></div>
 </div>
 
@@ -83,20 +83,25 @@ function renderCart(){
         <div class="cart-item-price">${fmt(p.price)} each</div>
       </div>
 
-      <div class="qty-ctrl">
+  <div class="cart-item-actions">
+
+    <div class="qty-ctrl">
         <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
         <span class="qty-num">${qty}</span>
         <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
-      </div>
+    </div>
 
-      <button class="remove-btn" onclick="removeItem(${id})" aria-label="Remove">
-        <i class="ti ti-trash" aria-hidden="true"></i>
-      </button>
+    <button class="remove-btn" onclick="removeItem(${id})">
+        <i class="ti ti-trash"></i>
+    </button>
+
+  </div>
     </div>`;
+
   }).join('');
 
-  const shipping = subtotal > 100000 ? 0 : 5000;
-  const total = subtotal + shipping;
+  /* Shipping fee removed — total is simply the subtotal */
+  const total = subtotal;
 
   container.innerHTML = itemsHtml + `
     <div class="cart-summary">
@@ -107,7 +112,7 @@ function renderCart(){
 
       <div class="summary-row">
         <span>Shipping</span>
-        <span>${shipping===0 ? '<span style="color:#27500A">₦6000</span>' : fmt(shipping)}</span>
+        <span style="color:#27500A;font-weight:600">NIL</span>
       </div>
 
       <div class="summary-total">
@@ -115,9 +120,8 @@ function renderCart(){
         <span style="color:var(--ods-burgundy)">${fmt(total)}</span>
       </div>
 
-      <!-- UPDATED BUTTON -->
       <a class="checkout-btn"
-         style="display:block;text-align:center;box-sizing:border-box"
+         style="display:flex;text-align:center;box-sizing:border-box"
          href="form.html">
          Proceed to Checkout
          <i class="ti ti-arrow-right" aria-hidden="true"></i>
